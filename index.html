@@ -1,0 +1,4225 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoteleILoty.pl - Najlepsze Oferty Podróży | Loty, Hotele, Pakiety</title>
+    <meta name="description" content="HoteleILoty.pl - Znajdź najtańsze loty, hotele i pakiety wakacyjne. Porównaj ceny i zarezerwuj w najlepszej cenie!">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 
+    💰 PROGRAMY AFILIACYJNE - JAK ZARABIAĆ:
+    
+    1. BOOKING.COM (najlepsze prowizje 25-40%!)
+       - Zarejestruj się: https://www.booking.com/affiliate
+       - Otrzymasz: AID, LABEL, SID
+       - ✅ GOTOWE! Token TravelPayouts został wstawiony: d43cf7938d646daf561330a29987f2bd
+       - Zarobek: 25-40% wartości rezerwacji
+    
+    2. KIWI.COM / SKYSCANNER (loty)
+       - Kiwi: https://www.kiwi.com/affiliate/
+       - Skyscanner: https://www.skyscanner.net/affiliate
+       - Prowizja: 3-5% od rezerwacji lub CPC
+    
+    3. DISCOVER CARS (wynajem aut - 30-50%!)
+       - https://www.discovercars.com/affiliate
+       - Najwyższe prowizje w branży!
+    
+    4. TUI / RAINBOW TOURS / ITAKA (pakiety)
+       - TUI: https://www.tui.pl/partner
+       - Rainbow: kontakt przez stronę
+       - Prowizja: 5-8% wartości pakietu
+    
+    5. TRAVELPAYOUTS (agregator - wszystko w jednym!)
+       - https://www.travelpayouts.com/
+       - Dostęp do: Booking, Kiwi, Rentalcars i 100+ partnerów
+       - Jedna rejestracja = wszystkie programy
+    
+    📊 POTENCJALNE ZAROBKI (10,000 wizyt/m):
+    - 2% conversion rate = 200 rezerwacji
+    - Średnia wartość: $500
+    - Średnia prowizja: 5%
+    - = $5,000/miesiąc!
+    
+    💡 DODATKOWO:
+    - Google AdSense już dodany (ca-pub-9110227480064306)
+    - Tracking Google Analytics
+    - Konwersje śledzone przez gtag
+    -->
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9110227480064306"
+         crossorigin="anonymous"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(145deg, #FF1493, #00FFFF, #FFD700);
+            --dark-bg: linear-gradient(135deg, #0a0e27, #1a1f3a, #0f1628);
+            --card-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+            --glow-pink: rgba(255, 20, 147, 0.6);
+            --glow-cyan: rgba(0, 255, 255, 0.6);
+            --glow-gold: rgba(255, 215, 0, 0.6);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Better touch targets for mobile */
+        button, a, input, select {
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+        }
+
+        input, select, textarea {
+            font-size: 16px !important; /* Prevent zoom on iOS */
+        }
+
+        /* Animated background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
+        }
+
+        .cosmic-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                rgba(255, 20, 147, 0.05),
+                transparent,
+                rgba(0, 255, 255, 0.05),
+                transparent,
+                rgba(255, 215, 0, 0.05),
+                transparent
+            );
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(255, 20, 147, 0.3);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px var(--glow-pink);
+            animation: logoGlow 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { 
+                opacity: 1;
+                filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.5));
+            }
+            50% { 
+                opacity: 0.9;
+                filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.8));
+            }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        /* Search Container */
+        .search-container {
+            background: var(--card-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 3rem;
+            border: 2px solid rgba(255, 20, 147, 0.3);
+            box-shadow: 
+                0 25px 80px rgba(0, 0, 0, 0.4),
+                0 0 60px var(--glow-pink);
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .search-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent,
+                rgba(255, 20, 147, 0.1),
+                transparent,
+                rgba(0, 255, 255, 0.1),
+                transparent
+            );
+            animation: rotate 20s linear infinite;
+            z-index: -1;
+        }
+
+        /* Tabs */
+        .search-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 25px;
+        }
+
+        .tab-btn {
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .tab-btn:hover::before {
+            left: 100%;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-gradient);
+            border-color: transparent;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 15px 35px var(--glow-pink),
+                0 0 25px var(--glow-cyan);
+        }
+
+        .tab-btn:hover {
+            background: linear-gradient(145deg, rgba(255, 20, 147, 0.6), rgba(0, 255, 255, 0.6));
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Form Styles */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 1rem 1.25rem;
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(15px);
+            cursor: pointer;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: 
+                linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08)),
+                linear-gradient(45deg, transparent 50%, rgba(0, 255, 255, 0.8) 50%),
+                linear-gradient(135deg, rgba(0, 255, 255, 0.8) 50%, transparent 50%);
+            background-position: 
+                0 0,
+                calc(100% - 25px) calc(1rem + 5px),
+                calc(100% - 20px) calc(1rem + 5px);
+            background-size: 
+                100% 100%,
+                5px 5px,
+                5px 5px;
+            background-repeat: no-repeat;
+            padding-right: 3rem;
+        }
+
+        .form-group select:hover {
+            background-image: 
+                linear-gradient(145deg, rgba(255, 20, 147, 0.2), rgba(0, 255, 255, 0.15)),
+                linear-gradient(45deg, transparent 50%, rgba(255, 20, 147, 0.9) 50%),
+                linear-gradient(135deg, rgba(255, 20, 147, 0.9) 50%, transparent 50%);
+            background-position: 
+                0 0,
+                calc(100% - 25px) calc(1rem + 5px),
+                calc(100% - 20px) calc(1rem + 5px);
+            background-size: 
+                100% 100%,
+                5px 5px,
+                5px 5px;
+            border-color: rgba(255, 20, 147, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: rgba(0, 255, 255, 0.8);
+            box-shadow: 
+                0 0 25px rgba(0, 255, 255, 0.4),
+                0 0 50px rgba(255, 20, 147, 0.2),
+                inset 0 0 20px rgba(0, 255, 255, 0.1);
+            transform: translateY(-2px) scale(1.02);
+            background-image: 
+                linear-gradient(145deg, rgba(0, 255, 255, 0.2), rgba(255, 20, 147, 0.15)),
+                linear-gradient(45deg, transparent 50%, rgba(0, 255, 255, 1) 50%),
+                linear-gradient(135deg, rgba(0, 255, 255, 1) 50%, transparent 50%);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Stylowanie rozwijanych opcji select */
+        select {
+            color-scheme: dark;
+            background-color: rgba(26, 31, 58, 0.95) !important;
+        }
+
+        /* Force dark background on dropdown */
+        select:focus {
+            background-color: rgba(26, 31, 58, 0.95) !important;
+        }
+
+        /* Chrome/Edge/Safari - force dark dropdown list */
+        select option {
+            background: #1a1f3a !important;
+            background-color: #1a1f3a !important;
+            color: white !important;
+            padding: 12px 16px;
+            font-weight: 500;
+            min-height: 40px;
+        }
+
+        select option:hover {
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.4), rgba(255, 20, 147, 0.4)) !important;
+            background-color: rgba(0, 255, 255, 0.3) !important;
+            color: #00FFFF !important;
+            cursor: pointer;
+        }
+
+        select option:checked,
+        select option:focus {
+            background: rgba(0, 255, 255, 0.5) !important;
+            background-color: rgba(0, 255, 255, 0.4) !important;
+            color: #00FFFF !important;
+            font-weight: 700;
+        }
+
+        /* Additional override for select dropdown background */
+        select:-internal-list-box {
+            background-color: #1a1f3a !important;
+        }
+
+        /* Firefox specific */
+        @-moz-document url-prefix() {
+            select {
+                background-color: #1a1f3a !important;
+            }
+            select option {
+                background-color: #1a1f3a !important;
+                color: white !important;
+            }
+            select option:hover {
+                background-color: rgba(0, 255, 255, 0.3) !important;
+                color: #00FFFF !important;
+            }
+            select option:checked {
+                background: rgba(0, 255, 255, 0.5) !important;
+                background-color: rgba(0, 255, 255, 0.4) !important;
+                color: #00FFFF !important;
+            }
+        }
+
+        /* Webkit browsers (Chrome, Safari, Edge) */
+        select::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        select::-webkit-scrollbar-track {
+            background: linear-gradient(135deg, #0a0e27, #1a1f3a);
+            border-radius: 10px;
+        }
+
+        select::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #00FFFF, #FF1493);
+            border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        select::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Datalist styling for better autocomplete */
+        datalist {
+            background: linear-gradient(135deg, #1a1f3a, #0f1628);
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 8px;
+        }
+
+        datalist option {
+            background: rgba(0, 255, 255, 0.1);
+            color: white;
+            padding: 8px;
+            border-radius: 8px;
+            margin: 4px 0;
+        }
+
+        /* Date picker styling */
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"] {
+            color-scheme: dark;
+            position: relative;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-calendar-picker-indicator,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            filter: invert(1) hue-rotate(180deg) brightness(1.5);
+            cursor: pointer;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator:hover,
+        input[type="time"]::-webkit-calendar-picker-indicator:hover,
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+            transform: scale(1.2);
+            filter: invert(1) hue-rotate(180deg) brightness(2) drop-shadow(0 0 5px rgba(0, 255, 255, 0.8));
+        }
+
+        /* Calendar popup styling */
+        input[type="date"]::-webkit-datetime-edit,
+        input[type="time"]::-webkit-datetime-edit,
+        input[type="datetime-local"]::-webkit-datetime-edit {
+            color: white;
+        }
+
+        input[type="date"]::-webkit-datetime-edit-fields-wrapper,
+        input[type="time"]::-webkit-datetime-edit-fields-wrapper {
+            color: white;
+        }
+
+        input[type="date"]::-webkit-datetime-edit-text,
+        input[type="time"]::-webkit-datetime-edit-text {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input[type="date"]::-webkit-datetime-edit-month-field,
+        input[type="date"]::-webkit-datetime-edit-day-field,
+        input[type="date"]::-webkit-datetime-edit-year-field,
+        input[type="time"]::-webkit-datetime-edit-hour-field,
+        input[type="time"]::-webkit-datetime-edit-minute-field {
+            color: white;
+            background: rgba(0, 255, 255, 0.1);
+            padding: 2px 4px;
+            border-radius: 4px;
+            margin: 0 2px;
+        }
+
+        input[type="date"]::-webkit-datetime-edit-month-field:focus,
+        input[type="date"]::-webkit-datetime-edit-day-field:focus,
+        input[type="date"]::-webkit-datetime-edit-year-field:focus,
+        input[type="time"]::-webkit-datetime-edit-hour-field:focus,
+        input[type="time"]::-webkit-datetime-edit-minute-field:focus {
+            background: rgba(0, 255, 255, 0.3);
+            color: #00FFFF;
+            outline: none;
+        }
+
+        /* Firefox date picker */
+        input[type="date"]::-moz-calendar-picker-indicator,
+        input[type="time"]::-moz-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+
+        /* Passenger Selector */
+        .passenger-baggage-box {
+            grid-column: 1 / -1;
+            background: linear-gradient(145deg, 
+                rgba(0, 255, 255, 0.08), 
+                rgba(255, 20, 147, 0.08));
+            border-radius: 25px;
+            padding: 2.5rem;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 50px rgba(0, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .passenger-baggage-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle,
+                rgba(0, 255, 255, 0.1) 0%,
+                transparent 70%
+            );
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(10%, 10%) scale(1.1); }
+        }
+
+        .passenger-baggage-box:hover {
+            border-color: rgba(255, 20, 147, 0.5);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15),
+                0 0 60px rgba(255, 20, 147, 0.2);
+        }
+
+        .section-title {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title i {
+            color: #00FFFF;
+            font-size: 1.4rem;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.8));
+            }
+            50% { 
+                filter: drop-shadow(0 0 15px rgba(0, 255, 255, 1));
+            }
+        }
+
+        .passenger-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .passenger-item {
+            background: linear-gradient(145deg, rgba(255, 20, 147, 0.15), rgba(0, 255, 255, 0.1));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .passenger-item:hover {
+            background: linear-gradient(145deg, rgba(255, 20, 147, 0.2), rgba(0, 255, 255, 0.15));
+            border-color: rgba(0, 255, 255, 0.4);
+            transform: translateX(5px);
+        }
+
+        .passenger-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .passenger-label {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .passenger-age {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .counter {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .counter-btn {
+            background: linear-gradient(145deg, rgba(76, 175, 80, 0.8), rgba(139, 195, 74, 0.6));
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .counter-btn.minus {
+            background: linear-gradient(145deg, rgba(244, 67, 54, 0.8), rgba(255, 152, 0, 0.6));
+        }
+
+        .counter-btn:hover {
+            transform: scale(1.15) translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+        }
+
+        .counter-value {
+            font-weight: bold;
+            font-size: 1.25rem;
+            min-width: 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+        }
+
+        /* Baggage Options */
+        .baggage-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .baggage-card {
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .baggage-card:hover {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08));
+            border-color: rgba(0, 255, 255, 0.4);
+            transform: translateX(5px);
+        }
+
+        .baggage-card.selected {
+            background: linear-gradient(145deg, rgba(0, 255, 255, 0.2), rgba(255, 20, 147, 0.15));
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 8px 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .baggage-icon {
+            font-size: 2rem;
+        }
+
+        .baggage-details {
+            flex: 1;
+        }
+
+        .baggage-title {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .baggage-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .baggage-price {
+            background: linear-gradient(45deg, rgba(255, 193, 7, 0.8), rgba(255, 152, 0, 0.6));
+            padding: 0.35rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        /* Search Button */
+        .search-btn {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            padding: 1.5rem 4rem;
+            border-radius: 30px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 12px 35px var(--glow-pink);
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px var(--glow-pink), 0 0 40px var(--glow-cyan);
+        }
+
+        /* Results Section */
+        .results-section {
+            margin-top: 4rem;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .results-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Result Card - Ultra Futuristic */
+        .result-card {
+            background: linear-gradient(135deg, rgba(26, 29, 58, 0.95), rgba(13, 14, 29, 0.95));
+            backdrop-filter: blur(30px);
+            border-radius: 25px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            animation: cardFloat 6s ease-in-out infinite;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                #00FFFF 0%, 
+                #FF1493 25%, 
+                #00FF00 50%, 
+                #FF1493 75%, 
+                #00FFFF 100%);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: borderRotate 3s linear infinite;
+        }
+
+        .result-card:hover::before {
+            opacity: 1;
+        }
+
+        .result-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.1), 
+                transparent);
+            transition: left 0.7s ease;
+        }
+
+        .result-card:hover::after {
+            left: 100%;
+        }
+
+        .result-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 30px 60px rgba(0, 255, 255, 0.3),
+                0 0 80px rgba(255, 20, 147, 0.2),
+                inset 0 0 50px rgba(255, 255, 255, 0.05);
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes borderRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .result-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .result-card:hover .result-image img {
+            transform: scale(1.15) rotate(2deg);
+            filter: brightness(1) contrast(1.2);
+        }
+
+        .result-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, 
+                transparent 0%, 
+                rgba(0, 0, 0, 0.3) 50%,
+                rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .result-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, 
+                rgba(255, 20, 147, 0.95), 
+                rgba(157, 78, 221, 0.95));
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
+            animation: badgePulse 2s ease-in-out infinite;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5); }
+            50% { transform: scale(1.05); box-shadow: 0 12px 35px rgba(255, 20, 147, 0.7); }
+        }
+
+        .result-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-header {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .result-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #FFFFFF 0%, #00FFFF 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .result-airline, .hotel-rating, .package-duration {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+        }
+
+        .hotel-rating {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        .result-details {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+            padding: 8px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: rgba(0, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .detail-item i {
+            color: #00FFFF;
+            font-size: 1.1rem;
+            width: 24px;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .result-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, #00FFFF 0%, #FF1493 50%, #39FF14 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            animation: priceGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes priceGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .result-actions {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .action-btn {
+            padding: 14px 24px;
+            border: none;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .action-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, #00FFFF 0%, #FF1493 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .action-btn.primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.6);
+        }
+
+        .action-btn:not(.primary) {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(0, 255, 255, 0.5);
+        }
+
+        .action-btn:not(.primary):hover {
+            background: rgba(0, 255, 255, 0.2);
+            border-color: #00FFFF;
+            transform: translateY(-2px);
+        }
+
+        .action-btn i {
+            margin-right: 8px;
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #FF1493;
+            border-right-color: #00FFFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Ad Spaces */
+        .ad-space {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            border: 2px solid rgba(255, 20, 147, 0.3);
+            padding: 3rem;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 20, 147, 0.8);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            transform: scale(1.1) rotate(90deg);
+            background: rgba(255, 20, 147, 1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .search-container {
+                padding: 1.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .result-card {
+                margin-bottom: 1rem;
+            }
+            
+            .action-btn {
+                padding: 12px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Small smartphones (375px and below) */
+        @media (max-width: 480px) {
+            :root {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            /* Header */
+            header {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            /* Search tabs */
+            .search-tabs {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem;
+            }
+
+            .tab-btn {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .tab-btn i {
+                display: block;
+                margin-bottom: 0.25rem;
+                font-size: 1.2rem;
+            }
+
+            /* Search container */
+            .search-container {
+                padding: 1rem;
+                border-radius: 20px;
+            }
+
+            .form-group {
+                margin-bottom: 0.75rem;
+            }
+
+            .form-group label {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 0.7rem;
+                font-size: 0.9rem;
+            }
+
+            /* Passenger counters */
+            .passenger-baggage-box {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 0.95rem;
+                margin: 15px 0 10px 0;
+            }
+
+            .passenger-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .passenger-item {
+                padding: 12px;
+            }
+
+            .passenger-label {
+                font-size: 0.95rem;
+            }
+
+            .passenger-age {
+                font-size: 0.75rem;
+            }
+
+            .counter-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+
+            .counter-value {
+                font-size: 1.1rem;
+                min-width: 35px;
+            }
+
+            /* Baggage cards */
+            .baggage-options {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .baggage-card {
+                padding: 12px;
+            }
+
+            .baggage-icon {
+                font-size: 2rem;
+            }
+
+            .baggage-title {
+                font-size: 0.9rem;
+            }
+
+            .baggage-desc {
+                font-size: 0.75rem;
+            }
+
+            .baggage-price {
+                font-size: 0.85rem;
+            }
+
+            /* Class selection */
+            .class-selection {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .class-card {
+                padding: 15px;
+            }
+
+            .class-icon {
+                font-size: 2rem;
+            }
+
+            /* Search button */
+            .search-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            /* Results */
+            .results-grid {
+                gap: 1.5rem;
+            }
+
+            .result-card {
+                border-radius: 20px;
+            }
+
+            .result-image {
+                height: 200px;
+            }
+
+            .result-badge {
+                top: 10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+
+            .result-content {
+                padding: 1.25rem;
+            }
+
+            .result-title {
+                font-size: 1.3rem;
+                line-height: 1.4;
+            }
+
+            .result-details {
+                padding: 1rem;
+                gap: 8px;
+            }
+
+            .detail-item {
+                font-size: 0.85rem;
+                padding: 6px;
+            }
+
+            .detail-item i {
+                font-size: 1rem;
+            }
+
+            .result-price {
+                font-size: 2rem;
+                margin: 1rem 0;
+            }
+
+            .result-actions {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .action-btn {
+                padding: 14px 20px;
+                font-size: 0.95rem;
+            }
+
+            .action-btn.primary {
+                order: -1;
+            }
+
+            /* Modal */
+            .modal-content {
+                padding: 1.5rem;
+                max-width: 95%;
+                border-radius: 20px;
+            }
+
+            .modal-close {
+                top: 1rem;
+                right: 1rem;
+                width: 35px;
+                height: 35px;
+                font-size: 1.3rem;
+            }
+
+            /* Ad space */
+            .ad-space {
+                margin: 2rem 0;
+            }
+        }
+
+        /* Extra small devices (320px-374px) */
+        @media (max-width: 374px) {
+            :root {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .search-tabs {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-btn {
+                padding: 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .passenger-label {
+                font-size: 0.85rem;
+            }
+
+            .counter-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 1.1rem;
+            }
+
+            .counter-value {
+                font-size: 1rem;
+                min-width: 30px;
+            }
+
+            .baggage-icon {
+                font-size: 1.75rem;
+            }
+
+            .class-icon {
+                font-size: 1.75rem;
+            }
+
+            .search-btn {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .result-title {
+                font-size: 1.1rem;
+            }
+
+            .result-price {
+                font-size: 1.75rem;
+            }
+
+            .detail-item {
+                font-size: 0.8rem;
+            }
+
+            .action-btn {
+                padding: 12px 16px;
+                font-size: 0.85rem;
+            }
+
+            .modal-content {
+                padding: 1rem;
+                border-radius: 15px;
+            }
+        }
+
+        /* Advanced Search Filters */
+        .section-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-cyan);
+            font-size: 1.3rem;
+        }
+
+        /* Class Selection Cards */
+        .class-selection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .class-card {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.2), rgba(253, 121, 168, 0.2));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-cyan);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .class-card.selected {
+            background: linear-gradient(135deg, rgba(108, 92, 231, 0.5), rgba(253, 121, 168, 0.5));
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        .class-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .class-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .class-desc {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Flight Type Selection */
+        .flight-type-selection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .flight-type-option {
+            cursor: pointer;
+        }
+
+        .flight-type-option input[type="radio"] {
+            display: none;
+        }
+
+        .flight-type-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .flight-type-card i {
+            font-size: 1.8rem;
+            color: var(--primary-cyan);
+        }
+
+        .flight-type-card span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .flight-type-card small {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .flight-type-option:hover .flight-type-card {
+            transform: translateY(-5px);
+            border-color: var(--primary-cyan);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .flight-type-option input[type="radio"]:checked + .flight-type-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.5), rgba(118, 75, 162, 0.5));
+            border-color: var(--primary-cyan);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+        }
+
+        /* Accommodation Type */
+        .accommodation-type {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .accommodation-option {
+            cursor: pointer;
+        }
+
+        .accommodation-option input[type="radio"] {
+            display: none;
+        }
+
+        .accommodation-card {
+            background: linear-gradient(135deg, rgba(255, 154, 158, 0.2), rgba(250, 208, 196, 0.2));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .accommodation-card i {
+            font-size: 1.8rem;
+            color: var(--primary-pink);
+        }
+
+        .accommodation-card span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .accommodation-option:hover .accommodation-card {
+            transform: translateY(-5px);
+            border-color: var(--primary-pink);
+            box-shadow: 0 10px 30px rgba(253, 121, 168, 0.3);
+        }
+
+        .accommodation-option input[type="radio"]:checked + .accommodation-card {
+            background: linear-gradient(135deg, rgba(255, 154, 158, 0.5), rgba(250, 208, 196, 0.5));
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 30px rgba(253, 121, 168, 0.5);
+        }
+
+        /* Amenities Grid */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .amenity-option {
+            cursor: pointer;
+        }
+
+        .amenity-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .amenity-card {
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.2), rgba(76, 175, 80, 0.2));
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .amenity-card i {
+            font-size: 1.5rem;
+            color: var(--success-green);
+        }
+
+        .amenity-card span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .amenity-option:hover .amenity-card {
+            transform: translateY(-3px);
+            border-color: var(--success-green);
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
+        }
+
+        .amenity-option input[type="checkbox"]:checked + .amenity-card {
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.5), rgba(76, 175, 80, 0.5));
+            border-color: var(--success-green);
+            box-shadow: 0 0 25px rgba(0, 184, 148, 0.5);
+        }
+
+        /* Vacation Type Grid */
+        .vacation-type-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .vacation-option {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .vacation-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .vacation-card {
+            background: linear-gradient(145deg, 
+                rgba(0, 255, 255, 0.15), 
+                rgba(255, 20, 147, 0.1));
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .vacation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 255, 255, 0.3), 
+                transparent);
+            transition: left 0.5s;
+        }
+
+        .vacation-option:hover .vacation-card::before {
+            left: 100%;
+        }
+
+        .vacation-card i {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #00FFFF, #FF1493);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+            transition: all 0.3s ease;
+        }
+
+        .vacation-card span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .vacation-option:hover .vacation-card {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #00FFFF;
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 255, 0.3),
+                0 0 50px rgba(0, 255, 255, 0.2),
+                inset 0 0 30px rgba(0, 255, 255, 0.1);
+        }
+
+        .vacation-option:hover .vacation-card i {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
+        }
+
+        .vacation-option input[type="checkbox"]:checked + .vacation-card {
+            background: linear-gradient(145deg, 
+                rgba(0, 255, 255, 0.35), 
+                rgba(255, 20, 147, 0.3));
+            border-color: #FF1493;
+            box-shadow: 
+                0 0 40px rgba(255, 20, 147, 0.5),
+                inset 0 0 40px rgba(0, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .vacation-option input[type="checkbox"]:checked + .vacation-card::after {
+            content: '✓';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #00FFFF, #FF1493);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            animation: checkmark 0.3s ease;
+        }
+
+        @keyframes checkmark {
+            0% { transform: scale(0) rotate(0deg); }
+            50% { transform: scale(1.3) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); }
+        }
+
+        /* Meal Plan Selection */
+        .meal-plan-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .meal-option {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .meal-option input[type="radio"] {
+            display: none;
+        }
+
+        .meal-card {
+            background: linear-gradient(145deg, 
+                rgba(255, 215, 0, 0.15), 
+                rgba(255, 152, 0, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 18px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .meal-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                rgba(255, 215, 0, 0.3),
+                transparent 70%
+            );
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .meal-option:hover .meal-card::before {
+            width: 200%;
+            height: 200%;
+        }
+
+        .meal-card i {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #FFD700, #FF8C00);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.5));
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .meal-card span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .meal-option:hover .meal-card {
+            transform: translateY(-5px) scale(1.05);
+            border-color: #FFD700;
+            box-shadow: 
+                0 12px 35px rgba(255, 215, 0, 0.3),
+                0 0 40px rgba(255, 215, 0, 0.2),
+                inset 0 0 25px rgba(255, 215, 0, 0.1);
+        }
+
+        .meal-option:hover .meal-card i {
+            transform: scale(1.15) rotate(-5deg);
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+        }
+
+        .meal-option input[type="radio"]:checked + .meal-card {
+            background: linear-gradient(145deg, 
+                rgba(255, 215, 0, 0.35), 
+                rgba(255, 152, 0, 0.3));
+            border-color: #FF1493;
+            box-shadow: 
+                0 0 35px rgba(255, 20, 147, 0.5),
+                inset 0 0 35px rgba(255, 215, 0, 0.2);
+            transform: scale(1.05);
+        }
+
+        .meal-option input[type="radio"]:checked + .meal-card::after {
+            content: '✓';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #FFD700, #FF1493);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            animation: checkmark 0.3s ease;
+            z-index: 2;
+        }
+
+        /* Transmission Selection */
+        .transmission-selection {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .transmission-option {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .transmission-option input[type="radio"] {
+            display: none;
+        }
+
+        .transmission-card {
+            background: linear-gradient(145deg, 
+                rgba(0, 255, 255, 0.12), 
+                rgba(116, 185, 255, 0.08));
+            border: 2px solid rgba(0, 255, 255, 0.25);
+            border-radius: 20px;
+            padding: 22px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .transmission-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, 
+                transparent, 
+                rgba(0, 255, 255, 0.5), 
+                transparent);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .transmission-option:hover .transmission-card::before {
+            opacity: 1;
+            animation: borderRotate 2s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .transmission-card i {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #00FFFF, #74B9FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+            transition: all 0.3s ease;
+        }
+
+        .transmission-card span {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .transmission-card small {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .transmission-option:hover .transmission-card {
+            transform: translateY(-8px) scale(1.05);
+            border-color: #00FFFF;
+            box-shadow: 
+                0 15px 40px rgba(0, 255, 255, 0.3),
+                0 0 50px rgba(0, 255, 255, 0.2),
+                inset 0 0 30px rgba(0, 255, 255, 0.1);
+        }
+
+        .transmission-option:hover .transmission-card i {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.9));
+        }
+
+        .transmission-option input[type="radio"]:checked + .transmission-card {
+            background: linear-gradient(145deg, 
+                rgba(0, 255, 255, 0.3), 
+                rgba(255, 20, 147, 0.25));
+            border-color: #FF1493;
+            box-shadow: 
+                0 0 40px rgba(255, 20, 147, 0.5),
+                inset 0 0 40px rgba(0, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .transmission-option input[type="radio"]:checked + .transmission-card::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #00FFFF, #FF1493);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            animation: checkmark 0.3s ease;
+        }
+
+        /* Car Extras Grid */
+        .car-extras-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .car-extra-option {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .car-extra-option input[type="checkbox"] {
+            display: none;
+        }
+
+        .car-extra-card {
+            background: linear-gradient(145deg, 
+                rgba(255, 20, 147, 0.15), 
+                rgba(255, 118, 117, 0.1));
+            border: 2px solid rgba(255, 20, 147, 0.3);
+            border-radius: 16px;
+            padding: 18px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .car-extra-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 20, 147, 0.3), 
+                transparent);
+            transition: left 0.5s;
+        }
+
+        .car-extra-option:hover .car-extra-card::before {
+            left: 100%;
+        }
+
+        .car-extra-card i {
+            font-size: 1.7rem;
+            background: linear-gradient(135deg, #FF1493, #FF7675);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.5));
+            transition: all 0.3s ease;
+        }
+
+        .car-extra-card span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .car-extra-card small {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .car-extra-option:hover .car-extra-card {
+            transform: translateY(-5px) scale(1.05);
+            border-color: #FF1493;
+            box-shadow: 
+                0 12px 35px rgba(255, 20, 147, 0.3),
+                0 0 40px rgba(255, 20, 147, 0.2),
+                inset 0 0 25px rgba(255, 20, 147, 0.1);
+        }
+
+        .car-extra-option:hover .car-extra-card i {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 15px rgba(255, 20, 147, 0.8));
+        }
+
+        .car-extra-option input[type="checkbox"]:checked + .car-extra-card {
+            background: linear-gradient(145deg, 
+                rgba(255, 20, 147, 0.35), 
+                rgba(0, 255, 255, 0.25));
+            border-color: #00FFFF;
+            box-shadow: 
+                0 0 35px rgba(0, 255, 255, 0.5),
+                inset 0 0 35px rgba(255, 20, 147, 0.2);
+            transform: scale(1.05);
+        }
+
+        .car-extra-option input[type="checkbox"]:checked + .car-extra-card::after {
+            content: '✓';
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            animation: checkmark 0.3s ease;
+        }
+
+        /* Responsive for new elements */
+        @media (max-width: 768px) {
+            .class-selection,
+            .flight-type-selection,
+            .accommodation-type,
+            .vacation-type-grid,
+            .transmission-selection {
+                grid-template-columns: 1fr;
+            }
+
+            .amenities-grid,
+            .car-extras-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .meal-plan-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Toast animations */
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        /* Modal enhancements */
+        .modal.active {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <!-- Travel API Integration -->
+    <script src="travel-api.js"></script>
+</head>
+<body>
+    <div class="cosmic-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">🏨✈️ HoteleILoty.pl</div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Znajdź Swoją Wymarzoną Podróż</h1>
+            <p>Porównaj setki ofert i zarezerwuj w najlepszej cenie!</p>
+        </section>
+
+        <!-- Search Container -->
+        <div class="search-container">
+            <!-- Tabs -->
+            <div class="search-tabs">
+                <button class="tab-btn active" onclick="switchTab('flights')">
+                    <i class="fas fa-plane"></i> Loty
+                </button>
+                <button class="tab-btn" onclick="switchTab('hotels')">
+                    <i class="fas fa-hotel"></i> Hotele
+                </button>
+                <button class="tab-btn" onclick="switchTab('packages')">
+                    <i class="fas fa-suitcase-rolling"></i> Pakiety
+                </button>
+                <button class="tab-btn" onclick="switchTab('cars')">
+                    <i class="fas fa-car"></i> Wynajm Aut
+                </button>
+            </div>
+
+            <!-- Flights Tab -->
+            <div id="flights-tab" class="tab-content active">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fas fa-plane-departure"></i> Skąd</label>
+                        <input type="text" id="flight-from" placeholder="Warszawa (WAW)" value="Warszawa">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-plane-arrival"></i> Dokąd</label>
+                        <input type="text" id="flight-to" placeholder="Barcelona (BCN)" value="Barcelona">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Data wylotu</label>
+                        <input type="date" id="flight-departure">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Data powrotu</label>
+                        <input type="date" id="flight-return">
+                    </div>
+                </div>
+
+                <!-- Passengers and Baggage -->
+                <div class="passenger-baggage-box">
+                    <div class="section-title">
+                        <i class="fas fa-users"></i> Pasażerowie
+                    </div>
+                    <div class="passenger-grid">
+                        <div class="passenger-item">
+                            <div class="passenger-info">
+                                <div class="passenger-label">👨‍👩‍👧‍👦 Dorośli</div>
+                                <div class="passenger-age">(12+ lat)</div>
+                            </div>
+                            <div class="counter">
+                                <button class="counter-btn minus" onclick="changeCount('adults', -1)">−</button>
+                                <span class="counter-value" id="adults-count">2</span>
+                                <button class="counter-btn" onclick="changeCount('adults', 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="passenger-item">
+                            <div class="passenger-info">
+                                <div class="passenger-label">👶 Dzieci</div>
+                                <div class="passenger-age">(2-11 lat)</div>
+                            </div>
+                            <div class="counter">
+                                <button class="counter-btn minus" onclick="changeCount('children', -1)">−</button>
+                                <span class="counter-value" id="children-count">0</span>
+                                <button class="counter-btn" onclick="changeCount('children', 1)">+</button>
+                            </div>
+                        </div>
+                        <div class="passenger-item">
+                            <div class="passenger-info">
+                                <div class="passenger-label">🍼 Niemowlęta</div>
+                                <div class="passenger-age">(0-2 lata)</div>
+                            </div>
+                            <div class="counter">
+                                <button class="counter-btn minus" onclick="changeCount('infants', -1)">−</button>
+                                <span class="counter-value" id="infants-count">0</span>
+                                <button class="counter-btn" onclick="changeCount('infants', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <i class="fas fa-suitcase"></i> Opcje bagażu
+                    </div>
+                    <div class="baggage-options">
+                        <div class="baggage-card" onclick="selectBaggage('hand')">
+                            <div class="baggage-icon">🎒</div>
+                            <div class="baggage-details">
+                                <div class="baggage-title">Tylko podręczny</div>
+                                <div class="baggage-desc">8kg, 55x40x20cm</div>
+                                <div class="baggage-price">od 299 zł</div>
+                            </div>
+                        </div>
+                        <div class="baggage-card selected" onclick="selectBaggage('checked')">
+                            <div class="baggage-icon">🧳</div>
+                            <div class="baggage-details">
+                                <div class="baggage-title">Z bagażem</div>
+                                <div class="baggage-desc">Podręczny + 23kg</div>
+                                <div class="baggage-price">od 599 zł</div>
+                            </div>
+                        </div>
+                        <div class="baggage-card" onclick="selectBaggage('premium')">
+                            <div class="baggage-icon">🛄</div>
+                            <div class="baggage-details">
+                                <div class="baggage-title">Premium</div>
+                                <div class="baggage-desc">Podręczny + 2x23kg</div>
+                                <div class="baggage-price">od 899 zł</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <i class="fas fa-chair"></i> Klasa lotu
+                    </div>
+                    <div class="class-selection">
+                        <div class="class-card selected" onclick="selectClass('economy')">
+                            <div class="class-icon">💺</div>
+                            <div class="class-title">Ekonomiczna</div>
+                            <div class="class-desc">Standardowa</div>
+                        </div>
+                        <div class="class-card" onclick="selectClass('business')">
+                            <div class="class-icon">🛋️</div>
+                            <div class="class-title">Biznes</div>
+                            <div class="class-desc">Premium</div>
+                        </div>
+                        <div class="class-card" onclick="selectClass('first')">
+                            <div class="class-icon">👑</div>
+                            <div class="class-title">Pierwsza</div>
+                            <div class="class-desc">Luksus</div>
+                        </div>
+                    </div>
+
+                    <div class="section-title">
+                        <i class="fas fa-plane-departure"></i> Rodzaj lotu
+                    </div>
+                    <div class="flight-type-selection">
+                        <label class="flight-type-option">
+                            <input type="radio" name="flightType" value="direct" checked>
+                            <div class="flight-type-card">
+                                <i class="fas fa-arrow-right"></i>
+                                <span>Bezpośredni</span>
+                                <small>Najszybszy</small>
+                            </div>
+                        </label>
+                        <label class="flight-type-option">
+                            <input type="radio" name="flightType" value="connecting">
+                            <div class="flight-type-card">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Z przesiadkami</span>
+                                <small>Tańszy</small>
+                            </div>
+                        </label>
+                        <label class="flight-type-option">
+                            <input type="radio" name="flightType" value="any">
+                            <div class="flight-type-card">
+                                <i class="fas fa-globe"></i>
+                                <span>Dowolny</span>
+                                <small>Najwięcej opcji</small>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="search-btn" onclick="searchFlights()">
+                    <i class="fas fa-search"></i> Szukaj Lotów
+                </button>
+            </div>
+
+            <!-- Hotels Tab -->
+            <div id="hotels-tab" class="tab-content">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Destynacja</label>
+                        <input type="text" id="hotel-destination" placeholder="Barcelona" value="Barcelona">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-check"></i> Zameldowanie</label>
+                        <input type="date" id="hotel-checkin">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-times"></i> Wymeldowanie</label>
+                        <input type="date" id="hotel-checkout">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-star"></i> Kategoria</label>
+                        <select id="hotel-stars">
+                            <option value="">Dowolna</option>
+                            <option value="3">★★★ i więcej</option>
+                            <option value="4">★★★★ i więcej</option>
+                            <option value="5">★★★★★</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-bed"></i> Pokoje</label>
+                        <select id="hotel-rooms">
+                            <option value="1">1 pokój</option>
+                            <option value="2">2 pokoje</option>
+                            <option value="3">3 pokoje</option>
+                            <option value="4">4+ pokoje</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Goście</label>
+                        <select id="hotel-guests">
+                            <option value="1">1 osoba</option>
+                            <option value="2" selected>2 osoby</option>
+                            <option value="3">3 osoby</option>
+                            <option value="4">4 osoby</option>
+                            <option value="5">5+ osób</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">
+                    <i class="fas fa-building"></i> Rodzaj noclegu
+                </div>
+                <div class="accommodation-type">
+                    <label class="accommodation-option">
+                        <input type="radio" name="accommodationType" value="hotel" checked>
+                        <div class="accommodation-card">
+                            <i class="fas fa-hotel"></i>
+                            <span>Hotel</span>
+                        </div>
+                    </label>
+                    <label class="accommodation-option">
+                        <input type="radio" name="accommodationType" value="apartment">
+                        <div class="accommodation-card">
+                            <i class="fas fa-home"></i>
+                            <span>Apartament</span>
+                        </div>
+                    </label>
+                    <label class="accommodation-option">
+                        <input type="radio" name="accommodationType" value="hostel">
+                        <div class="accommodation-card">
+                            <i class="fas fa-bed"></i>
+                            <span>Hostel</span>
+                        </div>
+                    </label>
+                    <label class="accommodation-option">
+                        <input type="radio" name="accommodationType" value="resort">
+                        <div class="accommodation-card">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Resort</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">
+                    <i class="fas fa-check-circle"></i> Wyposażenie
+                </div>
+                <div class="amenities-grid">
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="wifi">
+                        <div class="amenity-card">
+                            <i class="fas fa-wifi"></i>
+                            <span>WiFi</span>
+                        </div>
+                    </label>
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="pool">
+                        <div class="amenity-card">
+                            <i class="fas fa-swimming-pool"></i>
+                            <span>Basen</span>
+                        </div>
+                    </label>
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="parking">
+                        <div class="amenity-card">
+                            <i class="fas fa-parking"></i>
+                            <span>Parking</span>
+                        </div>
+                    </label>
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="breakfast">
+                        <div class="amenity-card">
+                            <i class="fas fa-utensils"></i>
+                            <span>Śniadanie</span>
+                        </div>
+                    </label>
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="gym">
+                        <div class="amenity-card">
+                            <i class="fas fa-dumbbell"></i>
+                            <span>Siłownia</span>
+                        </div>
+                    </label>
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="spa">
+                        <div class="amenity-card">
+                            <i class="fas fa-spa"></i>
+                            <span>SPA</span>
+                        </div>
+                    </label>
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="restaurant">
+                        <div class="amenity-card">
+                            <i class="fas fa-concierge-bell"></i>
+                            <span>Restauracja</span>
+                        </div>
+                    </label>
+                    <label class="amenity-option">
+                        <input type="checkbox" name="amenity" value="beach">
+                        <div class="amenity-card">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Plaża</span>
+                        </div>
+                    </label>
+                </div>
+
+                <button class="search-btn" onclick="searchHotels()">
+                    <i class="fas fa-search"></i> Szukaj Hoteli
+                </button>
+            </div>
+
+            <!-- Packages Tab -->
+            <div id="packages-tab" class="tab-content">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fas fa-globe"></i> Destynacja</label>
+                        <select id="package-destination">
+                            <option value="spain">🇪🇸 Hiszpania</option>
+                            <option value="greece">🇬🇷 Grecja</option>
+                            <option value="italy">🇮🇹 Włochy</option>
+                            <option value="turkey">🇹🇷 Turcja</option>
+                            <option value="egypt">🇪🇬 Egipt</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Data wyjazdu</label>
+                        <input type="date" id="package-date">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Długość pobytu</label>
+                        <select id="package-duration">
+                            <option value="7">7 dni</option>
+                            <option value="10">10 dni</option>
+                            <option value="14">14 dni</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Liczba osób</label>
+                        <select id="package-people">
+                            <option value="1">1 osoba</option>
+                            <option value="2">2 osoby</option>
+                            <option value="3">3 osoby</option>
+                            <option value="4">4 osoby</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">
+                    <i class="fas fa-compass"></i> Rodzaj wakacji
+                </div>
+                <div class="vacation-type-grid">
+                    <label class="vacation-option">
+                        <input type="checkbox" name="vacationType" value="beach">
+                        <div class="vacation-card">
+                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Plaża</span>
+                        </div>
+                    </label>
+                    <label class="vacation-option">
+                        <input type="checkbox" name="vacationType" value="mountains">
+                        <div class="vacation-card">
+                            <i class="fas fa-mountain"></i>
+                            <span>Góry</span>
+                        </div>
+                    </label>
+                    <label class="vacation-option">
+                        <input type="checkbox" name="vacationType" value="city">
+                        <div class="vacation-card">
+                            <i class="fas fa-city"></i>
+                            <span>Miasta</span>
+                        </div>
+                    </label>
+                    <label class="vacation-option">
+                        <input type="checkbox" name="vacationType" value="culture">
+                        <div class="vacation-card">
+                            <i class="fas fa-landmark"></i>
+                            <span>Kultura</span>
+                        </div>
+                    </label>
+                    <label class="vacation-option">
+                        <input type="checkbox" name="vacationType" value="adventure">
+                        <div class="vacation-card">
+                            <i class="fas fa-hiking"></i>
+                            <span>Przygoda</span>
+                        </div>
+                    </label>
+                    <label class="vacation-option">
+                        <input type="checkbox" name="vacationType" value="relax">
+                        <div class="vacation-card">
+                            <i class="fas fa-spa"></i>
+                            <span>Relaks</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">
+                    <i class="fas fa-utensils"></i> Wyżywienie
+                </div>
+                <div class="meal-plan-selection">
+                    <label class="meal-option">
+                        <input type="radio" name="mealPlan" value="none">
+                        <div class="meal-card">
+                            <i class="fas fa-times"></i>
+                            <span>Bez wyżywienia</span>
+                        </div>
+                    </label>
+                    <label class="meal-option">
+                        <input type="radio" name="mealPlan" value="breakfast">
+                        <div class="meal-card">
+                            <i class="fas fa-coffee"></i>
+                            <span>Śniadania</span>
+                        </div>
+                    </label>
+                    <label class="meal-option">
+                        <input type="radio" name="mealPlan" value="halfboard">
+                        <div class="meal-card">
+                            <i class="fas fa-utensils"></i>
+                            <span>HB (śniadania + obiadokolacje)</span>
+                        </div>
+                    </label>
+                    <label class="meal-option">
+                        <input type="radio" name="mealPlan" value="fullboard">
+                        <div class="meal-card">
+                            <i class="fas fa-concierge-bell"></i>
+                            <span>FB (3 posiłki)</span>
+                        </div>
+                    </label>
+                    <label class="meal-option">
+                        <input type="radio" name="mealPlan" value="allinclusive" checked>
+                        <div class="meal-card">
+                            <i class="fas fa-star"></i>
+                            <span>All Inclusive</span>
+                        </div>
+                    </label>
+                </div>
+
+                <button class="search-btn" onclick="searchPackages()">
+                    <i class="fas fa-search"></i> Szukaj Pakietów
+                </button>
+            </div>
+
+            <!-- Cars Tab -->
+            <div id="cars-tab" class="tab-content">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Miejsce odbioru</label>
+                        <input type="text" id="car-pickup" placeholder="Barcelona Lotnisko" value="Barcelona Lotnisko">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Data odbioru</label>
+                        <input type="date" id="car-pickup-date">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Godzina odbioru</label>
+                        <input type="time" id="car-pickup-time" value="10:00">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Data zwrotu</label>
+                        <input type="date" id="car-return-date">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-clock"></i> Godzina zwrotu</label>
+                        <input type="time" id="car-return-time" value="10:00">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-car"></i> Typ pojazdu</label>
+                        <select id="car-type">
+                            <option value="economy">Ekonomiczny</option>
+                            <option value="compact">Kompaktowy</option>
+                            <option value="midsize">Średni</option>
+                            <option value="suv">SUV</option>
+                            <option value="luxury">Luksusowy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">
+                    <i class="fas fa-cogs"></i> Skrzynia biegów
+                </div>
+                <div class="transmission-selection">
+                    <label class="transmission-option">
+                        <input type="radio" name="transmission" value="automatic" checked>
+                        <div class="transmission-card">
+                            <i class="fas fa-cog"></i>
+                            <span>Automatyczna</span>
+                            <small>Wygodna</small>
+                        </div>
+                    </label>
+                    <label class="transmission-option">
+                        <input type="radio" name="transmission" value="manual">
+                        <div class="transmission-card">
+                            <i class="fas fa-wrench"></i>
+                            <span>Manualna</span>
+                            <small>Tańsza</small>
+                        </div>
+                    </label>
+                    <label class="transmission-option">
+                        <input type="radio" name="transmission" value="any">
+                        <div class="transmission-card">
+                            <i class="fas fa-globe"></i>
+                            <span>Dowolna</span>
+                            <small>Więcej opcji</small>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="section-title" style="margin-top: 20px;">
+                    <i class="fas fa-plus-circle"></i> Dodatkowe opcje
+                </div>
+                <div class="car-extras-grid">
+                    <label class="car-extra-option">
+                        <input type="checkbox" name="carExtra" value="gps">
+                        <div class="car-extra-card">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>GPS</span>
+                            <small>+15 zł/dzień</small>
+                        </div>
+                    </label>
+                    <label class="car-extra-option">
+                        <input type="checkbox" name="carExtra" value="childseat">
+                        <div class="car-extra-card">
+                            <i class="fas fa-baby"></i>
+                            <span>Fotelik dziecięcy</span>
+                            <small>+10 zł/dzień</small>
+                        </div>
+                    </label>
+                    <label class="car-extra-option">
+                        <input type="checkbox" name="carExtra" value="insurance">
+                        <div class="car-extra-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Pełne ubezpieczenie</span>
+                            <small>+25 zł/dzień</small>
+                        </div>
+                    </label>
+                    <label class="car-extra-option">
+                        <input type="checkbox" name="carExtra" value="driver">
+                        <div class="car-extra-card">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Dodatkowy kierowca</span>
+                            <small>+8 zł/dzień</small>
+                        </div>
+                    </label>
+                    <label class="car-extra-option">
+                        <input type="checkbox" name="carExtra" value="wifi">
+                        <div class="car-extra-card">
+                            <i class="fas fa-wifi"></i>
+                            <span>WiFi</span>
+                            <small>+12 zł/dzień</small>
+                        </div>
+                    </label>
+                    <label class="car-extra-option">
+                        <input type="checkbox" name="carExtra" value="chains">
+                        <div class="car-extra-card">
+                            <i class="fas fa-link"></i>
+                            <span>Łańcuchy śniegowe</span>
+                            <small>+20 zł</small>
+                        </div>
+                    </label>
+                </div>
+
+                <button class="search-btn" onclick="searchCars()">
+                    <i class="fas fa-search"></i> Szukaj Samochodów
+                </button>
+            </div>
+        </div>
+
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <!-- Google AdSense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9110227480064306"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="loader"></div>
+            <h3>Szukamy najlepszych ofert...</h3>
+            <p>Sprawdzamy setki stron w czasie rzeczywistym</p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="results" style="display: none;">
+            <div class="results-header">
+                <h2>Znalezione Oferty</h2>
+                <p id="results-count"></p>
+            </div>
+            <div class="results-grid" id="results-grid"></div>
+        </div>
+
+        <!-- Ad Space -->
+        <div class="ad-space">
+            <!-- Google AdSense -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-9110227480064306"
+                 data-ad-slot="0987654321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="details-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize dates
+        function initDates() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            const nextWeek = new Date(today);
+            nextWeek.setDate(nextWeek.getDate() + 7);
+
+            const formatDate = (date) => {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            };
+
+            document.getElementById('flight-departure').value = formatDate(tomorrow);
+            document.getElementById('flight-return').value = formatDate(nextWeek);
+            document.getElementById('hotel-checkin').value = formatDate(tomorrow);
+            document.getElementById('hotel-checkout').value = formatDate(nextWeek);
+            document.getElementById('package-date').value = formatDate(tomorrow);
+            document.getElementById('car-pickup-date').value = formatDate(tomorrow);
+            document.getElementById('car-return-date').value = formatDate(nextWeek);
+        }
+
+        // Switch tabs
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tab + '-tab').classList.add('active');
+        }
+
+        // Counter functions
+        function changeCount(type, delta) {
+            const element = document.getElementById(type + '-count');
+            let count = parseInt(element.textContent);
+            
+            if (type === 'adults') {
+                count = Math.max(1, count + delta);
+            } else {
+                count = Math.max(0, count + delta);
+            }
+            
+            element.textContent = count;
+        }
+
+        // Baggage selection
+        let selectedBaggage = 'checked';
+        function selectBaggage(type) {
+            selectedBaggage = type;
+            document.querySelectorAll('.baggage-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+        }
+
+        // Class selection
+        let selectedClass = 'economy';
+        function selectClass(classType) {
+            selectedClass = classType;
+            document.querySelectorAll('.class-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+        }
+
+        // Search functions
+        async function searchFlights() {
+            const from = document.getElementById('flight-from').value;
+            const to = document.getElementById('flight-to').value;
+            const departure = document.getElementById('flight-departure').value;
+            const returnDate = document.getElementById('flight-return').value;
+            const adults = document.getElementById('adults-count').textContent;
+            const children = document.getElementById('children-count').textContent;
+            const infants = document.getElementById('infants-count').textContent;
+            const flightType = document.querySelector('input[name="flightType"]:checked').value;
+
+            console.log('Szukam lotów:', {
+                from, to, departure, returnDate,
+                passengers: { adults, children, infants },
+                class: selectedClass,
+                baggage: selectedBaggage,
+                flightType
+            });
+
+            showLoading();
+            
+            try {
+                // Konwersja nazw miast na kody IATA
+                const originCode = getCityCode(from);
+                const destCode = getCityCode(to);
+                
+                // Użyj prawdziwego API
+                const flights = await travelAPI.searchFlights(originCode, destCode, departure, returnDate);
+                displayFlightResults(flights, from, to, adults, children);
+            } catch (error) {
+                console.error('API Error:', error);
+                // Fallback do mock danych
+                generateFlightResults(from, to, adults, children);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function searchHotels() {
+            const destination = document.getElementById('hotel-destination').value;
+            const checkin = document.getElementById('hotel-checkin').value;
+            const checkout = document.getElementById('hotel-checkout').value;
+            const stars = document.getElementById('hotel-stars').value;
+            const rooms = document.getElementById('hotel-rooms').value;
+            const guests = document.getElementById('hotel-guests').value;
+            const accommodationType = document.querySelector('input[name="accommodationType"]:checked').value;
+            const amenities = Array.from(document.querySelectorAll('input[name="amenity"]:checked')).map(cb => cb.value);
+
+            console.log('Szukam hoteli:', {
+                destination, checkin, checkout, stars, rooms, guests,
+                accommodationType, amenities
+            });
+
+            showLoading();
+            
+            try {
+                const cityCode = getCityCode(destination);
+                const hotels = await travelAPI.searchHotels(cityCode, checkin, checkout, parseInt(guests));
+                displayHotelResults(hotels, destination, stars);
+            } catch (error) {
+                console.error('API Error:', error);
+                generateHotelResults(destination, stars);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function searchPackages() {
+            const destination = document.getElementById('package-destination').value;
+            const date = document.getElementById('package-date').value;
+            const duration = document.getElementById('package-duration').value;
+            const people = document.getElementById('package-people').value;
+            const vacationTypes = Array.from(document.querySelectorAll('input[name="vacationType"]:checked')).map(cb => cb.value);
+            const mealPlan = document.querySelector('input[name="mealPlan"]:checked').value;
+
+            console.log('Szukam pakietów:', {
+                destination, date, duration, people,
+                vacationTypes, mealPlan
+            });
+
+            showLoading();
+            
+            try {
+                const destCode = getCountryCode(destination);
+                const returnDate = calculateReturnDate(date, parseInt(duration));
+                const packages = await travelAPI.searchPackages('WAW', destCode, date, returnDate);
+                displayPackageResults(packages, destination, duration);
+            } catch (error) {
+                console.error('API Error:', error);
+                generatePackageResults(destination, duration);
+            } finally {
+                hideLoading();
+            }
+        }
+
+        async function searchCars() {
+            const pickup = document.getElementById('car-pickup').value;
+            const pickupDate = document.getElementById('car-pickup-date').value;
+            const returnDate = document.getElementById('car-return-date').value;
+            const carType = document.getElementById('car-type').value;
+            const transmission = document.querySelector('input[name="transmission"]:checked').value;
+            const extras = Array.from(document.querySelectorAll('input[name="carExtra"]:checked')).map(cb => cb.value);
+
+            console.log('Szukam samochodów:', {
+                pickup, pickupDate, returnDate, carType,
+                transmission, extras
+            });
+
+            showLoading();
+            
+            setTimeout(() => {
+                generateCarResults(pickup, carType);
+                hideLoading();
+            }, 2000);
+        }
+
+        // Helper funkcje do konwersji miast na kody
+        function getCityCode(cityName) {
+            const codes = {
+                'warszawa': 'WAW',
+                'kraków': 'KRK',
+                'gdańsk': 'GDN',
+                'barcelona': 'BCN',
+                'londyn': 'LON',
+                'paryż': 'PAR',
+                'rzym': 'ROM',
+                'berlin': 'BER',
+                'amsterdam': 'AMS',
+                'madryt': 'MAD'
+            };
+            return codes[cityName.toLowerCase()] || 'BCN';
+        }
+
+        function getCountryCode(country) {
+            const codes = {
+                'spain': 'BCN',
+                'greece': 'ATH',
+                'italy': 'ROM',
+                'turkey': 'IST',
+                'egypt': 'CAI'
+            };
+            return codes[country] || 'BCN';
+        }
+
+        function calculateReturnDate(departDate, days) {
+            const date = new Date(departDate);
+            date.setDate(date.getDate() + days);
+            return date.toISOString().split('T')[0];
+        }
+
+        // Nowe funkcje wyświetlania z prawdziwymi danymi z API
+        function displayFlightResults(flights, from, to, adults, children) {
+            if (!flights || flights.length === 0) {
+                generateFlightResults(from, to, adults, children);
+                return;
+            }
+
+            const resultsHTML = `
+                <div class="results-grid">
+                    ${flights.map((flight, index) => `
+                        <div class="result-card">
+                            <div class="result-image">
+                                <img src="https://images.unsplash.com/photo-${getFlightImage(index)}?w=800&h=400&fit=crop" alt="${flight.airline}">
+                                <div class="result-badge">${flight.badge}</div>
+                            </div>
+                            <div class="result-content">
+                                <div class="result-header">
+                                    <h3 class="result-title">${flight.origin} → ${flight.destination}</h3>
+                                    <div class="result-airline">✈️ ${flight.airline}</div>
+                                </div>
+                                <div class="result-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-plane-departure"></i>
+                                        <span>Wylot: ${flight.departDate}</span>
+                                    </div>
+                                    ${flight.returnDate ? `
+                                    <div class="detail-item">
+                                        <i class="fas fa-plane-arrival"></i>
+                                        <span>Powrót: ${flight.returnDate}</span>
+                                    </div>
+                                    ` : ''}
+                                    <div class="detail-item">
+                                        <i class="fas fa-clock"></i>
+                                        <span>${flight.duration}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-${flight.direct ? 'arrow-right' : 'exchange-alt'}"></i>
+                                        <span>${flight.direct ? 'Lot bezpośredni' : 'Z przesiadką'}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-suitcase"></i>
+                                        <span>${selectedBaggage === 'hand' ? 'Tylko podręczny' : selectedBaggage === 'checked' ? 'Z bagażem' : 'Premium'}</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-chair"></i>
+                                        <span>Klasa: ${selectedClass === 'economy' ? 'Ekonomiczna' : selectedClass === 'business' ? 'Biznes' : 'Pierwsza'}</span>
+                                    </div>
+                                </div>
+                                <div class="result-price">${flight.price} ${flight.currency}</div>
+                                <div class="result-actions">
+                                <button class="action-btn primary" onclick="bookFlight('${flight.id}', '${flight.bookingUrl}')">
+                                    <i class="fas fa-ticket-alt"></i> Rezerwuj
+                                </button>
+                                <button class="action-btn" onclick="viewDetails('${flight.id}', 'flight')">
+                                    <i class="fas fa-info-circle"></i> Więcej
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        document.getElementById('results').innerHTML = resultsHTML;
+        document.getElementById('results').style.display = 'block';
+    }
+
+    function displayHotelResults(hotels, destination, stars) {
+        if (!hotels || hotels.length === 0) {
+            generateHotelResults(destination, stars);
+            return;
+        }
+
+        const resultsHTML = `
+            <div class="results-grid">
+                ${hotels.map((hotel, index) => `
+                    <div class="result-card">
+                        <div class="result-image">
+                            <img src="https://images.unsplash.com/photo-${getHotelImage(index)}?w=800&h=400&fit=crop" alt="${hotel.name}">
+                            <div class="result-badge">${hotel.badge}</div>
+                        </div>
+                        <div class="result-content">
+                            <div class="result-header">
+                                <h3 class="result-title">${hotel.name}</h3>
+                                <div class="hotel-rating">${'⭐'.repeat(hotel.rating)}</div>
+                            </div>
+                            <div class="result-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>${hotel.location}</span>
+                                </div>
+                                ${hotel.amenities.map(amenity => `
+                                <div class="detail-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>${amenity}</span>
+                                </div>
+                                `).join('')}
+                            </div>
+                            <div class="result-price">${hotel.price} ${hotel.currency}/noc</div>
+                            <div class="result-actions">
+                                <button class="action-btn primary" onclick="bookHotel('${hotel.id}', '${hotel.bookingUrl}')">
+                                    <i class="fas fa-bed"></i> Rezerwuj
+                                </button>
+                                <button class="action-btn" onclick="viewDetails('${hotel.id}', 'hotel')">
+                                    <i class="fas fa-info-circle"></i> Więcej
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        document.getElementById('results').innerHTML = resultsHTML;
+        document.getElementById('results').style.display = 'block';
+    }
+
+    function displayPackageResults(packages, destination, duration) {
+        if (!packages || packages.length === 0) {
+            generatePackageResults(destination, duration);
+            return;
+        }
+
+        const resultsHTML = `
+            <div class="results-grid">
+                ${packages.map((pkg, index) => `
+                    <div class="result-card">
+                        <div class="result-image">
+                            <img src="https://images.unsplash.com/photo-${getPackageImage(index)}?w=800&h=400&fit=crop" alt="Pakiet wakacyjny">
+                            <div class="result-badge">${pkg.badge}</div>
+                        </div>
+                        <div class="result-content">
+                            <div class="result-header">
+                                <h3 class="result-title">🎒 Kompletny pakiet wakacyjny</h3>
+                                <div class="package-duration">📅 ${pkg.duration}</div>
+                            </div>
+                            <div class="result-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-tags"></i>
+                                    <span>Oszczędzasz: ${pkg.savings} PLN</span>
+                                </div>
+                                ${pkg.includes.map(item => `
+                                <div class="detail-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>${item}</span>
+                                </div>
+                                `).join('')}
+                            </div>
+                            <div class="result-price">${pkg.price} ${pkg.currency}</div>
+                            <div class="result-actions">
+                                <button class="action-btn primary" onclick="bookPackage('${pkg.id}')">
+                                    <i class="fas fa-shopping-cart"></i> Rezerwuj pakiet
+                                </button>
+                                <button class="action-btn" onclick="viewDetails('${pkg.id}', 'package')">
+                                    <i class="fas fa-info-circle"></i> Więcej
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        document.getElementById('results').innerHTML = resultsHTML;
+        document.getElementById('results').style.display = 'block';
+    }        // Helper funkcje do losowania zdjęć z Unsplash
+        function getFlightImage(index) {
+            const images = [
+                '1436491865332-7a61a109cc05', // Samolot w locie
+                '1474302770737-173ee21bab63', // Kokpit
+                '1583511655857-9ca3a1b2c96f', // Samolot na pasie
+                '1606768666853-403c90a981ad', // Wnętrze samolotu
+                '1464037866556-6812c9d1c72e', // Samolot o zachodzie
+                '1581337204873-ef36aa186caa'  // Latający samolot
+            ];
+            return images[index % images.length];
+        }
+
+        function getHotelImage(index) {
+            const images = [
+                '1566073771259-6a8506099945', // Luksusowy hotel
+                '1542314831-068cd1dbfeeb', // Hotel z basenem
+                '1551882547-ff40c63fe5fa', // Pokój hotelowy
+                '1520250497591-112f2f40a3f4', // Lobby hotelu
+                '1571003123894-1f0594d2b5d9', // Widok z hotelu
+                '1582719478250-c89cae4dc85b'  // Nowoczesny hotel
+            ];
+            return images[index % images.length];
+        }
+
+        function getPackageImage(index) {
+            const images = [
+                '1507525428034-b723cf961d3e', // Plaża tropikalna
+                '1473496169904-658ba7c44d8a', // Wakacyjna destynacja
+                '1559827260-72462c64f0b3', // Egzotyczny widok
+                '1530521954074-e64f6810b32d', // Palmy i plaża
+                '1506905925346-21bda4d32df4', // Góry i przyroda
+                '1476514525535-07fb3b4ae5f1'  // Wakacyjny krajobraz
+            ];
+            return images[index % images.length];
+        }
+
+        function getCarImage(index) {
+            const images = [
+                '1549317661-bd32c8ce0db2', // Samochód na drodze
+                '1552519507-da3b142c6e3d', // Auto sportowe
+                '1494976388531-d1058494cdd8', // SUV
+                '1485463598174-27e1cd2c0037', // Luksusowy samochód
+                '1503376780353-7e6692767b70', // Kompaktowy samochód
+                '1542362567-b07e54358753'  // Samochód miejski
+            ];
+            return images[index % images.length];
+        }
+
+        // Booking functions
+        function bookFlight(flightId, bookingUrl) {
+            console.log('Rezerwacja lotu:', flightId, bookingUrl);
+            
+            // Tracking konwersji dla Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'book_flight', {
+                    'flight_id': flightId,
+                    'value': 1
+                });
+            }
+            
+            // PROGRAMY AFILIACYJNE - zamieniaj na swoje linki!
+            const affiliateLinks = {
+                // Skyscanner Affiliate - prowizja za każde kliknięcie
+                skyscanner: `https://www.skyscanner.pl/transport/loty/?adultsv1=1&cabinclass=economy&childrenv1=&inboundaltsenabled=false&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=1`,
+                
+                // Kiwi.com Affiliate - prowizja 3-5% od rezerwacji
+                kiwi: `https://www.kiwi.com/deep?affilid=d43cf7938d646daf561330a29987f2bd&currency=PLN&flightsId=${flightId}`,
+                
+                // Booking.com Flights - prowizja do 40%
+                booking: `https://www.booking.com/flights/index.pl.html?aid=d43cf7938d646daf561330a29987f2bd&label=travelpayouts`,
+                
+                // eSkyTravel Affiliate - program partnerski
+                esky: `https://www.esky.pl/loty?affiliateId=d43cf7938d646daf561330a29987f2bd`
+            };
+            
+            // Użyj Kiwi.com jako głównego partnera (najwyższe prowizje)
+            const finalUrl = bookingUrl && bookingUrl !== '#' 
+                ? bookingUrl 
+                : affiliateLinks.kiwi;
+            
+            // Otwórz link affiliate w nowym oknie
+            window.open(finalUrl, '_blank');
+            
+            // Pokaż potwierdzenie z informacją o prowizji
+            showConfirmation('✈️ Przekierowujemy do rezerwacji lotu! (prowizja 3-5%)', 'success');
+        }
+
+        function bookHotel(hotelId, bookingUrl) {
+            console.log('Rezerwacja hotelu:', hotelId, bookingUrl);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'book_hotel', {
+                    'hotel_id': hotelId,
+                    'value': 1
+                });
+            }
+            
+            // BOOKING.COM AFFILIATE - najwyższe prowizje (25-40%)!
+            const affiliateLinks = {
+                // Booking.com - główny partner hoteli
+                booking: `https://www.booking.com/hotel/pl/index.pl.html?aid=d43cf7938d646daf561330a29987f2bd&label=travelpayouts&sid=${hotelId}`,
+                
+                // Hotels.com Affiliate - prowizja do 30%
+                hotels: `https://pl.hotels.com/?affcid=d43cf7938d646daf561330a29987f2bd`,
+                
+                // Agoda Affiliate - prowizja do 7%
+                agoda: `https://www.agoda.com/partners/partnersearch.aspx?cid=d43cf7938d646daf561330a29987f2bd`,
+                
+                // Expedia Affiliate
+                expedia: `https://www.expedia.pl/affiliate?affcid=d43cf7938d646daf561330a29987f2bd`
+            };
+            
+            const finalUrl = bookingUrl && bookingUrl !== '#'
+                ? bookingUrl
+                : affiliateLinks.booking;
+                
+            window.open(finalUrl, '_blank');
+            showConfirmation('🏨 Przekierowujemy do rezerwacji hotelu! (prowizja 25-40%)', 'success');
+        }
+
+        function bookPackage(packageId) {
+            console.log('Rezerwacja pakietu:', packageId);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'book_package', {
+                    'package_id': packageId,
+                    'value': 1
+                });
+            }
+            
+            // PAKIETY WAKACYJNE - TUI, Rainbow Tours, Itaka
+            const affiliateLinks = {
+                // TUI Partner Program
+                tui: `https://www.tui.pl/wycieczki/?partnerId=d43cf7938d646daf561330a29987f2bd`,
+                
+                // Rainbow Tours Affiliate
+                rainbow: `https://www.rainbowtours.pl/?ref=d43cf7938d646daf561330a29987f2bd`,
+                
+                // Itaka Partner
+                itaka: `https://www.itaka.pl/?utm_source=affiliate&utm_medium=d43cf7938d646daf561330a29987f2bd`,
+                
+                // Wakacje.pl
+                wakacje: `https://www.wakacje.pl/?aid=d43cf7938d646daf561330a29987f2bd`
+            };
+            
+            window.open(affiliateLinks.tui, '_blank');
+            showConfirmation('🎒 Przekierowujemy do rezerwacji pakietu! (prowizja 5-8%)', 'success');
+        }
+
+        function bookCar(carId) {
+            console.log('Rezerwacja samochodu:', carId);
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'book_car', {
+                    'car_id': carId,
+                    'value': 1
+                });
+            }
+            
+            // WYNAJEM SAMOCHODÓW - Rentalcars, Discover Cars
+            const affiliateLinks = {
+                // Rentalcars.com (Booking.com) - prowizja 30-40%
+                rentalcars: `https://www.rentalcars.com/?affiliateCode=d43cf7938d646daf561330a29987f2bd&adplat=web`,
+                
+                // Discover Cars - prowizja do 50%!
+                discovercars: `https://www.discovercars.com/?a_aid=d43cf7938d646daf561330a29987f2bd`,
+                
+                // EconomyCarRentals
+                economy: `https://www.economycarrentals.com/?affid=d43cf7938d646daf561330a29987f2bd`,
+                
+                // Kayak Cars
+                kayak: `https://www.kayak.pl/cars?a=d43cf7938d646daf561330a29987f2bd`
+            };
+            
+            window.open(affiliateLinks.discovercars, '_blank');
+            showConfirmation('🚗 Przekierowujemy do wynajmu samochodu! (prowizja 30-50%)', 'success');
+        }
+
+        function showBookingModal(type, itemId) {
+            const modal = document.getElementById('details-modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            const icons = {
+                flight: '✈️',
+                hotel: '�',
+                package: '🎒'
+            };
+            
+            const titles = {
+                flight: 'Rezerwacja Lotu',
+                hotel: 'Rezerwacja Hotelu',
+                package: 'Rezerwacja Pakietu'
+            };
+            
+            modalBody.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">${icons[type]}</div>
+                    <h2 style="color: #00FFFF; margin-bottom: 1.5rem;">${titles[type]}</h2>
+                    
+                    <div style="background: rgba(0,255,255,0.1); padding: 2rem; border-radius: 20px; margin-bottom: 2rem;">
+                        <h3 style="color: white; margin-bottom: 1rem;">�🎉 Gratulacje!</h3>
+                        <p style="color: rgba(255,255,255,0.8); margin-bottom: 1.5rem;">
+                            Rezerwacja będzie dostępna wkrótce. W pełnej wersji strony przekierujemy Cię do:<br>
+                            <strong style="color: #00FFFF;">TravelPayouts / HotelLook / Booking.com</strong>
+                        </p>
+                        
+                        <div style="text-align: left; color: rgba(255,255,255,0.9); line-height: 2;">
+                            <p><i class="fas fa-check" style="color: #39FF14; margin-right: 10px;"></i> Najlepsze ceny na rynku</p>
+                            <p><i class="fas fa-check" style="color: #39FF14; margin-right: 10px;"></i> Bezpieczna płatność</p>
+                            <p><i class="fas fa-check" style="color: #39FF14; margin-right: 10px;"></i> Natychmiastowe potwierdzenie</p>
+                            <p><i class="fas fa-check" style="color: #39FF14; margin-right: 10px;"></i> Wsparcie 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <button onclick="alert('📧 Newsletter będzie dostępny wkrótce!')" style="padding: 15px; background: linear-gradient(135deg, #00FFFF, #FF1493); border: none; border-radius: 15px; color: white; font-weight: bold; cursor: pointer;">
+                            📧 Powiadom mnie
+                        </button>
+                        <button onclick="closeModal()" style="padding: 15px; background: rgba(255,255,255,0.1); border: 2px solid #00FFFF; border-radius: 15px; color: white; font-weight: bold; cursor: pointer;">
+                            Zamknij
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        // Globalna zmienna do przechowywania wyników
+        let currentResults = {
+            flights: [],
+            hotels: [],
+            packages: [],
+            cars: []
+        };
+
+        function viewDetails(itemId, type = 'flight') {
+            console.log('Szczegóły dla:', itemId, type);
+            
+            const modal = document.getElementById('details-modal');
+            const modalBody = document.getElementById('modal-body');
+            
+            // Znajdź szczegóły w zapisanych wynikach
+            const details = getItemDetails(itemId, type);
+            
+            modalBody.innerHTML = `
+                <div style="padding: 1rem;">
+                    <h2 style="color: #00FFFF; margin-bottom: 2rem; font-size: 2rem; text-align: center;">
+                        ${details.icon} ${details.title}
+                    </h2>
+                    
+                    <div style="background: rgba(0,0,0,0.3); padding: 2rem; border-radius: 20px; margin-bottom: 2rem;">
+                        ${details.image ? `
+                            <img src="${details.image}" alt="${details.title}" 
+                                 style="width: 100%; height: 300px; object-fit: cover; border-radius: 15px; margin-bottom: 1.5rem; box-shadow: 0 10px 40px rgba(0,255,255,0.3);">
+                        ` : ''}
+                        
+                        ${details.schedule ? `
+                            <div style="background: linear-gradient(135deg, rgba(0,255,255,0.2), rgba(255,20,147,0.2)); padding: 2rem; border-radius: 20px; margin-bottom: 2rem; border: 2px solid rgba(0,255,255,0.3);">
+                                <h3 style="color: #00FFFF; margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;">
+                                    🕐 Harmonogram Podróży
+                                </h3>
+                                <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center;">
+                                    <div style="text-align: center; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 15px;">
+                                        <div style="color: #39FF14; font-size: 2.5rem; font-weight: bold;">${details.schedule.departure.time}</div>
+                                        <div style="color: white; font-size: 1.2rem; margin: 10px 0;">${details.schedule.departure.city}</div>
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">${details.schedule.departure.date}</div>
+                                        <div style="color: #00FFFF; margin-top: 10px;">
+                                            ${details.schedule.departure.airport}<br>
+                                            ${details.schedule.departure.terminal ? `Terminal ${details.schedule.departure.terminal}` : ''}
+                                        </div>
+                                    </div>
+                                    
+                                    <div style="text-align: center;">
+                                        <i class="fas fa-plane" style="color: #FF1493; font-size: 2rem; transform: rotate(90deg);"></i>
+                                        <div style="color: white; margin-top: 10px; font-weight: bold;">${details.schedule.duration}</div>
+                                        <div style="color: rgba(255,255,255,0.6); font-size: 0.85rem;">${details.schedule.stops}</div>
+                                    </div>
+                                    
+                                    <div style="text-align: center; background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 15px;">
+                                        <div style="color: #39FF14; font-size: 2.5rem; font-weight: bold;">${details.schedule.arrival.time}</div>
+                                        <div style="color: white; font-size: 1.2rem; margin: 10px 0;">${details.schedule.arrival.city}</div>
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">${details.schedule.arrival.date}</div>
+                                        <div style="color: #00FFFF; margin-top: 10px;">
+                                            ${details.schedule.arrival.airport}<br>
+                                            ${details.schedule.arrival.terminal ? `Terminal ${details.schedule.arrival.terminal}` : ''}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ` : ''}
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 2rem;">
+                            ${details.specs.map(spec => `
+                                <div style="background: rgba(0,255,255,0.1); padding: 15px; border-radius: 12px; border: 1px solid rgba(0,255,255,0.3); transition: all 0.3s;">
+                                    <div style="color: #00FFFF; font-size: 0.85rem; margin-bottom: 8px;">
+                                        <i class="${spec.icon}" style="margin-right: 8px;"></i>${spec.label}
+                                    </div>
+                                    <div style="color: white; font-weight: bold; font-size: 1.1rem;">${spec.value}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div style="background: rgba(255,20,147,0.1); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #FF1493;">
+                            <h4 style="color: #FF1493; margin-bottom: 1rem; font-size: 1.2rem;">
+                                <i class="fas fa-star"></i> Co zawiera:
+                            </h4>
+                            <ul style="color: rgba(255,255,255,0.9); line-height: 2.2; list-style: none; padding: 0;">
+                                ${details.includes.map(item => `
+                                    <li style="display: flex; align-items: center; margin-bottom: 8px;">
+                                        <i class="fas fa-check-circle" style="color: #39FF14; margin-right: 12px; font-size: 1.1rem;"></i>
+                                        <span>${item}</span>
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        ${details.price ? `
+                            <div style="text-align: center; margin: 2rem 0;">
+                                <div style="background: linear-gradient(135deg, #00FFFF, #FF1493); padding: 2rem; border-radius: 20px; display: inline-block;">
+                                    <div style="color: white; font-size: 0.9rem; margin-bottom: 5px;">Cena całkowita</div>
+                                    <div style="color: white; font-size: 3rem; font-weight: 900;">${details.price}</div>
+                                    <div style="color: rgba(255,255,255,0.9); font-size: 0.85rem; margin-top: 5px;">Wszystkie opłaty wliczone</div>
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 15px;">
+                        <button onclick="${details.bookAction}" style="padding: 20px; background: linear-gradient(135deg, #00FFFF, #FF1493); border: none; border-radius: 15px; color: white; font-weight: bold; font-size: 1.2rem; cursor: pointer; transition: all 0.3s;">
+                            <i class="fas fa-ticket-alt"></i> Rezerwuj teraz
+                        </button>
+                        <button onclick="closeModal()" style="padding: 20px; background: rgba(255,255,255,0.1); border: 2px solid #00FFFF; border-radius: 15px; color: white; font-weight: bold; cursor: pointer;">
+                            Zamknij
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        function getItemDetails(itemId, type = 'flight') {
+            // Generuj szczegółowe dane na podstawie typu
+            const now = new Date();
+            const departureTime = new Date(now.getTime() + (Math.random() * 7 + 1) * 24 * 60 * 60 * 1000);
+            const arrivalTime = new Date(departureTime.getTime() + (2.5 * 60 * 60 * 1000));
+            
+            if (type === 'flight' || itemId.includes('flight')) {
+                return {
+                    icon: '✈️',
+                    title: 'Szczegóły Lotu',
+                    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800',
+                    schedule: {
+                        departure: {
+                            time: departureTime.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }),
+                            city: 'Warszawa',
+                            date: departureTime.toLocaleDateString('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                            airport: 'WAW - Lotnisko Chopina',
+                            terminal: 'A'
+                        },
+                        arrival: {
+                            time: arrivalTime.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' }),
+                            city: 'Barcelona',
+                            date: arrivalTime.toLocaleDateString('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                            airport: 'BCN - El Prat',
+                            terminal: '1'
+                        },
+                        duration: '2h 45min',
+                        stops: 'Bezpośredni'
+                    },
+                    specs: [
+                        { icon: 'fas fa-plane', label: 'Numer lotu', value: 'LO 451' },
+                        { icon: 'fas fa-building', label: 'Linia lotnicza', value: 'LOT Polish Airlines' },
+                        { icon: 'fas fa-chair', label: 'Klasa', value: selectedClass === 'economy' ? 'Ekonomiczna' : selectedClass === 'business' ? 'Biznes' : 'Pierwsza' },
+                        { icon: 'fas fa-suitcase', label: 'Bagaż', value: selectedBaggage === 'hand' ? 'Tylko podręczny 8kg' : selectedBaggage === 'checked' ? 'Podręczny + 23kg' : 'Premium 2x23kg' },
+                        { icon: 'fas fa-users', label: 'Pasażerowie', value: `${document.getElementById('adults-count').textContent} dorosłych` },
+                        { icon: 'fas fa-ticket-alt', label: 'Typ biletu', value: 'Zwrotny' }
+                    ],
+                    includes: [
+                        '✈️ Wygodne miejsca z dodatkowąprzystrzenią na nogi (75cm)',
+                        '🍽️ Posiłek i napoje na pokładzie w cenie',
+                        '🎬 Rozrywka pokładowa - 200+ filmów i seriali',
+                        '💺 Możliwość wyboru miejsca za darmo (online check-in)',
+                        '⭐ Punkty lojalnościowe Miles & More (2500 mil)',
+                        '🛡️ Ubezpieczenie podróżne w cenie (wartość 150 PLN)',
+                        '🔄 Darmowa zmiana rezerwacji do 24h przed odlotem',
+                        '❌ Bezpłatne odwołanie z pełnym zwrotem do 48h przed lotem',
+                        '📱 Aplikacja mobilna z kartą pokładową',
+                        '🍴 Menu specjalne (wegetariańskie, bezglutenowe) na życzenie'
+                    ],
+                    price: '599 PLN',
+                    bookAction: "bookFlight('flight_123', '#')"
+                };
+            } else if (type === 'hotel' || itemId.includes('hotel')) {
+                return {
+                    icon: '🏨',
+                    title: 'Szczegóły Hotelu',
+                    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800',
+                    schedule: {
+                        departure: {
+                            time: '14:00',
+                            city: 'Zameldowanie',
+                            date: departureTime.toLocaleDateString('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                            airport: 'Hotel Premium Barcelona',
+                            terminal: null
+                        },
+                        arrival: {
+                            time: '11:00',
+                            city: 'Wymeldowanie',
+                            date: new Date(departureTime.getTime() + 3 * 24 * 60 * 60 * 1000).toLocaleDateString('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                            airport: 'Hotel Premium Barcelona',
+                            terminal: null
+                        },
+                        duration: '3 noce',
+                        stops: '4 dni pobytu'
+                    },
+                    specs: [
+                        { icon: 'fas fa-star', label: 'Kategoria', value: '⭐⭐⭐⭐ Hotel' },
+                        { icon: 'fas fa-map-marker-alt', label: 'Lokalizacja', value: 'Centrum - Eixample' },
+                        { icon: 'fas fa-bed', label: 'Pokój', value: 'Double Standard' },
+                        { icon: 'fas fa-wifi', label: 'WiFi', value: 'Darmowe (50 Mb/s)' },
+                        { icon: 'fas fa-parking', label: 'Parking', value: 'Dostępny (płatny)' },
+                        { icon: 'fas fa-swimming-pool', label: 'Basen', value: 'Dachowy z widokiem' }
+                    ],
+                    includes: [
+                        '🍳 Śniadanie bufetowe (07:00-10:30)',
+                        '🏊 Bezpłatny dostęp do basenu i fitness',
+                        '📶 Szybkie WiFi w całym hotelu',
+                        '🧖 SPA i centrum wellness ze zniżką 20%',
+                        '🚕 Transfer z/na lotnisko (płatny - 30€)',
+                        '🛎️ Całodobowa recepcja i obsługa pokojowa',
+                        '🔐 Sejf w pokoju',
+                        '☕ Bar i restauracja na miejscu',
+                        '🧺 Pralnia i czyszczenie chemiczne',
+                        '🎫 Pomoc w rezerwacji wycieczek i biletów'
+                    ],
+                    price: '450 PLN/noc',
+                    bookAction: "bookHotel('hotel_123', '#')"
+                };
+            } else {
+                return {
+                    icon: '🎒',
+                    title: 'Szczegóły Pakietu',
+                    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800',
+                    schedule: {
+                        departure: {
+                            time: '06:30',
+                            city: 'Warszawa',
+                            date: departureTime.toLocaleDateString('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                            airport: 'WAW → BCN',
+                            terminal: 'A'
+                        },
+                        arrival: {
+                            time: '22:45',
+                            city: 'Warszawa',
+                            date: new Date(departureTime.getTime() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString('pl-PL', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+                            airport: 'BCN → WAW',
+                            terminal: '1'
+                        },
+                        duration: '7 dni / 6 nocy',
+                        stops: 'All Inclusive'
+                    },
+                    specs: [
+                        { icon: 'fas fa-plane', label: 'Loty', value: 'W obie strony' },
+                        { icon: 'fas fa-hotel', label: 'Hotel', value: '4★ All Inclusive' },
+                        { icon: 'fas fa-utensils', label: 'Wyżywienie', value: 'All Inclusive' },
+                        { icon: 'fas fa-shuttle-van', label: 'Transfery', value: 'Lotnisko-Hotel' },
+                        { icon: 'fas fa-shield-alt', label: 'Ubezpieczenie', value: 'Pełne KL+NNW' },
+                        { icon: 'fas fa-tags', label: 'Oszczędność', value: '450 PLN' }
+                    ],
+                    includes: [
+                        '✈️ Loty w obie strony z bagażem (23kg)',
+                        '🏨 6 nocy w hotelu 4★ pokój 2-osobowy',
+                        '🍽️ All Inclusive - wszystkie posiłki i napoje',
+                        '🚌 Transfery lotnisko ↔ hotel',
+                        '🛡️ Ubezpieczenie KL i NNW',
+                        '🧳 Bagaż podręczny + walizka 23kg',
+                        '🎫 Opiekun grupy i rezydent',
+                        '📱 Karta SIM z internetem (500MB)',
+                        '🗺️ Przewodnik i mapa miasta',
+                        '💰 Rabat 10% na dodatkowe wycieczki'
+                    ],
+                    price: '2,899 PLN/os',
+                    bookAction: "bookPackage('package_123')"
+                };
+            }
+        }
+
+        function showConfirmation(message, type = 'info') {
+            // Stwórz toast notification
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #00FFFF, #FF1493);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 15px;
+                font-weight: bold;
+                z-index: 10000;
+                box-shadow: 0 10px 40px rgba(0,255,255,0.5);
+                animation: slideIn 0.5s ease;
+            `;
+            toast.innerHTML = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.5s ease';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        function closeDetailsModal() {
+            document.getElementById('detailsModal')?.classList.remove('active');
+        }
+
+        function searchCars() {
+            const pickup = document.getElementById('car-pickup').value;
+            const pickupDate = document.getElementById('car-pickup-date').value;
+            const returnDate = document.getElementById('car-return-date').value;
+            const carType = document.getElementById('car-type').value;
+            const transmission = document.querySelector('input[name="transmission"]:checked').value;
+            const extras = Array.from(document.querySelectorAll('input[name="carExtra"]:checked')).map(cb => cb.value);
+
+            console.log('Szukam samochodów:', {
+                pickup, pickupDate, returnDate, carType,
+                transmission, extras
+            });
+
+            showLoading();
+            
+            setTimeout(() => {
+                generateCarResults(pickup, carType);
+                hideLoading();
+            }, 2000);
+        }
+
+        // Generate results
+        function generateFlightResults(from, to, adults, children) {
+            const flights = [
+                {
+                    id: 1,
+                    airline: 'LOT Polish Airlines',
+                    route: `${from} → ${to}`,
+                    departure: '08:15',
+                    arrival: '11:30',
+                    duration: '3h 15m',
+                    price: 899,
+                    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 2,
+                    airline: 'Ryanair',
+                    route: `${from} → ${to}`,
+                    departure: '06:00',
+                    arrival: '09:20',
+                    duration: '3h 20m',
+                    price: 299,
+                    image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 3,
+                    airline: 'Lufthansa',
+                    route: `${from} → ${to}`,
+                    departure: '14:30',
+                    arrival: '17:45',
+                    duration: '3h 15m',
+                    price: 1199,
+                    image: 'https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                }
+            ];
+
+            displayResults(flights, 'flight');
+        }
+
+        function generateHotelResults(destination, stars) {
+            const hotels = [
+                {
+                    id: 'hotel_1',
+                    name: 'Hotel Barcelona Center',
+                    location: destination || 'Barcelona',
+                    stars: 4,
+                    rating: 4,
+                    price: 320,
+                    currency: 'PLN',
+                    badge: '🔥 Hit cenowy',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400',
+                    amenities: ['WiFi', 'Basen', 'Spa', 'Parking']
+                },
+                {
+                    id: 'hotel_2',
+                    name: 'Catalonia Royal',
+                    location: destination || 'Barcelona',
+                    stars: 5,
+                    rating: 5,
+                    price: 580,
+                    currency: 'PLN',
+                    badge: '⭐ Premium',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400',
+                    amenities: ['WiFi', 'Basen', 'Spa', 'Siłownia', 'Concierge']
+                },
+                {
+                    id: 'hotel_3',
+                    name: 'Mediterranean Palace',
+                    location: destination || 'Barcelona',
+                    stars: 4,
+                    rating: 4,
+                    price: 420,
+                    currency: 'PLN',
+                    badge: '💎 Polecane',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400',
+                    amenities: ['WiFi', 'Śniadanie', 'Parking']
+                },
+                {
+                    id: 'hotel_4',
+                    name: 'Seaside Resort & Spa',
+                    location: destination || 'Barcelona',
+                    stars: 5,
+                    rating: 5,
+                    price: 720,
+                    currency: 'PLN',
+                    badge: '🏖️ Przy plaży',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=400',
+                    amenities: ['WiFi', 'Basen', 'Spa', 'Plaża prywatna', 'All Inclusive']
+                },
+                {
+                    id: 'hotel_5',
+                    name: 'City Boutique Hotel',
+                    location: destination || 'Barcelona',
+                    stars: 4,
+                    rating: 4,
+                    price: 380,
+                    currency: 'PLN',
+                    badge: '🌟 Nowość',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400',
+                    amenities: ['WiFi', 'Śniadanie', 'Taras widokowy', 'Bar']
+                },
+                {
+                    id: 'hotel_6',
+                    name: 'Grand Palace Hotel',
+                    location: destination || 'Barcelona',
+                    stars: 5,
+                    rating: 5,
+                    price: 850,
+                    currency: 'PLN',
+                    badge: '👑 Luksus',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400',
+                    amenities: ['WiFi', 'Basen', 'Spa', 'Restauracja', 'Siłownia', 'Concierge 24/7']
+                }
+            ];
+
+            displayHotelResults(hotels.slice(0, 6), destination, stars);
+        }
+
+        function generatePackageResults(destination, duration) {
+            const packages = [
+                {
+                    id: 1,
+                    name: 'Barcelona City Break',
+                    destination: 'Hiszpania',
+                    duration: duration + ' dni',
+                    price: 2499,
+                    image: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=400',
+                    includes: ['Przelot', 'Hotel 4*', 'Śniadania', 'Transfer']
+                },
+                {
+                    id: 2,
+                    name: 'Hiszpańska Riviera',
+                    destination: 'Costa Brava',
+                    duration: duration + ' dni',
+                    price: 3799,
+                    image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d97d6d?w=400',
+                    includes: ['Przelot', 'Hotel All Inclusive', 'Transfer', 'Animacje']
+                }
+            ];
+
+            displayResults(packages, 'package');
+        }
+
+        function generateCarResults(pickup, type) {
+            const cars = [
+                {
+                    id: 1,
+                    model: 'Volkswagen Golf',
+                    category: 'Kompaktowy',
+                    price: 89,
+                    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400',
+                    specs: ['Automatyczna', '5 miejsc', 'Klimatyzacja', 'GPS']
+                },
+                {
+                    id: 2,
+                    model: 'BMW 3 Series',
+                    category: 'Luksusowy',
+                    price: 189,
+                    image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400',
+                    specs: ['Automatyczna', '5 miejsc', 'Skóra', 'Premium Audio']
+                }
+            ];
+
+            displayResults(cars, 'car');
+        }
+
+        // Display results
+        function displayResults(data, type) {
+            const resultsSection = document.getElementById('results');
+            const resultsGrid = document.getElementById('results-grid');
+            const resultsCount = document.getElementById('results-count');
+
+            resultsSection.style.display = 'block';
+            resultsCount.textContent = `Znaleziono ${data.length} ofert`;
+            resultsGrid.innerHTML = '';
+
+            data.forEach(item => {
+                const card = createResultCard(item, type);
+                resultsGrid.appendChild(card);
+            });
+
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Create result card
+        function createResultCard(item, type) {
+            const card = document.createElement('div');
+            card.className = 'result-card';
+            
+            let details = '';
+            if (type === 'flight') {
+                details = `
+                    <div class="detail-item">
+                        <i class="fas fa-plane-departure detail-icon"></i>
+                        <span>${item.departure} - ${item.arrival} (${item.duration})</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-exchange-alt detail-icon"></i>
+                        <span>${item.stops}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-suitcase detail-icon"></i>
+                        <span>${getBaggageLabel(item.baggage)}</span>
+                    </div>
+                `;
+            } else if (type === 'hotel') {
+                details = `
+                    <div class="detail-item">
+                        <i class="fas fa-star detail-icon"></i>
+                        <span>${'★'.repeat(item.stars)} ${item.rating}/5</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt detail-icon"></i>
+                        <span>${item.location}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-check detail-icon"></i>
+                        <span>${item.amenities.join(', ')}</span>
+                    </div>
+                `;
+            } else if (type === 'package') {
+                details = `
+                    <div class="detail-item">
+                        <i class="fas fa-clock detail-icon"></i>
+                        <span>${item.duration}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt detail-icon"></i>
+                        <span>${item.destination}</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-check detail-icon"></i>
+                        <span>${item.includes.join(', ')}</span>
+                    </div>
+                `;
+            } else if (type === 'car') {
+                details = `
+                    <div class="detail-item">
+                        <i class="fas fa-car detail-icon"></i>
+                        <span>${item.category}</span>
+                    </div>
+                    ${item.specs.map(spec => `
+                        <div class="detail-item">
+                            <i class="fas fa-check detail-icon"></i>
+                            <span>${spec}</span>
+                        </div>
+                    `).join('')}
+                `;
+            }
+
+            card.innerHTML = `
+                <img src="${item.image}" alt="${item.name || item.airline || item.model}" class="result-image">
+                <div class="result-content">
+                    <h3 class="result-title">${item.name || item.airline || item.model}</h3>
+                    <div class="result-details">
+                        ${details}
+                    </div>
+                    <div class="result-price">
+                        <div>
+                            <div class="price-amount">${item.price} zł</div>
+                            <div class="price-label">${type === 'car' ? 'za dzień' : 'za osobę'}</div>
+                        </div>
+                        <button class="view-details-btn" onclick="showDetails(${item.id}, '${type}')">
+                            <i class="fas fa-info-circle"></i> Szczegóły
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // Helper functions
+        function getBaggageLabel(type) {
+            const labels = {
+                'hand': 'Tylko podręczny',
+                'checked': 'Z bagażem',
+                'premium': 'Premium'
+            };
+            return labels[type] || type;
+        }
+
+        function showLoading() {
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('results').style.display = 'none';
+        }
+
+        function hideLoading() {
+            document.getElementById('loading').classList.remove('active');
+        }
+
+        function showDetails(id, type) {
+            document.getElementById('details-modal').classList.add('active');
+            document.getElementById('modal-body').innerHTML = `
+                <h2>Szczegóły oferty #${id}</h2>
+                <p>Pełne informacje o ${type}...</p>
+                <p>Tutaj będą szczegółowe informacje z API</p>
+            `;
+        }
+
+        function closeModal() {
+            document.getElementById('details-modal').classList.remove('active');
+        }
+
+        // Initialize
+        initDates();
+        
+        // Load AdSense
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</body>
+</html>
