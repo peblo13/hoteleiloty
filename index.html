@@ -490,6 +490,53 @@
             display: block;
         }
 
+        /* Trip Type Selector */
+        .trip-type-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .trip-type-btn {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .trip-type-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 20, 147, 0.4);
+            color: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .trip-type-btn.active {
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .trip-type-btn i {
+            font-size: 1.2rem;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -2564,6 +2611,16 @@
 
             <!-- Flights Tab -->
             <div id="flights-tab" class="tab-content active">
+                <!-- Trip Type Selection -->
+                <div class="trip-type-selector">
+                    <button class="trip-type-btn active" onclick="selectTripType('roundtrip')" id="roundtrip-btn">
+                        <i class="fas fa-exchange-alt"></i> W obie strony
+                    </button>
+                    <button class="trip-type-btn" onclick="selectTripType('oneway')" id="oneway-btn">
+                        <i class="fas fa-arrow-right"></i> W jedną stronę
+                    </button>
+                </div>
+
                 <div class="form-grid">
                     <div class="form-group">
                         <label><i class="fas fa-plane-departure"></i> Skąd</label>
@@ -2577,7 +2634,7 @@
                         <label><i class="fas fa-calendar"></i> Data wylotu</label>
                         <input type="date" id="flight-departure">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="return-date-group">
                         <label><i class="fas fa-calendar"></i> Data powrotu</label>
                         <input type="date" id="flight-return">
                     </div>
@@ -3212,6 +3269,31 @@
             document.getElementById(tab + '-tab').classList.add('active');
         }
 
+        // Trip type selection (one-way / round-trip)
+        let tripType = 'roundtrip'; // default
+        function selectTripType(type) {
+            tripType = type;
+            
+            // Update buttons
+            document.querySelectorAll('.trip-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(type + '-btn').classList.add('active');
+            
+            // Show/hide return date
+            const returnDateGroup = document.getElementById('return-date-group');
+            const returnDateInput = document.getElementById('flight-return');
+            
+            if (type === 'oneway') {
+                returnDateGroup.style.display = 'none';
+                returnDateInput.value = ''; // Clear return date
+                returnDateInput.removeAttribute('required');
+            } else {
+                returnDateGroup.style.display = 'flex';
+                returnDateInput.setAttribute('required', 'required');
+            }
+        }
+
         // Counter functions
         function changeCount(type, delta) {
             const element = document.getElementById(type + '-count');
@@ -3251,18 +3333,17 @@
             const from = document.getElementById('flight-from').value;
             const to = document.getElementById('flight-to').value;
             const departure = document.getElementById('flight-departure').value;
-            const returnDate = document.getElementById('flight-return').value;
+            const returnDate = tripType === 'roundtrip' ? document.getElementById('flight-return').value : null;
             const adults = document.getElementById('adults-count').textContent;
             const children = document.getElementById('children-count').textContent;
             const infants = document.getElementById('infants-count').textContent;
-            const flightType = document.querySelector('input[name="flightType"]:checked').value;
 
             console.log('Szukam lotów:', {
                 from, to, departure, returnDate,
+                tripType: tripType,
                 passengers: { adults, children, infants },
                 class: selectedClass,
-                baggage: selectedBaggage,
-                flightType
+                baggage: selectedBaggage
             });
 
             showLoading();
@@ -4103,6 +4184,9 @@
 
         // Generate results
         function generateFlightResults(from, to, adults, children) {
+            // Adjust prices based on trip type
+            const priceMultiplier = tripType === 'roundtrip' ? 1 : 0.6; // One-way is ~60% of round-trip price
+            
             const flights = [
                 {
                     id: 1,
@@ -4111,10 +4195,11 @@
                     departure: '08:15',
                     arrival: '11:30',
                     duration: '3h 15m',
-                    price: 899,
+                    price: Math.round(899 * priceMultiplier),
                     image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400',
                     stops: 'Bezpośredni',
-                    baggage: selectedBaggage
+                    baggage: selectedBaggage,
+                    tripType: tripType
                 },
                 {
                     id: 2,
@@ -4123,10 +4208,11 @@
                     departure: '06:00',
                     arrival: '09:20',
                     duration: '3h 20m',
-                    price: 299,
+                    price: Math.round(299 * priceMultiplier),
                     image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400',
                     stops: 'Bezpośredni',
-                    baggage: selectedBaggage
+                    baggage: selectedBaggage,
+                    tripType: tripType
                 },
                 {
                     id: 3,
@@ -4135,10 +4221,11 @@
                     departure: '14:30',
                     arrival: '17:45',
                     duration: '3h 15m',
-                    price: 1199,
+                    price: Math.round(1199 * priceMultiplier),
                     image: 'https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=400',
                     stops: 'Bezpośredni',
-                    baggage: selectedBaggage
+                    baggage: selectedBaggage,
+                    tripType: tripType
                 },
                 {
                     id: 4,
@@ -4147,7 +4234,7 @@
                     departure: '12:45',
                     arrival: '16:10',
                     duration: '3h 25m',
-                    price: 249,
+                    price: Math.round(249 * priceMultiplier),
                     image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400',
                     stops: 'Bezpośredni',
                     baggage: selectedBaggage
