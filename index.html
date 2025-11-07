@@ -187,12 +187,82 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--dark-bg);
+            background: #0a0e27;
             color: white;
             min-height: 100vh;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        /* Ultra Advanced Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at center, #0a0e27 0%, #050815 100%);
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(255, 20, 147, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(0, 255, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 45% 85%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 75% 15%, rgba(255, 105, 180, 0.1) 0%, transparent 60%),
+                radial-gradient(circle at 25% 65%, rgba(0, 191, 255, 0.05) 0%, transparent 60%);
+            animation: aurora 25s ease-in-out infinite;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: 
+                conic-gradient(from 0deg at 30% 40%, rgba(255, 20, 147, 0.1), transparent, rgba(0, 255, 255, 0.08), transparent, rgba(255, 215, 0, 0.06)),
+                conic-gradient(from 180deg at 70% 60%, rgba(255, 105, 180, 0.08), transparent, rgba(0, 191, 255, 0.05), transparent);
+            animation: aurora-reverse 30s ease-in-out infinite reverse;
+        }
+
+        @keyframes aurora {
+            0%, 100% { 
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                opacity: 0.8;
+            }
+            25% { 
+                transform: translate(-40%, -60%) rotate(90deg) scale(1.1);
+                opacity: 1;
+            }
+            50% { 
+                transform: translate(-60%, -40%) rotate(180deg) scale(0.9);
+                opacity: 0.9;
+            }
+            75% { 
+                transform: translate(-45%, -55%) rotate(270deg) scale(1.05);
+                opacity: 0.95;
+            }
+        }
+
+        @keyframes aurora-reverse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
+            }
+            50% { 
+                transform: translate(-55%, -45%) rotate(180deg) scale(0.8);
+            }
         }
 
         html {
@@ -208,41 +278,6 @@
 
         input, select, textarea {
             font-size: 16px !important; /* Prevent zoom on iOS */
-        }
-
-        /* Animated background */
-        .cosmic-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1628 100%);
-        }
-
-        .cosmic-bg::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                transparent,
-                rgba(255, 20, 147, 0.05),
-                transparent,
-                rgba(0, 255, 255, 0.05),
-                transparent,
-                rgba(255, 215, 0, 0.05),
-                transparent
-            );
-            animation: rotate 30s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
 
         /* Header */
@@ -2464,7 +2499,8 @@
     <script src="travel-api.js"></script>
 </head>
 <body>
-    <div class="cosmic-bg"></div>
+    <!-- Ultra Advanced Animated Background -->
+    <div class="animated-bg"></div>
 
     <!-- Header -->
     <header>
