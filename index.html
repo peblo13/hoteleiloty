@@ -292,6 +292,250 @@
             }
         }
 
+        /* Newsletter Popup */
+        .newsletter-popup {
+            position: fixed;
+            bottom: -500px;
+            right: 30px;
+            width: 400px;
+            max-width: 90%;
+            background: linear-gradient(145deg, rgba(26, 29, 58, 0.98), rgba(45, 53, 97, 0.98));
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 20, 147, 0.3);
+            z-index: 9999;
+            transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+        }
+
+        .newsletter-popup.show {
+            bottom: 30px;
+        }
+
+        .newsletter-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .newsletter-close:hover {
+            background: rgba(255, 20, 147, 0.2);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .newsletter-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .newsletter-text {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid rgba(255, 20, 147, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #FF1493;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Insurance Checkbox */
+        .insurance-addon {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .insurance-addon:hover {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.15));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .insurance-checkbox {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .insurance-content {
+            flex: 1;
+        }
+
+        .insurance-title {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .insurance-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .insurance-price {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Credit Card Banner */
+        .credit-card-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: white;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .card-btn {
+            padding: 0.8rem 1.5rem;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .card-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Push Notification Permission */
+        .push-permission {
+            background: linear-gradient(135deg, rgba(0, 191, 255, 0.1), rgba(0, 123, 255, 0.1));
+            border: 2px solid rgba(0, 191, 255, 0.3);
+            border-radius: 15px;
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .push-icon {
+            font-size: 2rem;
+        }
+
+        .push-content {
+            flex: 1;
+        }
+
+        .push-title {
+            color: #00BFFF;
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .push-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+
+        .push-btn {
+            padding: 0.7rem 1.2rem;
+            background: linear-gradient(135deg, #00BFFF, #0080FF);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .push-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 191, 255, 0.3);
+        }
+
         html {
             scroll-behavior: smooth;
             -webkit-tap-highlight-color: transparent;
@@ -1064,6 +1308,7 @@
             margin-bottom: 1rem;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -1300,6 +1545,13 @@
             grid-template-columns: 2fr 1fr;
             gap: 12px;
             margin-top: 1.5rem;
+            align-items: center;
+        }
+
+        /* Jeśli są 2 przyciski, używaj równych kolumn */
+        .result-actions:has(.action-btn.primary) {
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
 
         .action-btn {
@@ -1359,6 +1611,36 @@
 
         .action-btn i {
             margin-right: 8px;
+        }
+
+        /* View Details Button */
+        .view-details-btn {
+            padding: 12px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .view-details-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(0, 255, 255, 0.8);
+            color: #00ffff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.2);
+        }
+
+        .view-details-btn i {
+            font-size: 16px;
         }
 
         /* Loading */
@@ -2607,6 +2889,9 @@
                 <button class="tab-btn" onclick="switchTab('cars')">
                     <i class="fas fa-car"></i> Wynajm Aut
                 </button>
+                <button class="tab-btn" onclick="switchTab('tours')">
+                    <i class="fas fa-map-marked-alt"></i> Wycieczki
+                </button>
             </div>
 
             <!-- Flights Tab -->
@@ -3167,6 +3452,84 @@
                     <i class="fas fa-search"></i> Szukaj Samochodów
                 </button>
             </div>
+
+            <!-- Tours Tab -->
+            <div id="tours-tab" class="tab-content">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Dokąd</label>
+                        <input type="text" id="tour-destination" placeholder="np. Barcelona, Paryż, Rzym">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar-alt"></i> Data</label>
+                        <input type="date" id="tour-date">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-list"></i> Rodzaj wycieczki</label>
+                    <select id="tour-type">
+                        <option value="">Wszystkie</option>
+                        <option value="city">Zwiedzanie miasta</option>
+                        <option value="museum">Muzea i kultura</option>
+                        <option value="food">Kulinarne</option>
+                        <option value="adventure">Przygodowe</option>
+                        <option value="nature">Natura i krajobraz</option>
+                        <option value="water">Sport wodny</option>
+                        <option value="nightlife">Życie nocne</option>
+                    </select>
+                </div>
+
+                <button class="search-btn" onclick="searchTours()">
+                    <i class="fas fa-search"></i> Szukaj Wycieczek
+                </button>
+
+                <!-- Sample Tours (GetYourGuide affiliate) -->
+                <div class="tours-sample" style="margin-top: 2rem;">
+                    <h3 style="color: white; margin-bottom: 1rem;">Popularne wycieczki</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                        <!-- Tour 1 -->
+                        <div class="tour-card">
+                            <div style="background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(0,255,255,0.2)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255,20,147,0.3);">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏰</div>
+                                <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Barcelona City Tour</h4>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem;">Sagrada Familia, Park Güell, Las Ramblas</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: #00FFFF; font-weight: bold; font-size: 1.3rem;">150 zł</span>
+                                    <a href="https://www.getyourguide.pl/?partner_id=YOUR_ID" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour 2 -->
+                        <div class="tour-card">
+                            <div style="background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(0,255,255,0.2)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255,20,147,0.3);">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🗼</div>
+                                <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Paryż: Wieża Eiffla</h4>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem;">Bez kolejki + przewodnik</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: #00FFFF; font-weight: bold; font-size: 1.3rem;">120 zł</span>
+                                    <a href="https://www.getyourguide.pl/?partner_id=YOUR_ID" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tour 3 -->
+                        <div class="tour-card">
+                            <div style="background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(0,255,255,0.2)); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(255,20,147,0.3);">
+                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏛️</div>
+                                <h4 style="color: #FFD700; margin-bottom: 0.5rem;">Rzym: Koloseum & Forum</h4>
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem;">Express wejście + archeolog</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: #00FFFF; font-weight: bold; font-size: 1.3rem;">180 zł</span>
+                                    <a href="https://www.getyourguide.pl/?partner_id=YOUR_ID" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 1rem; text-align: center;">
+                        🔗 Współpraca z GetYourGuide - Rezerwuj wycieczki z najlepszymi przewodnikami
+                    </p>
+                </div>
+            </div>
         </div>
 
         <!-- Ad Space -->
@@ -3204,6 +3567,26 @@
                 <p id="results-count"></p>
             </div>
             <div class="results-grid" id="results-grid"></div>
+
+            <!-- Native Ads Placeholder (Taboola/Outbrain) -->
+            <div style="background: linear-gradient(135deg, rgba(138,43,226,0.1), rgba(75,0,130,0.1)); border: 2px dashed rgba(138,43,226,0.3); border-radius: 15px; padding: 2rem; margin: 2rem 0; text-align: center;">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">📰</div>
+                <h3 style="color: #9370DB; margin-bottom: 0.5rem;">Native Ads (Taboola/Outbrain)</h3>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 1rem;">
+                    Tutaj pojawią się sponsorowane artykuły i rekomendacje
+                </p>
+                <div style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 10px; font-family: monospace; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+                    <!-- INSTRUKCJA INTEGRACJI TABOOLA --><br>
+                    1. Zarejestruj się: <a href="https://www.taboola.com/publishers" target="_blank" style="color: #9370DB;">taboola.com/publishers</a><br>
+                    2. Lub Outbrain: <a href="https://www.outbrain.com/publishers" target="_blank" style="color: #9370DB;">outbrain.com/publishers</a><br>
+                    3. Minimalne wymagania: 500K+ odsłon/miesiąc<br>
+                    4. CPM: 5-15 zł (zależy od ruchu)<br>
+                    5. Wklej kod widgetu tutaj po akceptacji<br><br>
+                    <!-- DIV dla Taboola --><br>
+                    &lt;div id="taboola-below-article"&gt;&lt;/div&gt;<br>
+                    &lt;script&gt;...Taboola code...&lt;/script&gt;
+                </div>
+            </div>
         </div>
 
         <!-- Ad Space -->
@@ -3538,10 +3921,35 @@
                     </div>
                 `).join('')}
             </div>
+
+            <!-- Insurance Addon -->
+            <div class="insurance-addon" onclick="document.getElementById('insurance-checkbox').checked = !document.getElementById('insurance-checkbox').checked; updateInsuranceTotal();">
+                <input type="checkbox" id="insurance-checkbox" class="insurance-checkbox" onclick="event.stopPropagation(); updateInsuranceTotal();">
+                <div class="insurance-content">
+                    <div class="insurance-title">🛡️ Ubezpieczenie podróżne ERV</div>
+                    <div class="insurance-desc">Ochrona bagażu, leczenie, rezygnacja z podróży - pełny pakiet</div>
+                </div>
+                <div class="insurance-price">+29 zł</div>
+            </div>
+
+            <div id="insurance-info" style="background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); border-radius: 10px; padding: 1rem; margin-top: 1rem; display: none;">
+                <p style="color: #FFD700; margin: 0;">✅ Dodano ubezpieczenie ERV (+29 zł). <a href="https://www.erv.pl/?ref=YOUR_ID" target="_blank" style="color: #00FFFF;">Sprawdź szczegóły</a></p>
+            </div>
         `;
 
         document.getElementById('results').innerHTML = resultsHTML;
         document.getElementById('results').style.display = 'block';
+    }
+
+    function updateInsuranceTotal() {
+        const checkbox = document.getElementById('insurance-checkbox');
+        const info = document.getElementById('insurance-info');
+        
+        if (checkbox && checkbox.checked) {
+            if (info) info.style.display = 'block';
+        } else {
+            if (info) info.style.display = 'none';
+        }
     }
 
     function displayHotelResults(hotels, destination, stars) {
@@ -3794,34 +4202,37 @@
 
         function bookCar(carId) {
             console.log('Rezerwacja samochodu:', carId);
-            
+
             if (typeof gtag !== 'undefined') {
                 gtag('event', 'book_car', {
                     'car_id': carId,
                     'value': 1
                 });
             }
-            
+
+            // Pobierz parametry wyszukiwania
+            const pickup = document.getElementById('car-pickup')?.value || 'Barcelona Lotnisko';
+            const pickupDate = document.getElementById('car-pickup-date')?.value || '';
+            const returnDate = document.getElementById('car-return-date')?.value || '';
+
             // WYNAJEM SAMOCHODÓW - Rentalcars, Discover Cars
             const affiliateLinks = {
                 // Rentalcars.com (Booking.com) - prowizja 30-40%
-                rentalcars: `https://www.rentalcars.com/?affiliateCode=d43cf7938d646daf561330a29987f2bd&adplat=web`,
+                rentalcars: `https://www.rentalcars.com/?affiliateCode=d43cf7938d646daf561330a29987f2bd&adplat=web&pickuplocation=${encodeURIComponent(pickup)}&pickupdate=${pickupDate}&dropoffdate=${returnDate}`,
                 
                 // Discover Cars - prowizja do 50%!
-                discovercars: `https://www.discovercars.com/?a_aid=d43cf7938d646daf561330a29987f2bd`,
+                discovercars: `https://www.discovercars.com/?a_aid=d43cf7938d646daf561330a29987f2bd&pickup=${encodeURIComponent(pickup)}&pickupdate=${pickupDate}&dropoffdate=${returnDate}`,
                 
                 // EconomyCarRentals
-                economy: `https://www.economycarrentals.com/?affid=d43cf7938d646daf561330a29987f2bd`,
+                economy: `https://www.economycarrentals.com/?affid=d43cf7938d646daf561330a29987f2bd&location=${encodeURIComponent(pickup)}&pickup=${pickupDate}&dropoff=${returnDate}`,
                 
                 // Kayak Cars
-                kayak: `https://www.kayak.pl/cars?a=d43cf7938d646daf561330a29987f2bd`
+                kayak: `https://www.kayak.pl/cars?a=d43cf7938d646daf561330a29987f2bd&pickup=${encodeURIComponent(pickup)}&pickupdate=${pickupDate}&dropoffdate=${returnDate}`
             };
-            
+
             window.open(affiliateLinks.discovercars, '_blank');
             showConfirmation('🚗 Przekierowujemy do wynajmu samochodu! (prowizja 30-50%)', 'success');
-        }
-
-        function showBookingModal(type, itemId) {
+        }        function showBookingModal(type, itemId) {
             const modal = document.getElementById('details-modal');
             const modalBody = document.getElementById('modal-body');
             
@@ -4856,9 +5267,16 @@
                             <div class="price-amount">${item.price} zł</div>
                             <div class="price-label">${type === 'car' ? 'za dzień' : 'za osobę'}</div>
                         </div>
-                        <button class="view-details-btn" onclick="showDetails(${item.id}, '${type}')">
-                            <i class="fas fa-info-circle"></i> Szczegóły
-                        </button>
+                        <div class="result-actions">
+                            ${type === 'car' ? 
+                                `<button class="action-btn primary" onclick="bookCar(${item.id})">
+                                    <i class="fas fa-car"></i> Wybierz
+                                </button>` : ''
+                            }
+                            <button class="view-details-btn" onclick="showDetails(${item.id}, '${type}')">
+                                <i class="fas fa-info-circle"></i> Szczegóły
+                            </button>
+                        </div>
                     </div>
                 </div>
             `;
@@ -4944,6 +5362,121 @@
 
         // Create particles when page loads
         window.addEventListener('load', createParticles);
+
+        // Newsletter Popup Logic
+        function showNewsletterPopup() {
+            const popup = document.getElementById('newsletter-popup');
+            const hasSeenNewsletter = localStorage.getItem('newsletterSeen');
+            
+            if (!hasSeenNewsletter) {
+                setTimeout(() => {
+                    popup.classList.add('show');
+                }, 5000); // Show after 5 seconds
+            }
+        }
+
+        function closeNewsletterPopup() {
+            const popup = document.getElementById('newsletter-popup');
+            popup.classList.remove('show');
+            localStorage.setItem('newsletterSeen', 'true');
+        }
+
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-email').value;
+            if (email && email.includes('@')) {
+                alert('✅ Dziękujemy! Zapisaliśmy Cię do newslettera: ' + email);
+                closeNewsletterPopup();
+                // TODO: Send email to your backend/mailchimp
+            } else {
+                alert('❌ Podaj prawidłowy adres email');
+            }
+        }
+
+        // Push Notification Permission
+        function requestPushPermission() {
+            if ('Notification' in window) {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        alert('🔔 Powiadomienia włączone! Będziemy informować o najlepszych ofertach.');
+                        document.querySelector('.push-permission').style.display = 'none';
+                        // TODO: Integrate OneSignal here
+                    }
+                });
+            } else {
+                alert('❌ Twoja przeglądarka nie obsługuje powiadomień push');
+            }
+        }
+
+        // Tours Search Function
+        function searchTours() {
+            const destination = document.getElementById('tour-destination').value;
+            const date = document.getElementById('tour-date').value;
+            const type = document.getElementById('tour-type').value;
+            
+            alert(`🔍 Szukamy wycieczek:\n📍 ${destination || 'dowolne'}\n📅 ${date || 'dowolna data'}\n🎯 ${type || 'wszystkie rodzaje'}`);
+            // TODO: Integrate GetYourGuide API
+        }
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            showNewsletterPopup();
+        });
+    </script>
+
+    <!-- Newsletter Popup -->
+    <div id="newsletter-popup" class="newsletter-popup">
+        <button class="newsletter-close" onclick="closeNewsletterPopup()">×</button>
+        <div class="newsletter-icon">✉️</div>
+        <div class="newsletter-title">Otrzymuj najlepsze oferty!</div>
+        <div class="newsletter-text">Zapisz się do newslettera i oszczędzaj nawet 40% na podróżach ✈️</div>
+        <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Twój adres email">
+        <button class="newsletter-btn" onclick="subscribeNewsletter()">
+            📩 Zapisz się za darmo
+        </button>
+    </div>
+
+    <!-- Credit Card Banner -->
+    <div class="credit-card-banner" style="position: fixed; bottom: 100px; left: 20px; right: 20px; max-width: 600px; margin: 0 auto; z-index: 8888; display: none;" id="card-banner">
+        <div class="card-icon">💳</div>
+        <div class="card-content">
+            <div class="card-title">Płać za granicą BEZ PROWIZJI</div>
+            <div class="card-desc">Revolut & Curve - idealne karty dla podróżników</div>
+        </div>
+        <button class="card-btn" onclick="window.open('https://revolut.com/referral/?referral_code=YOUR_CODE', '_blank')">
+            Sprawdź →
+        </button>
+        <button class="newsletter-close" onclick="document.getElementById('card-banner').style.display='none'" style="top: 10px; right: 10px;">×</button>
+    </div>
+
+    <!-- Push Notification Permission -->
+    <div class="push-permission" style="position: fixed; top: 80px; left: 50%; transform: translateX(-50%); max-width: 500px; z-index: 8888; display: none;" id="push-permission">
+        <div class="push-icon">🔔</div>
+        <div class="push-content">
+            <div class="push-title">Włącz powiadomienia o promocjach</div>
+            <div class="push-desc">Dostaniesz alert gdy cena spadnie o 30%+</div>
+        </div>
+        <button class="push-btn" onclick="requestPushPermission()">Włącz</button>
+        <button class="newsletter-close" onclick="document.getElementById('push-permission').style.display='none'" style="top: 10px; right: 10px;">×</button>
+    </div>
+
+    <script>
+        // Show card banner after 10 seconds
+        setTimeout(() => {
+            const cardBanner = document.getElementById('card-banner');
+            if (!localStorage.getItem('cardBannerSeen')) {
+                cardBanner.style.display = 'flex';
+                localStorage.setItem('cardBannerSeen', 'true');
+            }
+        }, 10000);
+
+        // Show push permission after 15 seconds
+        setTimeout(() => {
+            const pushPerm = document.getElementById('push-permission');
+            if (!localStorage.getItem('pushPermissionAsked') && 'Notification' in window) {
+                pushPerm.style.display = 'flex';
+                localStorage.setItem('pushPermissionAsked', 'true');
+            }
+        }, 15000);
     </script>
 </body>
 </html>
