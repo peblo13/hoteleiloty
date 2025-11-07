@@ -1,0 +1,28 @@
+# robots.txt dla HoteleILoty.pl
+# Pozwala wszystkim robotom indeksować całą stronę
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hoteleiloty.pl/sitemap.xml
+
+# Najważniejsze strony dla botów
+Crawl-delay: 1
+
+# Blokada wrażliwych plików (opcjonalnie)
+Disallow: /test-buttons.html
+Disallow: /*.md$
+
+# Specjalne instrukcje dla Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
