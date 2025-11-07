@@ -4120,6 +4120,114 @@
                     image: 'https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=400',
                     stops: 'Bezpośredni',
                     baggage: selectedBaggage
+                },
+                {
+                    id: 4,
+                    airline: 'Wizz Air',
+                    route: `${from} → ${to}`,
+                    departure: '12:45',
+                    arrival: '16:10',
+                    duration: '3h 25m',
+                    price: 249,
+                    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 5,
+                    airline: 'British Airways',
+                    route: `${from} → ${to}`,
+                    departure: '10:20',
+                    arrival: '13:35',
+                    duration: '3h 15m',
+                    price: 1099,
+                    image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 6,
+                    airline: 'KLM',
+                    route: `${from} → ${to}`,
+                    departure: '07:30',
+                    arrival: '12:50',
+                    duration: '5h 20m',
+                    price: 799,
+                    image: 'https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=400',
+                    stops: '1 przystanek',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 7,
+                    airline: 'Air France',
+                    route: `${from} → ${to}`,
+                    departure: '16:00',
+                    arrival: '19:15',
+                    duration: '3h 15m',
+                    price: 1299,
+                    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 8,
+                    airline: 'easyJet',
+                    route: `${from} → ${to}`,
+                    departure: '05:30',
+                    arrival: '08:45',
+                    duration: '3h 15m',
+                    price: 319,
+                    image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 9,
+                    airline: 'Turkish Airlines',
+                    route: `${from} → ${to}`,
+                    departure: '09:15',
+                    arrival: '15:30',
+                    duration: '6h 15m',
+                    price: 699,
+                    image: 'https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=400',
+                    stops: '1 przystanek',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 10,
+                    airline: 'Swiss Air',
+                    route: `${from} → ${to}`,
+                    departure: '11:30',
+                    arrival: '14:45',
+                    duration: '3h 15m',
+                    price: 1399,
+                    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 11,
+                    airline: 'Norwegian',
+                    route: `${from} → ${to}`,
+                    departure: '13:00',
+                    arrival: '16:20',
+                    duration: '3h 20m',
+                    price: 379,
+                    image: 'https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
+                },
+                {
+                    id: 12,
+                    airline: 'Iberia',
+                    route: `${from} → ${to}`,
+                    departure: '17:45',
+                    arrival: '21:00',
+                    duration: '3h 15m',
+                    price: 949,
+                    image: 'https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=400',
+                    stops: 'Bezpośredni',
+                    baggage: selectedBaggage
                 }
             ];
 
@@ -4205,10 +4313,127 @@
                     bookingUrl: 'https://booking.com',
                     image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=400',
                     amenities: ['WiFi', 'Basen', 'Spa', 'Restauracja', 'Siłownia', 'Concierge 24/7']
+                },
+                {
+                    id: 'hotel_7',
+                    name: 'Beach Paradise Resort',
+                    location: destination || 'Barcelona',
+                    stars: 5,
+                    rating: 5,
+                    price: 920,
+                    currency: 'PLN',
+                    badge: '🏝️ Ekskluzywne',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400',
+                    amenities: ['WiFi', 'Basen', 'Spa', 'Plaża', 'Joga', 'All Inclusive']
+                },
+                {
+                    id: 'hotel_8',
+                    name: 'Downtown Express Hotel',
+                    location: destination || 'Barcelona',
+                    stars: 3,
+                    rating: 4,
+                    price: 250,
+                    currency: 'PLN',
+                    badge: '💰 Okazja',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=400',
+                    amenities: ['WiFi', 'Śniadanie', 'Parking']
+                },
+                {
+                    id: 'hotel_9',
+                    name: 'Royal Garden Suites',
+                    location: destination || 'Barcelona',
+                    stars: 5,
+                    rating: 5,
+                    price: 1100,
+                    currency: 'PLN',
+                    badge: '🌺 Ultra Luksus',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400',
+                    amenities: ['WiFi', 'Basen infinity', 'Spa premium', 'Butler', 'Helikopterem']
+                },
+                {
+                    id: 'hotel_10',
+                    name: 'Urban Chic Hotel',
+                    location: destination || 'Barcelona',
+                    stars: 4,
+                    rating: 4,
+                    price: 390,
+                    currency: 'PLN',
+                    badge: '🎨 Design',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400',
+                    amenities: ['WiFi', 'Śniadanie', 'Rooftop bar', 'Galeria sztuki']
+                },
+                {
+                    id: 'hotel_11',
+                    name: 'Family Friendly Resort',
+                    location: destination || 'Barcelona',
+                    stars: 4,
+                    rating: 5,
+                    price: 520,
+                    currency: 'PLN',
+                    badge: '👨‍👩‍👧‍👦 Dla rodzin',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=400',
+                    amenities: ['WiFi', 'Basen dziecięcy', 'Klub dziecięcy', 'All Inclusive']
+                },
+                {
+                    id: 'hotel_12',
+                    name: 'Eco Green Lodge',
+                    location: destination || 'Barcelona',
+                    stars: 4,
+                    rating: 4,
+                    price: 440,
+                    currency: 'PLN',
+                    badge: '🌿 Eko',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=400',
+                    amenities: ['WiFi', 'Organiczne śniadanie', 'Yoga', 'Ogród botaniczny']
+                },
+                {
+                    id: 'hotel_13',
+                    name: 'Business Tower Hotel',
+                    location: destination || 'Barcelona',
+                    stars: 4,
+                    rating: 4,
+                    price: 480,
+                    currency: 'PLN',
+                    badge: '💼 Biznes',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=400',
+                    amenities: ['WiFi', 'Sala konferencyjna', 'Parking', 'Centrum biznesowe']
+                },
+                {
+                    id: 'hotel_14',
+                    name: 'Historic Palace',
+                    location: destination || 'Barcelona',
+                    stars: 5,
+                    rating: 5,
+                    price: 1250,
+                    currency: 'PLN',
+                    badge: '🏰 Historyczny',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1549294413-26f195200c16?w=400',
+                    amenities: ['WiFi', 'Spa', 'Restauracja Michelin', 'Concierge', 'Muzeum']
+                },
+                {
+                    id: 'hotel_15',
+                    name: 'Budget Smart Inn',
+                    location: destination || 'Barcelona',
+                    stars: 3,
+                    rating: 4,
+                    price: 180,
+                    currency: 'PLN',
+                    badge: '🎯 Najlepsza cena',
+                    bookingUrl: 'https://booking.com',
+                    image: 'https://images.unsplash.com/photo-1563911892437-1feda0179e1b?w=400',
+                    amenities: ['WiFi', 'Śniadanie w cenie', 'Recepcja 24h']
                 }
             ];
 
-            displayHotelResults(hotels.slice(0, 6), destination, stars);
+            displayHotelResults(hotels.slice(0, 15), destination, stars);
         }
 
         function generatePackageResults(destination, duration) {
@@ -4230,6 +4455,96 @@
                     price: 3799,
                     image: 'https://images.unsplash.com/photo-1539650116574-75c0c6d97d6d?w=400',
                     includes: ['Przelot', 'Hotel All Inclusive', 'Transfer', 'Animacje']
+                },
+                {
+                    id: 3,
+                    name: 'Greckie Wyspy - Santorini',
+                    destination: 'Grecja',
+                    duration: duration + ' dni',
+                    price: 4299,
+                    image: 'https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400',
+                    includes: ['Przelot', 'Hotel 5* z widokiem', 'Śniadania', 'Wycieczka po wyspie']
+                },
+                {
+                    id: 4,
+                    name: 'Turcja All Inclusive',
+                    destination: 'Antalya',
+                    duration: duration + ' dni',
+                    price: 2899,
+                    image: 'https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=400',
+                    includes: ['Przelot', 'Hotel 5* All Inclusive', 'Transfer', 'Animacje', 'Aquapark']
+                },
+                {
+                    id: 5,
+                    name: 'Włochy - Toskania',
+                    destination: 'Włochy',
+                    duration: duration + ' dni',
+                    price: 3999,
+                    image: 'https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=400',
+                    includes: ['Przelot', 'Willa z basenem', 'Wynajem auta', 'Degustacja win']
+                },
+                {
+                    id: 6,
+                    name: 'Egipt - Morze Czerwone',
+                    destination: 'Hurghada',
+                    duration: duration + ' dni',
+                    price: 3299,
+                    image: 'https://images.unsplash.com/photo-1568322445389-f64ac2515020?w=400',
+                    includes: ['Przelot', 'Resort All Inclusive', 'Nurkowanie', 'Wycieczki']
+                },
+                {
+                    id: 7,
+                    name: 'Portugalia - Algarve',
+                    destination: 'Faro',
+                    duration: duration + ' dni',
+                    price: 3599,
+                    image: 'https://images.unsplash.com/photo-1553531087-1e9c033e26fa?w=400',
+                    includes: ['Przelot', 'Apartament przy plaży', 'Wynajem auta', 'Golf']
+                },
+                {
+                    id: 8,
+                    name: 'Chorwacja - Dalmacja',
+                    destination: 'Split',
+                    duration: duration + ' dni',
+                    price: 2799,
+                    image: 'https://images.unsplash.com/photo-1555990538-c3fd7caf10c1?w=400',
+                    includes: ['Przelot', 'Hotel 4*', 'Rejs po wyspach', 'Śniadania']
+                },
+                {
+                    id: 9,
+                    name: 'Tajlandia - Phuket',
+                    destination: 'Tajlandia',
+                    duration: duration + ' dni',
+                    price: 5999,
+                    image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400',
+                    includes: ['Przelot', 'Resort 5*', 'Spa', 'Wycieczki', 'Transfer']
+                },
+                {
+                    id: 10,
+                    name: 'Maledify - Luksusowy Resort',
+                    destination: 'Malediwy',
+                    duration: duration + ' dni',
+                    price: 12999,
+                    image: 'https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=400',
+                    includes: ['Przelot biznes', 'Wodny bungalow', 'All Inclusive Premium', 'Nurkowanie']
+                },
+                {
+                    id: 11,
+                    name: 'Majorka - Party & Beach',
+                    destination: 'Palma de Mallorca',
+                    duration: duration + ' dni',
+                    price: 2199,
+                    image: 'https://images.unsplash.com/photo-1562659442-9a76c8b8b98c?w=400',
+                    includes: ['Przelot', 'Hotel przy plaży', 'Kluby nocne', 'Imprezy']
+                },
+                {
+                    id: 12,
+                    name: 'Bali - Wellness Retreat',
+                    destination: 'Bali',
+                    duration: duration + ' dni',
+                    price: 6799,
+                    image: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=400',
+                    includes: ['Przelot', 'Willa z basenem', 'Joga codziennie', 'Spa', 'Detox']
                 }
             ];
 
@@ -4253,6 +4568,86 @@
                     price: 189,
                     image: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=400',
                     specs: ['Automatyczna', '5 miejsc', 'Skóra', 'Premium Audio']
+                },
+                {
+                    id: 3,
+                    model: 'Toyota Corolla',
+                    category: 'Ekonomiczny',
+                    price: 69,
+                    image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=400',
+                    specs: ['Manualna', '5 miejsc', 'Klimatyzacja', 'Bluetooth']
+                },
+                {
+                    id: 4,
+                    model: 'Mercedes E-Class',
+                    category: 'Premium',
+                    price: 249,
+                    image: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=400',
+                    specs: ['Automatyczna', '5 miejsc', 'Skóra', 'Panorama', 'Masaż']
+                },
+                {
+                    id: 5,
+                    model: 'Ford Focus',
+                    category: 'Kompaktowy',
+                    price: 79,
+                    image: 'https://images.unsplash.com/photo-1551830820-330a71b99659?w=400',
+                    specs: ['Manualna', '5 miejsc', 'Klimatyzacja', 'USB']
+                },
+                {
+                    id: 6,
+                    model: 'Audi A4',
+                    category: 'Luksusowy',
+                    price: 199,
+                    image: 'https://images.unsplash.com/photo-1610768764270-790fbec18178?w=400',
+                    specs: ['Automatyczna', '5 miejsc', 'Skóra', 'Quattro', 'GPS']
+                },
+                {
+                    id: 7,
+                    model: 'Fiat 500',
+                    category: 'Mini',
+                    price: 49,
+                    image: 'https://images.unsplash.com/photo-1581540222194-0def2dda95b8?w=400',
+                    specs: ['Manualna', '4 miejsca', 'Klimatyzacja', 'Idealny do miasta']
+                },
+                {
+                    id: 8,
+                    model: 'Range Rover Sport',
+                    category: 'SUV Premium',
+                    price: 349,
+                    image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400',
+                    specs: ['Automatyczna', '7 miejsc', 'Skóra', '4x4', 'Panorama']
+                },
+                {
+                    id: 9,
+                    model: 'Opel Astra',
+                    category: 'Kompaktowy',
+                    price: 75,
+                    image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=400',
+                    specs: ['Manualna', '5 miejsc', 'Klimatyzacja', 'Radio']
+                },
+                {
+                    id: 10,
+                    model: 'Tesla Model 3',
+                    category: 'Elektryczny Premium',
+                    price: 299,
+                    image: 'https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=400',
+                    specs: ['Automatyczna', '5 miejsc', 'Autopilot', 'Supercharger', '0 emisji']
+                },
+                {
+                    id: 11,
+                    model: 'Volkswagen Transporter',
+                    category: 'Van 9-osobowy',
+                    price: 149,
+                    image: 'https://images.unsplash.com/photo-1527027337860-d095e1910a4f?w=400',
+                    specs: ['Manualna', '9 miejsc', 'Klimatyzacja', 'Bagażnik XXL']
+                },
+                {
+                    id: 12,
+                    model: 'Porsche Cayenne',
+                    category: 'SUV Luksusowy',
+                    price: 449,
+                    image: 'https://images.unsplash.com/photo-1611859266238-4b98091d9d9b?w=400',
+                    specs: ['Automatyczna', '5 miejsc', 'Sport', 'Skóra Nappa', 'Bose']
                 }
             ];
 
