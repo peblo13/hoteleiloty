@@ -59,8 +59,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9110227480064306" crossorigin="anonymous"></script>
+    <!-- Google AdSense - ZAMIEŃ ca-pub-XXXXXXXXXX na swój Publisher ID! -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-TWOJ-PUBLISHER-ID" crossorigin="anonymous"></script>
     
     <!-- Google Analytics (dodaj swój ID) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -3114,13 +3114,23 @@
 
         <!-- Ad Space -->
         <div class="ad-space">
-            <!-- Google AdSense -->
+            <!-- Google AdSense - Banner górny -->
+            <!-- INSTRUKCJA: 
+                1. Zaloguj się: https://adsense.google.com
+                2. Idź do: Reklamy → Według jednostki reklamowej → Nowa jednostka
+                3. Wybierz: "Display ads" → Responsywny
+                4. Nazwa: "HoteleILoty - Top Banner"
+                5. Skopiuj KOD i WKLEJ TUTAJ (zamień całe <ins>...</ins>)
+            -->
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-pub-9110227480064306"
-                 data-ad-slot="1234567890"
+                 data-ad-client="ca-pub-TWOJ-PUBLISHER-ID"
+                 data-ad-slot="TWOJ-SLOT-ID-1"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
         <!-- Loading -->
@@ -3141,13 +3151,22 @@
 
         <!-- Ad Space -->
         <div class="ad-space">
-            <!-- Google AdSense -->
+            <!-- Google AdSense - Banner dolny -->
+            <!-- INSTRUKCJA: 
+                1. W AdSense utwórz DRUGĄ jednostkę reklamową
+                2. Nazwa: "HoteleILoty - Bottom Banner"
+                3. Typ: Display ads → Responsywny
+                4. Skopiuj KOD i WKLEJ TUTAJ
+            -->
             <ins class="adsbygoogle"
                  style="display:block"
-                 data-ad-client="ca-pub-9110227480064306"
-                 data-ad-slot="0987654321"
+                 data-ad-client="ca-pub-TWOJ-PUBLISHER-ID"
+                 data-ad-slot="TWOJ-SLOT-ID-2"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 
@@ -4795,8 +4814,8 @@
         // Initialize
         initDates();
         
-        // Load AdSense
-        (adsbygoogle = window.adsbygoogle || []).push({});
+        // AdSense już załadowany w <head> i w jednostkach reklamowych
+        // Nie potrzebujemy tutaj dodatkowego push()
 
         // Create animated particles
         function createParticles() {
