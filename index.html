@@ -66,6 +66,50 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
+        
+        // Social Media Functions
+        function toggleSocialButtons() {
+            const container = document.querySelector('.social-buttons-container');
+            container.classList.toggle('active');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? Najlepsze oferty lotów i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lotów i hoteli! #wakacje #podróe #lastminute');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
+        }
+
+        function shareOnInstagram() {
+            alert('?? Instagram: Zrób screenshot › Stories › Dodaj link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
+        }
+
+        function shareOnTikTok() {
+            alert('?? TikTok: Stwórz video o tanich lotach! Link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('? Link skopiowany!');
+                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
+            });
+        }
+
     </script>
     
     <!-- Schema.org JSON-LD for SEO -->
@@ -106,6 +150,50 @@
             "reviewCount": "1250"
         }
     }
+        
+        // Social Media Functions
+        function toggleSocialButtons() {
+            const container = document.querySelector('.social-buttons-container');
+            container.classList.toggle('active');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? Najlepsze oferty lotów i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lotów i hoteli! #wakacje #podróe #lastminute');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
+        }
+
+        function shareOnInstagram() {
+            alert('?? Instagram: Zrób screenshot › Stories › Dodaj link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
+        }
+
+        function shareOnTikTok() {
+            alert('?? TikTok: Stwórz video o tanich lotach! Link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('? Link skopiowany!');
+                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
+            });
+        }
+
     </script>
     
     <script type="application/ld+json">
@@ -120,6 +208,50 @@
             "query-input": "required name=search_term_string"
         }
     }
+        
+        // Social Media Functions
+        function toggleSocialButtons() {
+            const container = document.querySelector('.social-buttons-container');
+            container.classList.toggle('active');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? Najlepsze oferty lotów i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lotów i hoteli! #wakacje #podróe #lastminute');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
+        }
+
+        function shareOnInstagram() {
+            alert('?? Instagram: Zrób screenshot › Stories › Dodaj link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
+        }
+
+        function shareOnTikTok() {
+            alert('?? TikTok: Stwórz video o tanich lotach! Link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('? Link skopiowany!');
+                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
+            });
+        }
+
     </script>
     
     <!-- 
@@ -2849,6 +2981,100 @@
                 opacity: 1;
             }
         }
+
+        /* Social Media Floating Buttons */
+        .social-floating {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-toggle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 20px rgba(255, 20, 147, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .social-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(255, 20, 147, 0.6);
+        }
+
+        .social-buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .social-buttons-container.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-btn:hover {
+            transform: scale(1.1) translateX(-5px);
+        }
+
+        .social-btn.facebook { background: linear-gradient(135deg, #1877f2, #42a5f5); }
+        .social-btn.twitter { background: linear-gradient(135deg, #1da1f2, #0d8bd9); }
+        .social-btn.instagram { background: linear-gradient(135deg, #e4405f, #833ab4, #f77737); }
+        .social-btn.linkedin { background: linear-gradient(135deg, #0077b5, #005885); }
+        .social-btn.tiktok { background: linear-gradient(135deg, #000000, #ff0050); }
+        .social-btn.copy { background: linear-gradient(135deg, #6c757d, #495057); }
+
+        @media (max-width: 768px) {
+            .social-floating {
+                right: 15px;
+                gap: 8px;
+            }
+            
+            .social-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+            
+            .social-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+
     </style>
 
     <!-- Travel API Integration -->
@@ -3557,7 +3783,51 @@
                  data-full-width-responsive="true"></ins>
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+                
+        // Social Media Functions
+        function toggleSocialButtons() {
+            const container = document.querySelector('.social-buttons-container');
+            container.classList.toggle('active');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? Najlepsze oferty lotów i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lotów i hoteli! #wakacje #podróe #lastminute');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
+        }
+
+        function shareOnInstagram() {
+            alert('?? Instagram: Zrób screenshot › Stories › Dodaj link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
+        }
+
+        function shareOnTikTok() {
+            alert('?? TikTok: Stwórz video o tanich lotach! Link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('? Link skopiowany!');
+                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
+            });
+        }
+
+    </script>
         </div>
 
         <!-- Loading -->
@@ -3618,7 +3888,51 @@
                  data-full-width-responsive="true"></ins>
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+                
+        // Social Media Functions
+        function toggleSocialButtons() {
+            const container = document.querySelector('.social-buttons-container');
+            container.classList.toggle('active');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? Najlepsze oferty lotów i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lotów i hoteli! #wakacje #podróe #lastminute');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
+        }
+
+        function shareOnInstagram() {
+            alert('?? Instagram: Zrób screenshot › Stories › Dodaj link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
+        }
+
+        function shareOnTikTok() {
+            alert('?? TikTok: Stwórz video o tanich lotach! Link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('? Link skopiowany!');
+                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
+            });
+        }
+
+    </script>
         </div>
     </div>
 
@@ -5459,6 +5773,50 @@
         window.addEventListener('load', () => {
             showNewsletterPopup();
         });
+        
+        // Social Media Functions
+        function toggleSocialButtons() {
+            const container = document.querySelector('.social-buttons-container');
+            container.classList.toggle('active');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? Najlepsze oferty lotów i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lotów i hoteli! #wakacje #podróe #lastminute');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
+        }
+
+        function shareOnInstagram() {
+            alert('?? Instagram: Zrób screenshot › Stories › Dodaj link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
+        }
+
+        function shareOnTikTok() {
+            alert('?? TikTok: Stwórz video o tanich lotach! Link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('? Link skopiowany!');
+                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
+            });
+        }
+
     </script>
 
     <!-- Newsletter Popup -->
@@ -5471,6 +5829,33 @@
         <button class="newsletter-btn" onclick="subscribeNewsletter()">
             ðŸ“© Zapisz siÄ™ za darmo
         </button>
+    </div>
+
+    <!-- Social Media Floating Buttons -->
+    <div class="social-floating" id="social-buttons">
+        <div class="social-toggle" onclick="toggleSocialButtons()">
+            <i class="fas fa-share-alt"></i>
+        </div>
+        <div class="social-buttons-container">
+            <a href="#" onclick="shareOnFacebook()" class="social-btn facebook" title="UdostÄ™pnij na Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" onclick="shareOnTwitter()" class="social-btn twitter" title="UdostÄ™pnij na Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" onclick="shareOnInstagram()" class="social-btn instagram" title="Instagram Stories">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" onclick="shareOnLinkedIn()" class="social-btn linkedin" title="UdostÄ™pnij na LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" onclick="shareOnTikTok()" class="social-btn tiktok" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" onclick="copyLink()" class="social-btn copy" title="Skopiuj link">
+                <i class="fas fa-link"></i>
+            </a>
+        </div>
     </div>
 
     <!-- Credit Card Banner -->
@@ -5515,6 +5900,50 @@
                 localStorage.setItem('pushPermissionAsked', 'true');
             }
         }, 15000);
+        
+        // Social Media Functions
+        function toggleSocialButtons() {
+            const container = document.querySelector('.social-buttons-container');
+            container.classList.toggle('active');
+        }
+
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? Najlepsze oferty lotów i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
+        }
+
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lotów i hoteli! #wakacje #podróe #lastminute');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
+        }
+
+        function shareOnInstagram() {
+            alert('?? Instagram: Zrób screenshot › Stories › Dodaj link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
+        }
+
+        function shareOnTikTok() {
+            alert('?? TikTok: Stwórz video o tanich lotach! Link: ' + window.location.href);
+            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('? Link skopiowany!');
+                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
+            });
+        }
+
     </script>
 </body>
 </html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regulamin - HoteleILoty.pl</title>
+    <meta name="description" content="Regulamin korzystania z serwisu HoteleILoty.pl - wyszukiwarki lotów, hoteli i pakietów wakacyjnych.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 20, 147, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #00FFFF;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-title h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-section h2 {
+            color: #FF1493;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: #00FFFF;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .content-section ol, .content-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(0, 255, 255, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animated particles */
+        .particle {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(var(--drift));
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i> HoteleILoty.pl
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Start</a></li>
+                <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="kontakt.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                <li><a href="polityka-prywatnosci.html"><i class="fas fa-shield-alt"></i> Prywatność</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Powrót do strony głównej
+        </a>
+
+        <div class="page-title">
+            <h1><i class="fas fa-gavel"></i> Regulamin</h1>
+            <p>Warunki korzystania z serwisu HoteleILoty.pl</p>
+        </div>
+
+        <section class="content-section">
+            <h2><i class="fas fa-info-circle"></i> §1. Postanowienia ogólne</h2>
+            <ol>
+                <li>Niniejszy Regulamin określa zasady korzystania z serwisu internetowego HoteleILoty.pl (dalej: "Serwis").</li>
+                <li>Serwis jest własnością i jest prowadzony przez [NAZWA FIRMY], z siedzibą w [ADRES].</li>
+                <li>Serwis działa jako wyszukiwarka i agregator ofert podróżniczych, przekierowując użytkowników do zewnętrznych dostawców usług.</li>
+                <li>Korzystanie z Serwisu oznacza akceptację niniejszego Regulaminu.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-search"></i> §2. Zakres usług</h2>
+            <ol>
+                <li>Serwis umożliwia:
+                    <ul>
+                        <li>Wyszukiwanie i porównywanie cen lotów</li>
+                        <li>Wyszukiwanie i porównywanie cen hoteli</li>
+                        <li>Wyszukiwanie pakietów wakacyjnych</li>
+                        <li>Wyszukiwanie wynajmu samochodów</li>
+                        <li>Przeglądanie ofert wycieczek</li>
+                    </ul>
+                </li>
+                <li>Serwis nie zawiera własnych ofert podróżniczych - wszystkie oferowane usługi pochodzą od zewnętrznych dostawców.</li>
+                <li>Rezerwacje i zakupy są dokonywane bezpośrednio u dostawców usług, do których Serwis przekierowuje.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-user-shield"></i> §3. Obowiązki użytkownika</h2>
+            <ol>
+                <li>Użytkownik zobowiązuje się do korzystania z Serwisu zgodnie z prawem i dobrymi obyczajami.</li>
+                <li>Zabrania się:
+                    <ul>
+                        <li>Wprowadzania treści niezgodnych z prawem</li>
+                        <li>Naruszania praw autorskich</li>
+                        <li>Próby włamania lub uszkodzenia Serwisu</li>
+                        <li>Używania Serwisu w celach komercyjnych bez zgody</li>
+                    </ul>
+                </li>
+                <li>Użytkownik ponosi odpowiedzialność za działania podjęte za pośrednictwem Serwisu.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-credit-card"></i> §4. Rezerwacje i płatności</h2>
+            <ol>
+                <li>Wszystkie rezerwacje są dokonywane bezpośrednio u zewnętrznych dostawców usług.</li>
+                <li>Warunki rezerwacji, anulowania i zwrotów określają regulaminy poszczególnych dostawców.</li>
+                <li>Serwis nie ponosi odpowiedzialności za:
+                    <ul>
+                        <li>Realizację rezerwacji przez dostawców</li>
+                        <li>Jakość świadczonych przez nich usług</li>
+                        <li>Problemy z płatnościami u dostawców</li>
+                        <li>Zmiany cen po przekierowaniu</li>
+                    </ul>
+                </li>
+                <li>Wszystkie reklamacje dotyczące rezerwacji należy kierować bezpośrednio do dostawcy usługi.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-database"></i> §5. Dane osobowe</h2>
+            <ol>
+                <li>Zasady przetwarzania danych osobowych określa <a href="polityka-prywatnosci.html" style="color: #00FFFF;">Polityka Prywatności</a>.</li>
+                <li>Serwis może zbierać dane niezbędne do funkcjonowania, w tym:
+                    <ul>
+                        <li>Adres e-mail (newsletter)</li>
+                        <li>Dane analityczne (Google Analytics)</li>
+                        <li>Pliki cookies</li>
+                    </ul>
+                </li>
+                <li>Użytkownik ma prawo do dostępu, sprostowania i usunięcia swoich danych.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-exclamation-triangle"></i> §6. Ograniczenie odpowiedzialności</h2>
+            <ol>
+                <li>Serwis działa na zasadzie "jak jest" (as is) i nie gwarantuje:
+                    <ul>
+                        <li>Ciągłości działania</li>
+                        <li>Braku błędów technicznych</li>
+                        <li>Aktualności wszystkich informacji</li>
+                        <li>Dostępności zewnętrznych stron</li>
+                    </ul>
+                </li>
+                <li>Odpowiedzialność Serwisu jest ograniczona do maksymalnej wysokości szkody bezpośredniej.</li>
+                <li>Serwis nie ponosi odpowiedzialności za działania zewnętrznych dostawców usług.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-copyright"></i> §7. Prawa autorskie</h2>
+            <ol>
+                <li>Wszystkie treści w Serwisie podlegają ochronie prawa autorskiego.</li>
+                <li>Zabrania się kopiowania, rozpowszechniania lub modyfikowania treści bez zgody.</li>
+                <li>Zdjęcia pochodzą z licencjonowanych źródeł (Unsplash, Pexels) lub są własnością Serwisu.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-edit"></i> §8. Zmiany regulaminu</h2>
+            <ol>
+                <li>Regulamin może być zmieniany w każdym czasie.</li>
+                <li>O zmianach użytkownicy zostaną powiadomieni przez newsletter lub komunikat na stronie.</li>
+                <li>Kontynuowanie korzystania z Serwisu po zmianach oznacza akceptację nowego regulaminu.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-balance-scale"></i> §9. Prawo właściwe i jurysdykcja</h2>
+            <ol>
+                <li>Regulamin podlega prawu polskiemu.</li>
+                <li>Wszelkie spory będą rozstrzygane przez sądy polskie właściwe dla siedziby Serwisu.</li>
+                <li>W sprawach nieuregulowanych stosuje się przepisy Kodeksu Cywilnego.</li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-calendar-alt"></i> §10. Postanowienia końcowe</h2>
+            <ol>
+                <li>Regulamin wchodzi w życie z dniem opublikowania.</li>
+                <li>Aktualna wersja regulaminu jest dostępna pod adresem: hoteleiloty.pl/regulamin.html</li>
+                <li>Data ostatniej aktualizacji: 7 listopada 2025</li>
+            </ol>
+        </section>
+
+        <div class="contact-info">
+            <h3><i class="fas fa-phone"></i> Kontakt w sprawach regulaminu</h3>
+            <p>E-mail: <strong>kontakt@hoteleiloty.pl</strong></p>
+            <p>W sprawach prawnych: <strong>prawny@hoteleiloty.pl</strong></p>
+            <p>Czas odpowiedzi: do 48 godzin roboczych</p>
+        </div>
+    </main>
+
+    <!-- Background particles -->
+    <script>
+        // Create animated particles
+        function createParticles() {
+            const particleCount = 30;
+            const colors = [
+                'rgba(255, 20, 147, 0.3)',
+                'rgba(0, 255, 255, 0.3)',
+                'rgba(255, 215, 0, 0.3)',
+                'rgba(255, 105, 180, 0.2)',
+                'rgba(0, 191, 255, 0.2)'
+            ];
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                const size = Math.random() * 4 + 2;
+                const left = Math.random() * 100;
+                const duration = Math.random() * 10 + 15;
+                const delay = Math.random() * 5;
+                const drift = (Math.random() - 0.5) * 200;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = left + '%';
+                particle.style.background = color;
+                particle.style.animationDuration = duration + 's';
+                particle.style.animationDelay = delay + 's';
+                particle.style.setProperty('--drift', drift + 'px');
+
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+    </script>
+</body>
+</html>

@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Często zadawane pytania - HoteleILoty.pl</title>
+    <meta name="description" content="Odpowiedzi na najczęściej zadawane pytania dotyczące rezerwacji lotów, hoteli i pakietów wakacyjnych na HoteleILoty.pl.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 25% 75%, rgba(255, 20, 147, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 25%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #00FFFF;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+        }
+
+        /* Search Box */
+        .search-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* FAQ Categories */
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.3), rgba(0, 255, 255, 0.3));
+            transform: translateY(-2px);
+        }
+
+        /* FAQ Items */
+        .faq-section {
+            margin-bottom: 2rem;
+        }
+
+        .faq-section h2 {
+            color: #FF1493;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .faq-question h3 {
+            color: #00FFFF;
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            color: #FFD700;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem 2rem;
+            max-height: 500px;
+        }
+
+        .faq-answer p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer ul, .faq-answer ol {
+            margin-left: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .faq-answer li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(0, 255, 255, 0.1));
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-top: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-section h2 {
+            color: #FFD700;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item h3 {
+            color: #00FFFF;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .faq-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question {
+                padding: 1rem 1.5rem;
+            }
+
+            .faq-answer {
+                padding: 0 1.5rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 1rem 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i> HoteleILoty.pl
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Start</a></li>
+                <li><a href="regulamin.html"><i class="fas fa-gavel"></i> Regulamin</a></li>
+                <li><a href="kontakt.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                <li><a href="polityka-prywatnosci.html"><i class="fas fa-shield-alt"></i> Prywatność</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Powrót do strony głównej
+        </a>
+
+        <div class="page-title">
+            <h1><i class="fas fa-question-circle"></i> FAQ</h1>
+            <p>Odpowiedzi na najczęściej zadawane pytania</p>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Wyszukaj pytanie...">
+        </div>
+
+        <!-- Categories -->
+        <div class="faq-categories">
+            <button class="category-btn active" data-category="all">
+                <i class="fas fa-th"></i> Wszystkie
+            </button>
+            <button class="category-btn" data-category="flights">
+                <i class="fas fa-plane"></i> Loty
+            </button>
+            <button class="category-btn" data-category="hotels">
+                <i class="fas fa-bed"></i> Hotele
+            </button>
+            <button class="category-btn" data-category="cars">
+                <i class="fas fa-car"></i> Wynajemy
+            </button>
+            <button class="category-btn" data-category="booking">
+                <i class="fas fa-calendar"></i> Rezerwacje
+            </button>
+            <button class="category-btn" data-category="payments">
+                <i class="fas fa-credit-card"></i> Płatności
+            </button>
+            <button class="category-btn" data-category="technical">
+                <i class="fas fa-cog"></i> Techniczne
+            </button>
+        </div>
+
+        <!-- FAQ Sections -->
+        
+        <!-- Loty -->
+        <section class="faq-section" data-category="flights">
+            <h2><i class="fas fa-plane"></i> Loty</h2>
+            
+            <div class="faq-item" data-category="flights">
+                <div class="faq-question">
+                    <h3>Jak wyszukać najtańsze loty?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Aby znaleźć najtańsze loty:</p>
+                    <ol>
+                        <li>Użyj elastycznych dat - sprawdź ±3 dni</li>
+                        <li>Porównuj różne lotniska w okolicy</li>
+                        <li>Rezerwuj z wyprzedzeniem (6-8 tygodni dla lotów europejskich)</li>
+                        <li>Sprawdzaj loty z przesiadkami</li>
+                        <li>Korzystaj z trybu incognito w przeglądarce</li>
+                    </ol>
+                    <p>Nasza wyszukiwarka automatycznie porównuje setki linii lotniczych i biur podróży.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="flights">
+                <div class="faq-question">
+                    <h3>Czy mogę zmienić lub anulować lot?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Możliwość zmiany lub anulowania zależy od regulaminu konkretnej linii lotniczej:</p>
+                    <ul>
+                        <li><strong>Bilety refundable:</strong> pełny zwrot lub bezpłatne zmiany</li>
+                        <li><strong>Bilety non-refundable:</strong> opłaty za zmiany, brak zwrotu</li>
+                        <li><strong>Tarify flex:</strong> elastyczne warunki zmiany</li>
+                    </ul>
+                    <p>Zawsze sprawdź warunki przed zakupem. W przypadku problemów skontaktuj się bezpośrednio z linią lotniczą.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="flights">
+                <div class="faq-question">
+                    <h3>Co to znaczy "tylko bagaż podręczny"?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Oznacza to, że w cenie biletu jest włączony tylko mały bagaż podręczny:</p>
+                    <ul>
+                        <li><strong>Wymiary:</strong> zwykle 40x20x25 cm</li>
+                        <li><strong>Waga:</strong> do 10 kg</li>
+                        <li><strong>Miejsce:</strong> pod fotelem przed tobą</li>
+                    </ul>
+                    <p>Większy bagaż podręczny (55x40x20 cm) i bagaż rejestrowany to dodatkowo płatne opcje.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hotele -->
+        <section class="faq-section" data-category="hotels">
+            <h2><i class="fas fa-bed"></i> Hotele</h2>
+            
+            <div class="faq-item" data-category="hotels">
+                <div class="faq-question">
+                    <h3>Jak sprawdzić czy hotel jest dobry?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Przed rezerwacją sprawdź:</p>
+                    <ul>
+                        <li><strong>Oceny gości:</strong> minimum 7.5/10 na booking.com</li>
+                        <li><strong>Liczba opinii:</strong> co najmniej 100 recenzji</li>
+                        <li><strong>Lokalizacja:</strong> odległość od centrum/plaży</li>
+                        <li><strong>Zdjęcia:</strong> sprawdź zdjęcia gości vs. zdjęcia hotelu</li>
+                        <li><strong>Data budowy/remontu:</strong> nowsze hotele = lepszy standard</li>
+                    </ul>
+                    <p>Zwróć uwagę na najnowsze komentarze - mogą wskazywać na aktualne problemy.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="hotels">
+                <div class="faq-question">
+                    <h3>Co oznaczają różne typy wyżywienia?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Główne typy wyżywienia w hotelach:</p>
+                    <ul>
+                        <li><strong>RO (Room Only):</strong> tylko nocleg</li>
+                        <li><strong>BB (Bed & Breakfast):</strong> nocleg + śniadanie</li>
+                        <li><strong>HB (Half Board):</strong> śniadanie + obiadokolacja</li>
+                        <li><strong>FB (Full Board):</strong> śniadanie + obiad + kolacja</li>
+                        <li><strong>AI (All Inclusive):</strong> wszystkie posiłki + napoje</li>
+                        <li><strong>UAI (Ultra All Inclusive):</strong> AI + alkohole premium</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="hotels">
+                <div class="faq-question">
+                    <h3>Kiedy najlepiej rezerwować hotel?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Optymalne okresy rezerwacji:</p>
+                    <ul>
+                        <li><strong>Wyjazdy krajowe:</strong> 2-4 tygodnie wcześniej</li>
+                        <li><strong>Europa:</strong> 6-8 tygodni wcześniej</li>
+                        <li><strong>Długie destynacje:</strong> 3-6 miesięcy wcześniej</li>
+                        <li><strong>Sezon wysoki:</strong> jak najwcześniej</li>
+                        <li><strong>Last minute:</strong> 1-3 dni przed wyjazdem</li>
+                    </ul>
+                    <p>Wybierz hotele z bezpłatną anulacją dla większej elastyczności.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wynajem samochodów -->
+        <section class="faq-section" data-category="cars">
+            <h2><i class="fas fa-car"></i> Wynajem samochodów</h2>
+            
+            <div class="faq-item" data-category="cars">
+                <div class="faq-question">
+                    <h3>Jakie dokumenty potrzebuję do wynajęcia auta?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Standardowe wymagania:</p>
+                    <ul>
+                        <li><strong>Prawo jazdy:</strong> ważne minimum 1 rok</li>
+                        <li><strong>Międzynarodowe prawo jazdy:</strong> poza UE</li>
+                        <li><strong>Dowód osobisty lub paszport</strong></li>
+                        <li><strong>Karta kredytowa:</strong> na głównego kierowcę</li>
+                        <li><strong>Minimalny wiek:</strong> 21-25 lat (zależy od firmy)</li>
+                    </ul>
+                    <p>Niektóre wypożyczalnie mają dodatkowe wymagania - sprawdź warunki przed rezerwacją.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="cars">
+                <div class="faq-question">
+                    <h3>Co to jest kaucja i kiedy zostanie zwrócona?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Kaucja to zabezpieczenie blokowane na karcie kredytowej:</p>
+                    <ul>
+                        <li><strong>Kwota:</strong> 150-1500€ (zależy od klasy auta)</li>
+                        <li><strong>Blokada:</strong> przy odbiorze auta</li>
+                        <li><strong>Zwrot:</strong> 1-30 dni po oddaniu auta</li>
+                        <li><strong>Warunki:</strong> auto bez uszkodzeń, pełny bak</li>
+                    </ul>
+                    <p>Sprawdź auto przed odbiorem i zgłoś wszystkie uszkodzenia!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rezerwacje -->
+        <section class="faq-section" data-category="booking">
+            <h2><i class="fas fa-calendar"></i> Rezerwacje</h2>
+            
+            <div class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>Jak działa proces rezerwacji?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Krok po kroku:</p>
+                    <ol>
+                        <li><strong>Wyszukiwanie:</strong> wprowadź parametry podróży</li>
+                        <li><strong>Porównanie:</strong> przeglądaj dostępne opcje</li>
+                        <li><strong>Wybór:</strong> kliknij "Wybierz" przy wybranej ofercie</li>
+                        <li><strong>Przekierowanie:</strong> zostaniesz przeniesiony do dostawcy</li>
+                        <li><strong>Rezerwacja:</strong> dokończ rezerwację u dostawcy</li>
+                        <li><strong>Potwierdzenie:</strong> otrzymasz e-mail z potwierdzeniem</li>
+                    </ol>
+                    <p>Uwaga: Końcowa rezerwacja odbywa się zawsze u zewnętrznego dostawcy.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>Dlaczego cena się zmieniła po przekierowaniu?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Ceny mogą się zmienić z kilku powodów:</p>
+                    <ul>
+                        <li><strong>Dostępność:</strong> miejsc może już nie być</li>
+                        <li><strong>Promocje:</strong> oferta mogła wygasnąć</li>
+                        <li><strong>Podatki:</strong> mogą być dodane na końcu</li>
+                        <li><strong>Opcje dodatkowe:</strong> bagaż, ubezpieczenie itp.</li>
+                        <li><strong>Kursy walut:</strong> różnice w przeliczeniach</li>
+                    </ul>
+                    <p>Zawsze sprawdź końcową cenę przed płatnością.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="booking">
+                <div class="faq-question">
+                    <h3>Czy otrzymam faktury VAT?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Faktury VAT wystawia zawsze dostawca usługi, nie my:</p>
+                    <ul>
+                        <li><strong>Loty:</strong> linie lotnicze lub biura podróży</li>
+                        <li><strong>Hotele:</strong> platform rezerwacyjne lub hotele</li>
+                        <li><strong>Auta:</strong> wypożyczalnie samochodów</li>
+                    </ul>
+                    <p>Jeśli potrzebujesz faktury, skontaktuj się bezpośrednio z dostawcą po dokonaniu rezerwacji.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Płatności -->
+        <section class="faq-section" data-category="payments">
+            <h2><i class="fas fa-credit-card"></i> Płatności</h2>
+            
+            <div class="faq-item" data-category="payments">
+                <div class="faq-question">
+                    <h3>Czy płatności są bezpieczne?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tak, wszystkie płatności są zabezpieczone:</p>
+                    <ul>
+                        <li><strong>SSL:</strong> szyfrowanie danych podczas transmisji</li>
+                        <li><strong>PCI DSS:</strong> standardy bezpieczeństwa danych</li>
+                        <li><strong>3D Secure:</strong> dodatkowa autoryzacja</li>
+                        <li><strong>Sprawdzeni partnerzy:</strong> współpracujemy tylko z licencjonowanymi firmami</li>
+                    </ul>
+                    <p>Płatności obsługują bezpośrednio dostawcy usług, nie przechowujemy danych karty.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="payments">
+                <div class="faq-question">
+                    <h3>Jakie metody płatności są dostępne?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Dostępne metody zależą od dostawcy:</p>
+                    <ul>
+                        <li><strong>Karty kredytowe:</strong> Visa, Mastercard, American Express</li>
+                        <li><strong>Karty debetowe:</strong> większość banków</li>
+                        <li><strong>PayPal:</strong> u wybranych dostawców</li>
+                        <li><strong>Przelewy:</strong> niektórzy dostawcy</li>
+                        <li><strong>BLIK:</strong> polscy dostawcy</li>
+                    </ul>
+                    <p>Sprawdź dostępne metody na stronie dostawcy przed rezerwacją.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Techniczne -->
+        <section class="faq-section" data-category="technical">
+            <h2><i class="fas fa-cog"></i> Pytania techniczne</h2>
+            
+            <div class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <h3>Dlaczego strona działa wolno?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Możliwe przyczyny i rozwiązania:</p>
+                    <ul>
+                        <li><strong>Powolne połączenie:</strong> sprawdź swoją sieć internetową</li>
+                        <li><strong>Cache przeglądarki:</strong> wyczyść cookies i cache</li>
+                        <li><strong>Wiele wyszukiwań:</strong> duży ruch może spowalniać serwery</li>
+                        <li><strong>Przeglądarka:</strong> zaktualizuj do najnowszej wersji</li>
+                        <li><strong>Dodatki:</strong> wyłącz ad-blockery na naszej stronie</li>
+                    </ul>
+                    <p>Jeśli problem persystuje, skontaktuj się z nami.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <h3>Czy mogę używać strony na telefonie?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tak, nasza strona jest w pełni responsywna:</p>
+                    <ul>
+                        <li><strong>Wszystkie funkcje:</strong> dostępne na urządzeniach mobilnych</li>
+                        <li><strong>Dotykowy interfejs:</strong> zoptymalizowany dla ekranów dotykowych</li>
+                        <li><strong>Szybkie ładowanie:</strong> zoptymalizowane dla sieci komórkowych</li>
+                        <li><strong>Obsługiwane przeglądarki:</strong> Chrome, Safari, Firefox, Edge</li>
+                    </ul>
+                    <p>Najlepsze doświadczenie na najnowszych wersjach przeglądarek mobilnych.</p>
+                </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+                <div class="faq-question">
+                    <h3>Czy używacie cookies?</h3>
+                    <i class="fas fa-plus faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Tak, używamy cookies do:</p>
+                    <ul>
+                        <li><strong>Funkcjonalności:</strong> zapamiętywanie preferencji</li>
+                        <li><strong>Analityki:</strong> Google Analytics (anonimowo)</li>
+                        <li><strong>Reklam:</strong> Google AdSense</li>
+                        <li><strong>Personalizacji:</strong> dostosowywanie treści</li>
+                    </ul>
+                    <p>Możesz zarządzać cookies w ustawieniach przeglądarki. Szczegóły w <a href="polityka-prywatnosci.html" style="color: #00FFFF;">Polityce Prywatności</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <h2><i class="fas fa-question-circle"></i> Nie znalazłeś odpowiedzi?</h2>
+            <p>Skontaktuj się z nami - chętnie pomożemy!</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3><i class="fas fa-envelope"></i> E-mail</h3>
+                    <p><strong>pomoc@hoteleiloty.pl</strong></p>
+                    <p>Odpowiadamy w ciągu 24 godzin</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-phone"></i> Telefon</h3>
+                    <p><strong>+48 123 456 789</strong></p>
+                    <p>Pon-Pt: 8:00-18:00</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3><i class="fas fa-comments"></i> Chat online</h3>
+                    <p><strong>Dostępny na stronie</strong></p>
+                    <p>Pon-Nd: 10:00-22:00</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // FAQ functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+
+            // Category filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const faqSections = document.querySelectorAll('.faq-section');
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter FAQ items
+                    if (category === 'all') {
+                        faqSections.forEach(section => section.classList.remove('hidden'));
+                        faqItems.forEach(item => item.classList.remove('hidden'));
+                    } else {
+                        faqSections.forEach(section => {
+                            if (section.dataset.category === category) {
+                                section.classList.remove('hidden');
+                            } else {
+                                section.classList.add('hidden');
+                            }
+                        });
+                        
+                        faqItems.forEach(item => {
+                            if (item.dataset.category === category) {
+                                item.classList.remove('hidden');
+                            } else {
+                                item.classList.add('hidden');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase().trim();
+                
+                if (searchTerm === '') {
+                    // Show current category
+                    const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+                    categoryBtns.forEach(btn => {
+                        if (btn.dataset.category === activeCategory) {
+                            btn.click();
+                        }
+                    });
+                } else {
+                    // Search in FAQ items
+                    faqItems.forEach(item => {
+                        const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                        
+                        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                            item.classList.remove('hidden');
+                            item.parentElement.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+                    
+                    // Hide empty sections
+                    faqSections.forEach(section => {
+                        const visibleItems = section.querySelectorAll('.faq-item:not(.hidden)');
+                        if (visibleItems.length === 0) {
+                            section.classList.add('hidden');
+                        } else {
+                            section.classList.remove('hidden');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

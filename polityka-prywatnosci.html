@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności - HoteleILoty.pl</title>
+    <meta name="description" content="Polityka prywatności HoteleILoty.pl - informacje o przetwarzaniu danych osobowych zgodnie z GDPR.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 20, 147, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(0, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            animation: backgroundPulse 25s ease-in-out infinite;
+        }
+
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.1); }
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #00FFFF;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .page-title p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-section h2 {
+            color: #FF1493;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-section h3 {
+            color: #00FFFF;
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .content-section ol, .content-section ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #FF1493, #00FFFF);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+        }
+
+        /* GDPR Badge */
+        .gdpr-badge {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.2), rgba(40, 167, 69, 0.4));
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(40, 167, 69, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(40, 167, 69, 0.6); }
+        }
+
+        .gdpr-badge h3 {
+            color: #28a745;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Info */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.1), rgba(0, 255, 255, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-box h3 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        /* Data types grid */
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .data-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #00FFFF;
+            transition: all 0.3s ease;
+        }
+
+        .data-card:hover {
+            transform: translateX(5px);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .data-card h4 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-card p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Rights list */
+        .rights-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .right-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-top: 3px solid #FF1493;
+        }
+
+        .right-item h4 {
+            color: #FF1493;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .page-title h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+
+            .data-grid, .rights-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-plane"></i> HoteleILoty.pl
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fas fa-home"></i> Start</a></li>
+                <li><a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="kontakt.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
+                <li><a href="regulamin.html"><i class="fas fa-gavel"></i> Regulamin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Powrót do strony głównej
+        </a>
+
+        <div class="page-title">
+            <h1><i class="fas fa-shield-alt"></i> Polityka Prywatności</h1>
+            <p>Informacje o przetwarzaniu danych osobowych zgodnie z GDPR</p>
+        </div>
+
+        <div class="gdpr-badge">
+            <h3><i class="fas fa-check-circle"></i> ZGODNOŚĆ Z GDPR</h3>
+            <p>Ta polityka prywatności jest zgodna z Rozporządzeniem o Ochronie Danych Osobowych (GDPR)</p>
+        </div>
+
+        <section class="content-section">
+            <h2><i class="fas fa-info-circle"></i> Informacje ogólne</h2>
+            <p>Niniejsza Polityka Prywatności określa zasady przetwarzania i ochrony danych osobowych użytkowników serwisu HoteleILoty.pl.</p>
+            
+            <h3>Administrator danych</h3>
+            <ul>
+                <li><strong>Nazwa:</strong> [NAZWA FIRMY]</li>
+                <li><strong>Adres:</strong> [ADRES FIRMY]</li>
+                <li><strong>E-mail:</strong> rodo@hoteleiloty.pl</li>
+                <li><strong>NIP:</strong> [NIP FIRMY]</li>
+            </ul>
+
+            <p><strong>Data ostatniej aktualizacji:</strong> 7 listopada 2025</p>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-database"></i> Jakie dane zbieramy?</h2>
+            
+            <div class="data-grid">
+                <div class="data-card">
+                    <h4><i class="fas fa-envelope"></i> Newsletter</h4>
+                    <p>Adres e-mail podany dobrowolnie w formularzu zapisów do newslettera</p>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-chart-line"></i> Google Analytics</h4>
+                    <p>Dane analityczne: źródło ruchu, czas wizyty, przeglądane strony, lokalizacja (anonimowo)</p>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-cookie-bite"></i> Pliki Cookies</h4>
+                    <p>Preferencje użytkownika, historia wyszukiwań, dane techniczne przeglądarki</p>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-ad"></i> Google AdSense</h4>
+                    <p>Dane reklamowe: zainteresowania, historia przeglądania (w celach personalizacji reklam)</p>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-share-alt"></i> Social Media</h4>
+                    <p>Dane o udostępnieniach: platforma, link, czas udostępnienia</p>
+                </div>
+                
+                <div class="data-card">
+                    <h4><i class="fas fa-server"></i> Logi serwera</h4>
+                    <p>Adres IP, typ przeglądarki, system operacyjny, czas dostępu</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-bullseye"></i> Cele przetwarzania danych</h2>
+            <ol>
+                <li><strong>Newsletter:</strong>
+                    <ul>
+                        <li>Wysyłanie informacji o ofertach podróżniczych</li>
+                        <li>Powiadomienia o promocjach</li>
+                        <li>Podstawa prawna: zgoda (Art. 6 ust. 1 lit. a GDPR)</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Analityka (Google Analytics):</strong>
+                    <ul>
+                        <li>Analiza ruchu na stronie</li>
+                        <li>Optymalizacja treści</li>
+                        <li>Podstawa prawna: prawnie uzasadniony interes (Art. 6 ust. 1 lit. f GDPR)</li>
+                    </ul>
+                </li>
+                
+                <li><strong>Reklamy (Google AdSense):</strong>
+                    <ul>
+                        <li>Wyświetlanie spersonalizowanych reklam</li>
+                        <li>Monetyzacja serwisu</li>
+                        <li>Podstawa prawna: prawnie uzasadniony interes (Art. 6 ust. 1 lit. f GDPR)</li>
+                    </ul>
+                </li>
+
+                <li><strong>Funkcjonalność serwisu:</strong>
+                    <ul>
+                        <li>Zapamiętywanie preferencji</li>
+                        <li>Bezpieczeństwo techniczę</li>
+                        <li>Podstawa prawna: prawnie uzasadniony interes (Art. 6 ust. 1 lit. f GDPR)</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-share"></i> Przekazywanie danych</h2>
+            <p>Twoje dane mogą być przekazywane następującym odbiorcom:</p>
+            <ul>
+                <li><strong>Google Analytics:</strong> analiza ruchu (dane anonimowe)</li>
+                <li><strong>Google AdSense:</strong> wyświetlanie reklam</li>
+                <li><strong>TravelPayouts:</strong> affiliate marketing (przy kliknięciach)</li>
+                <li><strong>GetYourGuide:</strong> rezerwacje wycieczek</li>
+                <li><strong>MailerLite/Google Sheets:</strong> zarządzanie newsletterem</li>
+                <li><strong>Dostawcy hostingu:</strong> przechowywanie danych technicznych</li>
+            </ul>
+            
+            <h3>Przekazywanie do krajów trzecich</h3>
+            <p>Niektóre dane mogą być przekazywane do krajów poza UE (USA) w ramach:</p>
+            <ul>
+                <li>Google Services (objęte decyzją adequacyjną lub klauzulami)</li>
+                <li>Standardowych klauzul umownych zatwierdzonwych przez KE</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-clock"></i> Czas przechowywania danych</h2>
+            <ul>
+                <li><strong>Newsletter:</strong> do wycofania zgody lub 5 lat od ostatniej aktywności</li>
+                <li><strong>Google Analytics:</strong> 26 miesięcy (ustawienia Google)</li>
+                <li><strong>Pliki Cookies:</strong> zgodnie z ustawieniami przeglądarki (max. 2 lata)</li>
+                <li><strong>Logi serwera:</strong> 12 miesięcy</li>
+                <li><strong>Dane reklamowe:</strong> zgodnie z politykami Google AdSense</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-user-shield"></i> Twoje prawa (GDPR)</h2>
+            
+            <div class="rights-list">
+                <div class="right-item">
+                    <h4><i class="fas fa-eye"></i> Prawo dostępu</h4>
+                    <p>Możesz uzyskać informacje o przetwarzanych danych</p>
+                </div>
+                
+                <div class="right-item">
+                    <h4><i class="fas fa-edit"></i> Prawo sprostowania</h4>
+                    <p>Możesz poprawiać nieprawidłowe dane</p>
+                </div>
+                
+                <div class="right-item">
+                    <h4><i class="fas fa-trash"></i> Prawo usunięcia</h4>
+                    <p>Możesz żądać usunięcia swoich danych</p>
+                </div>
+                
+                <div class="right-item">
+                    <h4><i class="fas fa-pause"></i> Prawo ograniczenia</h4>
+                    <p>Możesz ograniczyć przetwarzanie danych</p>
+                </div>
+                
+                <div class="right-item">
+                    <h4><i class="fas fa-download"></i> Prawo przenoszenia</h4>
+                    <p>Możesz otrzymać dane w formacie strukturalnym</p>
+                </div>
+                
+                <div class="right-item">
+                    <h4><i class="fas fa-ban"></i> Prawo sprzeciwu</h4>
+                    <p>Możesz sprzeciwić się przetwarzaniu</p>
+                </div>
+                
+                <div class="right-item">
+                    <h4><i class="fas fa-times-circle"></i> Wycofanie zgody</h4>
+                    <p>Możesz wycofać zgodę w każdej chwili</p>
+                </div>
+                
+                <div class="right-item">
+                    <h4><i class="fas fa-balance-scale"></i> Prawo skargi</h4>
+                    <p>Możesz złożyć skargę do UODO</p>
+                </div>
+            </div>
+
+            <h3>Jak skorzystać z praw?</h3>
+            <p>Aby skorzystać z powyższych praw, napisz na: <strong>rodo@hoteleiloty.pl</strong></p>
+            <p>Odpowiemy w ciągu <strong>30 dni</strong> od otrzymania wniosku.</p>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-cookie-bite"></i> Pliki Cookies</h2>
+            
+            <h3>Rodzaje używanych cookies:</h3>
+            <ul>
+                <li><strong>Niezbędne:</strong> funkcjonowanie serwisu</li>
+                <li><strong>Analityczne:</strong> Google Analytics</li>
+                <li><strong>Reklamowe:</strong> Google AdSense</li>
+                <li><strong>Funkcjonalne:</strong> preferencje użytkownika</li>
+            </ul>
+
+            <h3>Zarządzanie cookies:</h3>
+            <p>Możesz kontrolować cookies przez:</p>
+            <ul>
+                <li>Ustawienia przeglądarki</li>
+                <li>Panel zgód (popup przy pierwszej wizycie)</li>
+                <li>Narzędzia Google (ads.google.com/my-ads)</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-shield-virus"></i> Bezpieczeństwo danych</h2>
+            <p>Stosujemy następujące środki bezpieczeństwa:</p>
+            <ul>
+                <li><strong>Szyfrowanie HTTPS:</strong> bezpieczna transmisja danych</li>
+                <li><strong>Aktualizacje:</strong> regularne aktualizacje systemu</li>
+                <li><strong>Kopie zapasowe:</strong> codzienne backupy</li>
+                <li><strong>Kontrola dostępu:</strong> ograniczony dostęp do danych</li>
+                <li><strong>Monitoring:</strong> śledzenie prób włamania</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-baby"></i> Dane dzieci</h2>
+            <p>Nie zbieramy świadomie danych osobowych od dzieci poniżej 16 roku życia bez zgody rodziców/opiekunów.</p>
+            <p>Jeśli dowiesz się, że dziecko przekazało nam dane bez zgody, skontaktuj się z nami - usuniemy te dane.</p>
+        </section>
+
+        <section class="content-section">
+            <h2><i class="fas fa-edit"></i> Zmiany polityki</h2>
+            <p>Polityka prywatności może być aktualizowana. O istotnych zmianach poinformujemy przez:</p>
+            <ul>
+                <li>Newsletter (jeśli jesteś zapisany)</li>
+                <li>Komunikat na stronie głównej</li>
+                <li>Zmianę daty "ostatniej aktualizacji"</li>
+            </ul>
+        </section>
+
+        <div class="contact-box">
+            <h3><i class="fas fa-envelope"></i> Kontakt w sprawach RODO</h3>
+            <p><strong>E-mail:</strong> rodo@hoteleiloty.pl</p>
+            <p><strong>Telefon:</strong> +48 123 456 789</p>
+            <p><strong>Adres:</strong> [ADRES FIRMY]</p>
+            <p><strong>Czas odpowiedzi:</strong> do 30 dni roboczych</p>
+            
+            <div style="margin-top: 1.5rem;">
+                <h4>Inspektor Ochrony Danych (DPO):</h4>
+                <p>iod@hoteleiloty.pl</p>
+            </div>
+            
+            <div style="margin-top: 1.5rem;">
+                <h4>Urząd Ochrony Danych Osobowych:</h4>
+                <p>ul. Stawki 2, 00-193 Warszawa</p>
+                <p>Tel.: 22 531 03 00</p>
+                <p>www.uodo.gov.pl</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
