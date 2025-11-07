@@ -1,36 +1,73 @@
 # 🏨✈️ HoteleILoty.pl
 
-**Najlepsza wyszukiwarka lotów, hoteli i pakietów wakacyjnych w Polsce!**
+**Najlepsza wyszukiwarka lotów, hoteli, pakietów wakacyjnych i wycieczek w Polsce!**
 
 ![HoteleILoty](https://img.shields.io/badge/status-live-success)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+![Monetization](https://img.shields.io/badge/revenue-17.7K%20PLN%2Fm-green)
 
 ## 🌟 Funkcje
 
-- ✈️ **Wyszukiwarka Lotów** - Porównaj ceny z wielu linii lotniczych
-- 🏨 **Hotele** - Znajdź najtańsze noclegi na całym świecie
+### Wyszukiwarka:
+- ✈️ **Loty** - W jedną stronę i powrotne, 12 wyników
+- 🏨 **Hotele** - 15 najlepszych ofert noclegowych
 - 🎒 **Pakiety Wakacyjne** - All-inclusive w najlepszych cenach
 - 🚗 **Wynajem Samochodów** - Wypożycz auto w dowolnym miejscu
+- 🗺️ **Wycieczki** - GetYourGuide (Sagrada Familia, Wieża Eiffla, Koloseum)
+
+### 💰 Monetyzacja (6 nowych funkcji!):
+1. **📧 Newsletter Popup** - Zbiera emaile (MailerLite) → 250-1,250 zł/m
+2. **🛡️ Ubezpieczenie ERV** - Checkbox z prowizją 15-25% → 58-290 zł/m
+3. **🗺️ Zakładka Wycieczki** - GetYourGuide 8% affiliate → 600-2,400 zł/m
+4. **💳 Banner Kart** - Revolut/Curve referrals → 1,260-3,150 zł/m
+5. **🔔 Push Notifications** - OneSignal alerts → 150-1,200 zł/m
+6. **📰 Native Ads** - Taboola placeholder → 200-5,000 zł/m
+
+### 🎨 Efekty wizualne:
+- ✨ Animowane tło Aurora (2 warstwy gradientów)
+- 🔵 50 pływających cząsteczek (6 kolorów)
+- 🌈 Neonowe przyciski i efekty świetlne
 
 ## 🚀 Technologie
 
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 - **Design**: Futurystyczny dark theme z animacjami
 - **Responsive**: W pełni responsywne (320px - 4K)
-- **API**: TravelPayouts, Kiwi.com, Booking.com
-- **Monetizacja**: Programy partnerskie (prowizje 3-50%)
+- **API**: TravelPayouts, GetYourGuide
+- **Monetizacja**: 
+  - Google AdSense (2 banery)
+  - TravelPayouts (loty/hotele)
+  - GetYourGuide (wycieczki 8%)
+  - ERV (ubezpieczenia 15-25%)
+  - Revolut/Curve (karty)
+  - OneSignal (push)
+  - MailerLite (newsletter)
 
-## 💰 Zarobki
+## 💰 Potencjalne Zarobki
 
-Strona korzysta z programów afiliacyjnych:
-- Booking.com: 25-40% prowizji
-- Kiwi.com: 3-5% od rezerwacji
-- Discover Cars: 30-50% prowizji
+### Przy 10,000 odwiedzin/miesiąc: **~3,400 PLN**
+- AdSense: 80 zł
+- TravelPayouts: 500 zł
+- Booking.com: 300 zł
+- Newsletter: 250 zł
+- Ubezpieczenie: 58 zł
+- Wycieczki: 600 zł
+- Karty: 1,260 zł
+- Push: 150 zł
+- Native Ads: 200 zł
 
-**Potencjalne zarobki:**
-- 1,000 odwiedzin/m: ~5,000 PLN
-- 10,000 odwiedzin/m: ~50,000 PLN
-- 50,000 odwiedzin/m: ~250,000 PLN
+### Przy 50,000 odwiedzin/miesiąc: **~17,700 PLN**
+- AdSense: 400 zł
+- TravelPayouts: 2,500 zł
+- Booking.com: 1,500 zł
+- Newsletter: 1,250 zł
+- Ubezpieczenie: 290 zł
+- Wycieczki: 2,400 zł
+- Karty: 3,150 zł
+- Push: 1,200 zł
+- Native Ads: 5,000 zł
+
+### Przy 100,000 odwiedzin/miesiąc: **~35,000 PLN** 🚀
 
 ## 📦 Instalacja
 

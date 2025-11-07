@@ -3493,7 +3493,7 @@
                                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem;">Sagrada Familia, Park Güell, Las Ramblas</p>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <span style="color: #00FFFF; font-weight: bold; font-size: 1.3rem;">150 zł</span>
-                                    <a href="https://www.getyourguide.pl/?partner_id=YOUR_ID" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
+                                    <a href="https://www.getyourguide.pl/?partner_id=123456" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
                                 </div>
                             </div>
                         </div>
@@ -3505,7 +3505,7 @@
                                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem;">Bez kolejki + przewodnik</p>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <span style="color: #00FFFF; font-weight: bold; font-size: 1.3rem;">120 zł</span>
-                                    <a href="https://www.getyourguide.pl/?partner_id=YOUR_ID" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
+                                    <a href="https://www.getyourguide.pl/?partner_id=123456" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
                                 </div>
                             </div>
                         </div>
@@ -3517,13 +3517,15 @@
                                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1rem;">Express wejście + archeolog</p>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
                                     <span style="color: #00FFFF; font-weight: bold; font-size: 1.3rem;">180 zł</span>
-                                    <a href="https://www.getyourguide.pl/?partner_id=YOUR_ID" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
+                                    <a href="https://www.getyourguide.pl/?partner_id=123456" target="_blank" style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #FF1493, #00FFFF); border-radius: 10px; color: white; text-decoration: none; font-weight: bold;">Rezerwuj</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 1rem; text-align: center;">
-                        🔗 Współpraca z GetYourGuide - Rezerwuj wycieczki z najlepszymi przewodnikami
+                        🔗 Współpraca z GetYourGuide - Rezerwuj wycieczki z najlepszymi przewodnikami<br>
+                        <span style="color: #00FFFF;">✅ Partner ID: 123456 (demo) - zamień na prawdziwy!</span><br>
+                        <small>📝 Rejestracja: partner.getyourguide.com | 💰 Prowizja: 8%</small>
                     </p>
                 </div>
             </div>
@@ -5394,6 +5396,32 @@
                 alert('✅ Dziękujemy! Zapisaliśmy Cię do newslettera: ' + email);
                 closeNewsletterPopup();
                 // TODO: Send email to your backend/mailchimp
+                
+                // 📧 GOOGLE SHEETS INTEGRATION
+                const googleSheetsUrl = 'https://script.google.com/macros/s/AKfycbwXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/exec';
+                fetch(googleSheetsUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `email=${encodeURIComponent(email)}&source=hoteleiloty&timestamp=${new Date().toISOString()}`
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('✅ Newsletter zapisany:', data);
+                    // Google Analytics tracking
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'newsletter_signup', {
+                            'email': email,
+                            'source': 'popup'
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Newsletter error:', error);
+                    // Fallback - zapisz lokalnie
+                    localStorage.setItem('newsletter_' + Date.now(), email);
+                });
             } else {
                 alert('❌ Podaj prawidłowy adres email');
             }
