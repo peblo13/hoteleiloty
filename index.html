@@ -59,14 +59,22 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Google Analytics (dodaj swój ID) -->
+    <!-- Google Analytics - TODO: dodaj swoj ID i odkomentuj
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-XXXXXXXXXX');
-        
+    </script>
+    -->
+    <script>
+        // Stub for gtag if Analytics not loaded
+        window.dataLayer = window.dataLayer || [];
+        if (typeof gtag === 'undefined') {
+            function gtag(){dataLayer.push(arguments);}
+        }
+
         // Social Media Functions
         function toggleSocialButtons() {
             const container = document.querySelector('.social-buttons-container');
@@ -75,41 +83,40 @@
 
         function shareOnFacebook() {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? Najlepsze oferty lot�w i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
+            const text = encodeURIComponent('Najlepsze oferty lotow i hoteli na HoteleILoty.pl! Sprawdz tanie wakacje juz od 99 zl!');
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + '&quote=' + text, '_blank', 'width=600,height=400');
             if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
         }
 
         function shareOnTwitter() {
             const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lot�w i hoteli! #wakacje #podr�e #lastminute');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+            const text = encodeURIComponent('HoteleILoty.pl - najlepsze ceny lotow i hoteli! #wakacje #podroze #lastminute');
+            window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank');
             if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
         }
 
         function shareOnInstagram() {
-            alert('?? Instagram: Zr�b screenshot � Stories � Dodaj link: ' + window.location.href);
+            alert('Instagram: Zrob screenshot, dodaj do Stories i wklej link: ' + window.location.href);
             if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
         }
 
         function shareOnLinkedIn() {
             const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
+            window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + url, '_blank');
             if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
         }
 
         function shareOnTikTok() {
-            alert('?? TikTok: Stw�rz video o tanich lotach! Link: ' + window.location.href);
+            alert('TikTok: Stworz video o tanich lotach! Link: ' + window.location.href);
             if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
         }
 
         function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('? Link skopiowany!');
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                alert('Link skopiowany!');
                 if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
             });
         }
-
     </script>
     
     <!-- Schema.org JSON-LD for SEO -->
@@ -150,50 +157,6 @@
             "reviewCount": "1250"
         }
     }
-        
-        // Social Media Functions
-        function toggleSocialButtons() {
-            const container = document.querySelector('.social-buttons-container');
-            container.classList.toggle('active');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? Najlepsze oferty lot�w i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
-        }
-
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lot�w i hoteli! #wakacje #podr�e #lastminute');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
-        }
-
-        function shareOnInstagram() {
-            alert('?? Instagram: Zr�b screenshot � Stories � Dodaj link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
-        }
-
-        function shareOnTikTok() {
-            alert('?? TikTok: Stw�rz video o tanich lotach! Link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('? Link skopiowany!');
-                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
-            });
-        }
-
     </script>
     
     <script type="application/ld+json">
@@ -208,50 +171,6 @@
             "query-input": "required name=search_term_string"
         }
     }
-        
-        // Social Media Functions
-        function toggleSocialButtons() {
-            const container = document.querySelector('.social-buttons-container');
-            container.classList.toggle('active');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? Najlepsze oferty lot�w i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
-        }
-
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lot�w i hoteli! #wakacje #podr�e #lastminute');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
-        }
-
-        function shareOnInstagram() {
-            alert('?? Instagram: Zr�b screenshot � Stories � Dodaj link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
-        }
-
-        function shareOnTikTok() {
-            alert('?? TikTok: Stw�rz video o tanich lotach! Link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('? Link skopiowany!');
-                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
-            });
-        }
-
     </script>
     
     <!-- 
@@ -309,26 +228,32 @@
         }
 
         :root {
-            --primary-gradient: linear-gradient(145deg, #FF1493, #00FFFF, #FFD700);
-            --dark-bg: linear-gradient(135deg, #0a0e27, #1a1f3a, #0f1628);
-            --card-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-            --glow-pink: rgba(255, 20, 147, 0.6);
-            --glow-cyan: rgba(0, 255, 255, 0.6);
-            --glow-gold: rgba(255, 215, 0, 0.6);
+            --primary-gradient: linear-gradient(145deg, #0EA5E9, #06B6D4);
+            --accent-pink: #EC4899;
+            --accent-cyan: #06B6D4;
+            --accent-sky: #0EA5E9;
+            --dark-bg: #0B1120;
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --glow-pink: rgba(236, 72, 153, 0.3);
+            --glow-cyan: rgba(6, 182, 212, 0.3);
+            --text-primary: rgba(255, 255, 255, 0.95);
+            --text-secondary: rgba(255, 255, 255, 0.7);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0e27;
-            color: white;
+            background: var(--dark-bg);
+            color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             position: relative;
+            line-height: 1.6;
         }
 
-        /* Ultra Advanced Animated Background */
+        /* Subtle Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -336,27 +261,11 @@
             width: 100%;
             height: 100%;
             z-index: -2;
-            background: radial-gradient(ellipse at center, #0a0e27 0%, #050815 100%);
+            background: radial-gradient(ellipse at center, #0B1120 0%, #070D1A 100%);
             overflow: hidden;
         }
 
         .animated-bg::before {
-            content: '';
-            position: absolute;
-            width: 300%;
-            height: 300%;
-            top: -100%;
-            left: -100%;
-            background: 
-                radial-gradient(circle at 15% 25%, rgba(255, 20, 147, 0.15) 0%, transparent 60%),
-                radial-gradient(circle at 85% 75%, rgba(0, 255, 255, 0.12) 0%, transparent 60%),
-                radial-gradient(circle at 45% 85%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
-                radial-gradient(circle at 75% 15%, rgba(255, 105, 180, 0.1) 0%, transparent 60%),
-                radial-gradient(circle at 25% 65%, rgba(0, 191, 255, 0.05) 0%, transparent 60%);
-            animation: aurora 25s ease-in-out infinite;
-        }
-
-        .animated-bg::after {
             content: '';
             position: absolute;
             width: 200%;
@@ -364,36 +273,24 @@
             top: -50%;
             left: -50%;
             background: 
-                conic-gradient(from 0deg at 30% 40%, rgba(255, 20, 147, 0.1), transparent, rgba(0, 255, 255, 0.08), transparent, rgba(255, 215, 0, 0.06)),
-                conic-gradient(from 180deg at 70% 60%, rgba(255, 105, 180, 0.08), transparent, rgba(0, 191, 255, 0.05), transparent);
-            animation: aurora-reverse 30s ease-in-out infinite reverse;
+                radial-gradient(circle at 20% 30%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(236, 72, 153, 0.04) 0%, transparent 50%);
+            animation: aurora 60s ease-in-out infinite;
+        }
+
+        .animated-bg::after {
+            display: none;
         }
 
         @keyframes aurora {
             0%, 100% { 
-                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+                transform: translate(0, 0) scale(1);
                 opacity: 0.8;
             }
-            25% { 
-                transform: translate(-40%, -60%) rotate(90deg) scale(1.1);
+            50% { 
+                transform: translate(-5%, -5%) scale(1.05);
                 opacity: 1;
-            }
-            50% { 
-                transform: translate(-60%, -40%) rotate(180deg) scale(0.9);
-                opacity: 0.9;
-            }
-            75% { 
-                transform: translate(-45%, -55%) rotate(270deg) scale(1.05);
-                opacity: 0.95;
-            }
-        }
-
-        @keyframes aurora-reverse {
-            0%, 100% { 
-                transform: translate(-50%, -50%) rotate(360deg) scale(1.2);
-            }
-            50% { 
-                transform: translate(-55%, -45%) rotate(180deg) scale(0.8);
             }
         }
 
@@ -685,50 +582,97 @@
 
         /* Header */
         header {
-            background: rgba(10, 14, 39, 0.95);
+            background: rgba(11, 17, 32, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 2px solid rgba(255, 20, 147, 0.3);
-            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+            padding: 1rem 2rem;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .header-container {
             max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: var(--primary-gradient);
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0EA5E9, #06B6D4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 30px var(--glow-pink);
-            animation: logoGlow 3s ease-in-out infinite;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: opacity 0.3s ease;
+            letter-spacing: -0.5px;
         }
 
         .logo:hover {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.8));
+            opacity: 0.85;
         }
 
-        @keyframes logoGlow {
-            0%, 100% { 
-                opacity: 1;
-                filter: drop-shadow(0 0 10px rgba(255, 20, 147, 0.5));
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-primary);
+            background: rgba(14, 165, 233, 0.1);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
-            50% { 
-                opacity: 0.9;
-                filter: drop-shadow(0 0 25px rgba(0, 255, 255, 0.8));
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(11, 17, 32, 0.98);
+                flex-direction: column;
+                padding: 1rem;
+                border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-link {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem;
             }
         }
 
@@ -747,57 +691,37 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #ffffff, #94A3B8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            letter-spacing: -1px;
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            color: var(--text-secondary);
             margin-bottom: 2rem;
         }
 
         /* Search Container */
         .search-container {
-            background: var(--card-bg);
-            backdrop-filter: blur(30px);
-            border-radius: 30px;
-            padding: 3rem;
-            border: 2px solid rgba(255, 20, 147, 0.3);
-            box-shadow: 
-                0 25px 80px rgba(0, 0, 0, 0.4),
-                0 0 60px var(--glow-pink);
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             margin-bottom: 4rem;
             position: relative;
             overflow: hidden;
         }
 
         .search-container::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                transparent,
-                rgba(255, 20, 147, 0.1),
-                transparent,
-                rgba(0, 255, 255, 0.1),
-                transparent
-            );
-            animation: rotate 20s linear infinite;
-            z-index: -1;
+            display: none;
         }
 
         /* Tabs */
@@ -813,47 +737,28 @@
         }
 
         .tab-btn {
-            background: var(--card-bg);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 20px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-secondary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .tab-btn:hover::before {
-            left: 100%;
-        }
-
-        .tab-btn.active {
-            background: var(--primary-gradient);
-            border-color: transparent;
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                0 15px 35px var(--glow-pink),
-                0 0 25px var(--glow-cyan);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
         }
 
         .tab-btn:hover {
-            background: linear-gradient(145deg, rgba(255, 20, 147, 0.6), rgba(0, 255, 255, 0.6));
-            border-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
+            background: rgba(14, 165, 233, 0.1);
+            border-color: rgba(14, 165, 233, 0.3);
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #0EA5E9, #06B6D4);
+            border-color: transparent;
+            color: white;
+            box-shadow: 0 4px 12px var(--glow-cyan);
         }
 
         /* Tab Content */
@@ -1400,29 +1305,28 @@
 
         /* Search Button */
         .search-btn {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #0EA5E9, #06B6D4);
             border: none;
             color: white;
-            padding: 1.5rem 4rem;
-            border-radius: 30px;
-            font-size: 1.3rem;
-            font-weight: bold;
+            padding: 1.2rem 3rem;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 12px 35px var(--glow-pink);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 16px var(--glow-cyan);
             margin-top: 2rem;
             width: 100%;
             max-width: 400px;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .search-btn:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 50px var(--glow-pink), 0 0 40px var(--glow-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--glow-cyan);
         }
 
         /* Results Section */
@@ -1452,18 +1356,16 @@
             margin-bottom: 3rem;
         }
 
-        /* Result Card - Ultra Futuristic */
+        /* Result Card */
         .result-card {
-            background: linear-gradient(135deg, rgba(26, 29, 58, 0.95), rgba(13, 14, 29, 0.95));
-            backdrop-filter: blur(30px);
-            border-radius: 25px;
-            border: 2px solid transparent;
-            background-clip: padding-box;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--card-border);
             position: relative;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
             cursor: pointer;
-            animation: cardFloat 6s ease-in-out infinite;
         }
 
         .result-card::before {
@@ -1509,16 +1411,9 @@
         }
 
         .result-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 
-                0 30px 60px rgba(0, 255, 255, 0.3),
-                0 0 80px rgba(255, 20, 147, 0.2),
-                inset 0 0 50px rgba(255, 255, 255, 0.05);
-        }
-
-        @keyframes cardFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            transform: translateY(-4px);
+            border-color: rgba(14, 165, 233, 0.3);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes borderRotate {
@@ -1564,26 +1459,15 @@
 
         .result-badge {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, 
-                rgba(255, 20, 147, 0.95), 
-                rgba(157, 78, 221, 0.95));
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: 800;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            top: 16px;
+            right: 16px;
+            background: rgba(14, 165, 233, 0.9);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.8rem;
             z-index: 2;
-            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
-            animation: badgePulse 2s ease-in-out infinite;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        @keyframes badgePulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5); }
-            50% { transform: scale(1.05); box-shadow: 0 12px 35px rgba(255, 20, 147, 0.7); }
+            color: white;
         }
 
         .result-content {
@@ -3242,7 +3126,16 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">🏨✈️ HoteleILoty.pl</div>
+            <a href="index.html" class="logo" style="text-decoration:none">HoteleILoty.pl</a>
+            <button class="mobile-menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active">Szukaj</a>
+                <a href="last-minute.html" class="nav-link">Last Minute</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="kontakt.html" class="nav-link">Kontakt</a>
+            </nav>
         </div>
     </header>
 
@@ -3936,53 +3829,7 @@
                  data-ad-slot="1234567890"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-                
-        // Social Media Functions
-        function toggleSocialButtons() {
-            const container = document.querySelector('.social-buttons-container');
-            container.classList.toggle('active');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? Najlepsze oferty lot�w i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
-        }
-
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lot�w i hoteli! #wakacje #podr�e #lastminute');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
-        }
-
-        function shareOnInstagram() {
-            alert('?? Instagram: Zr�b screenshot � Stories � Dodaj link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
-        }
-
-        function shareOnTikTok() {
-            alert('?? TikTok: Stw�rz video o tanich lotach! Link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('? Link skopiowany!');
-                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
-            });
-        }
-
-    </script>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
         <!-- Loading -->
@@ -4041,53 +3888,7 @@
                  data-ad-slot="0987654321"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-                
-        // Social Media Functions
-        function toggleSocialButtons() {
-            const container = document.querySelector('.social-buttons-container');
-            container.classList.toggle('active');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? Najlepsze oferty lot�w i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
-        }
-
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lot�w i hoteli! #wakacje #podr�e #lastminute');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
-        }
-
-        function shareOnInstagram() {
-            alert('?? Instagram: Zr�b screenshot � Stories � Dodaj link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
-        }
-
-        function shareOnTikTok() {
-            alert('?? TikTok: Stw�rz video o tanich lotach! Link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('? Link skopiowany!');
-                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
-            });
-        }
-
-    </script>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
     </div>
 
@@ -4414,7 +4215,7 @@
             </div>
 
             <div id="insurance-info" style="background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); border-radius: 10px; padding: 1rem; margin-top: 1rem; display: none;">
-                <p style="color: #FFD700; margin: 0;">✅ Dodano ubezpieczenie ERV (+29 zł). <a href="https://www.erv.pl/?ref=YOUR_ID" target="_blank" style="color: #00FFFF;">Sprawdź szczegóły</a></p>
+                <p style="color: #FFD700; margin: 0;">✅ Dodano ubezpieczenie ERV (+29 zł). <a href="#" <!-- TODO: dodaj swoj link afiliacyjny ERV --> target="_blank" style="color: #00FFFF;">Sprawdź szczegóły</a></p>
             </div>
         `;
 
@@ -5805,7 +5606,7 @@
 
         // Create animated particles
         function createParticles() {
-            const particleCount = 50; // Liczba kropek
+            const particleCount = 15; // Reduced for performance
             const colors = [
                 'rgba(255, 20, 147, 0.6)',    // Pink
                 'rgba(0, 255, 255, 0.6)',     // Cyan
@@ -5928,49 +5729,6 @@
         window.addEventListener('load', () => {
             showNewsletterPopup();
         });
-        
-        // Social Media Functions
-        function toggleSocialButtons() {
-            const container = document.querySelector('.social-buttons-container');
-            container.classList.toggle('active');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? Najlepsze oferty lot�w i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
-        }
-
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lot�w i hoteli! #wakacje #podr�e #lastminute');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
-        }
-
-        function shareOnInstagram() {
-            alert('?? Instagram: Zr�b screenshot � Stories � Dodaj link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
-        }
-
-        function shareOnTikTok() {
-            alert('?? TikTok: Stw�rz video o tanich lotach! Link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('? Link skopiowany!');
-                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
-            });
-        }
 
     </script>
 
@@ -6020,7 +5778,7 @@
             
             <div class="footer-bottom">
                 <div class="footer-copyright">
-                    <p>&copy; 2024 HoteleILoty.pl - Wszystkie prawa zastrzeżone</p>
+                    <p>&copy; 2025 HoteleILoty.pl - Wszystkie prawa zastrzeżone</p>
                     <p class="footer-disclaimer">
                         Ceny mogą się różnić od aktualnych ofert partnerów. 
                         Sprawdź warunki przed zakupem.
@@ -6076,7 +5834,7 @@
             <div class="card-title">Płać za granicą BEZ PROWIZJI</div>
             <div class="card-desc">Revolut & Curve - idealne karty dla podróżników</div>
         </div>
-        <button class="card-btn" onclick="window.open('https://revolut.com/referral/?referral_code=YOUR_CODE', '_blank')">
+        <button class="card-btn" onclick="alert('Link afiliacyjny Revolut - dodaj swoj kod referral')">
             Sprawdź →
         </button>
         <button class="newsletter-close" onclick="document.getElementById('card-banner').style.display='none'" style="top: 10px; right: 10px;">×</button>
@@ -6111,50 +5869,6 @@
                 localStorage.setItem('pushPermissionAsked', 'true');
             }
         }, 15000);
-        
-        // Social Media Functions
-        function toggleSocialButtons() {
-            const container = document.querySelector('.social-buttons-container');
-            container.classList.toggle('active');
-        }
-
-        function shareOnFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? Najlepsze oferty lot�w i hoteli na HoteleILoty.pl! Sprawd tanie wakacje ju od 99 z!');
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${text}`, '_blank', 'width=600,height=400');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'facebook' }); }
-        }
-
-        function shareOnTwitter() {
-            const url = encodeURIComponent(window.location.href);
-            const text = encodeURIComponent('??? HoteleILoty.pl - najlepsze ceny lot�w i hoteli! #wakacje #podr�e #lastminute');
-            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'twitter' }); }
-        }
-
-        function shareOnInstagram() {
-            alert('?? Instagram: Zr�b screenshot � Stories � Dodaj link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'instagram' }); }
-        }
-
-        function shareOnLinkedIn() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank');
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'linkedin' }); }
-        }
-
-        function shareOnTikTok() {
-            alert('?? TikTok: Stw�rz video o tanich lotach! Link: ' + window.location.href);
-            if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'tiktok' }); }
-        }
-
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('? Link skopiowany!');
-                if (typeof gtag !== 'undefined') { gtag('event', 'share', { 'method': 'copy_link' }); }
-            });
-        }
-
     </script>
 </body>
 </html>
