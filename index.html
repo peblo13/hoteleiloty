@@ -529,6 +529,116 @@
             color: white;
         }
     </style>
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hoteleiloty.pl/">
+    <meta property="og:title" content="HoteleILoty.pl - Tanie Loty, Hotele i Wakacje Last Minute">
+    <meta property="og:description" content="Wyszukiwarka lotów, hoteli i pakietów wakacyjnych. Porównaj ceny z 500+ biur podróży. Rezerwuj tanie loty od 99 zł, hotele od 50 zł/noc. Last minute do -70%!">
+    <meta property="og:image" content="https://hoteleiloty.pl/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pl_PL">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://hoteleiloty.pl/">
+    <meta name="twitter:title" content="HoteleILoty.pl - Tanie Loty, Hotele i Wakacje Last Minute">
+    <meta name="twitter:description" content="Wyszukiwarka lotów, hoteli i pakietów wakacyjnych. Rezerwuj tanie loty od 99 zł, hotele od 50 zł/noc!">
+    <meta name="twitter:image" content="https://hoteleiloty.pl/og-image.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="HoteleILoty.pl">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="Polish">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    
+    <!-- Google Site Verification (dodaj tu swój kod z Google Search Console) -->
+    <!-- <meta name="google-site-verification" content="YOUR-VERIFICATION-CODE"> -->
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <!-- JSON-LD Schema Markup - Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "HoteleILoty.pl",
+        "alternateName": "Hotele i Loty",
+        "url": "https://hoteleiloty.pl",
+        "logo": "https://hoteleiloty.pl/logo.png",
+        "description": "Wyszukiwarka lotów, hoteli i pakietów wakacyjnych. Porównaj ceny z 500+ biur podróży",
+        "sameAs": [
+            "https://www.facebook.com/hoteleiloty",
+            "https://www.instagram.com/hoteleiloty",
+            "https://twitter.com/hoteleiloty"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "telephone": "+48-XXX-XXX-XXX",
+            "email": "kontakt@hoteleiloty.pl"
+        }
+    }
+    </script>
+    
+    <!-- JSON-LD Schema Markup - Website -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://hoteleiloty.pl",
+        "name": "HoteleILoty.pl",
+        "description": "Wyszukiwarka lotów, hoteli i pakietów wakacyjnych",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://hoteleiloty.pl?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <!-- JSON-LD Schema Markup - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Strona Główna",
+                "item": "https://hoteleiloty.pl"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Szukaj Lotów",
+                "item": "https://hoteleiloty.pl/#loty"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Rezerwuj Hotele",
+                "item": "https://hoteleiloty.pl/#hotele"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Porady Podróżnika",
+                "item": "https://hoteleiloty.pl/#porady"
+            }
+        ]
+    }
+    </script>
+
 </head>
 <body>
     <div class="animated-bg"></div>
@@ -667,62 +777,74 @@
             <section class="blog-section" id="blog">
                 <h2 class="section-title">Porady Podróżnika</h2>
                 <div class="blog-grid">
-                    <article class="blog-card">
-                        <img src="/public/blog-flights.jpg" alt="Samolot lecący przez chmury" style="width: 100%; height: 200px; object-fit: cover;">
+                    <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+                        <img src="/public/blog-flights.jpg" alt="Samolot lecący przez chmury" style="width: 100%; height: 200px; object-fit: cover;" itemprop="image">
                         <div class="blog-content">
                             <div class="blog-meta">Porady • 5 min czytania</div>
-                            <h3>Jak zaoszczędzić na lotach do 70%?</h3>
-                            <p>Naukowe sposoby na znalezienie najtańszych lotów. Dowiedz się, kiedy najlepiej rezerwować, które dni tygodnia są najtańsze, i jakie narzędzia mogą Ci pomóc zaoszczędzić tysiące złotych na lotach w tym roku.</p>
+                            <h3 itemprop="headline">Jak zaoszczędzić na lotach do 70%?</h3>
+                            <p itemprop="description">Naukowe sposoby na znalezienie najtańszych lotów. Dowiedz się, kiedy najlepiej rezerwować, które dni tygodnia są najtańsze, i jakie narzędzia mogą Ci pomóc zaoszczędzić tysiące złotych na lotach w tym roku.</p>
+                            <meta itemprop="datePublished" content="2025-02-20">
+                            <meta itemprop="author" content="HoteleILoty.pl">
                             <a href="#" class="read-more">Czytaj dalej →</a>
                         </div>
                     </article>
 
-                    <article class="blog-card">
-                        <img src="/public/blog-hotels.jpg" alt="Luksusowy hotel nad morzem" style="width: 100%; height: 200px; object-fit: cover;">
+                    <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+                        <img src="/public/blog-hotels.jpg" alt="Luksusowy hotel nad morzem" style="width: 100%; height: 200px; object-fit: cover;" itemprop="image">
                         <div class="blog-content">
                             <div class="blog-meta">Porady • 7 min czytania</div>
-                            <h3>Przewodnik po wyborze hotelu na wakacje</h3>
-                            <p>Co zwrócić uwagę przy wyborze hotelu? Jakie recenzje są wiarygodne? Jak negocjować lepsze ceny? Praktyczne wskazówki, które pomogą Ci wybrać idealny hotel do każdego budżetu i potrzeb.</p>
+                            <h3 itemprop="headline">Przewodnik po wyborze hotelu na wakacje</h3>
+                            <p itemprop="description">Co zwrócić uwagę przy wyborze hotelu? Jakie recenzje są wiarygodne? Jak negocjować lepsze ceny? Praktyczne wskazówki, które pomogą Ci wybrać idealny hotel do każdego budżetu i potrzeb.</p>
+                            <meta itemprop="datePublished" content="2025-02-20">
+                            <meta itemprop="author" content="HoteleILoty.pl">
                             <a href="#" class="read-more">Czytaj dalej →</a>
                         </div>
                     </article>
 
-                    <article class="blog-card">
-                        <img src="/public/blog-vacation.jpg" alt="Plażowy parasol na tropikalnej plaży" style="width: 100%; height: 200px; object-fit: cover;">
+                    <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
+                        <img src="/public/blog-vacation.jpg" alt="Plażowy parasol na tropikalnej plaży" style="width: 100%; height: 200px; object-fit: cover;" itemprop="image">
                         <div class="blog-content">
                             <div class="blog-meta">Porady • 6 min czytania</div>
-                            <h3>Wakacje last-minute - jak zaplanować idealnie?</h3>
-                            <p>Last-minute oferuje niesamowite oszczędności, ale wymaga szybkiego podejmowania decyzji. Przeczytaj, jak znaleźć najlepsze oferty, na co zwrócić uwagę, i jak zaplanować wyjazd w ostatnią chwilę bez stresu.</p>
+                            <h3 itemprop="headline">Wakacje last-minute - jak zaplanować idealnie?</h3>
+                            <p itemprop="description">Last-minute oferuje niesamowite oszczędności, ale wymaga szybkiego podejmowania decyzji. Przeczytaj, jak znaleźć najlepsze oferty, na co zwrócić uwagę, i jak zaplanować wyjazd w ostatnią chwilę bez stresu.</p>
+                            <meta itemprop="datePublished" content="2025-02-20">
+                            <meta itemprop="author" content="HoteleILoty.pl">
                             <a href="#" class="read-more">Czytaj dalej →</a>
                         </div>
                     </article>
 
-                    <article class="blog-card">
+                    <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
                         <div class="blog-image">🌍</div>
                         <div class="blog-content">
                             <div class="blog-meta">Porady • 8 min czytania</div>
-                            <h3>Najpopularniejsze kierunki wakacyjne 2025</h3>
-                            <p>Gdzie polecają podróżowcy? Jakie kierunki są teraz najtańsze? Jakie destinacje będą modne w tym roku? Kompletny przewodnik do najpopularniejszych i najciekawszych kierunków podróży na całym świecie.</p>
+                            <h3 itemprop="headline">Najpopularniejsze kierunki wakacyjne 2025</h3>
+                            <p itemprop="description">Gdzie polecają podróżowcy? Jakie kierunki są teraz najtańsze? Jakie destinacje będą modne w tym roku? Kompletny przewodnik do najpopularniejszych i najciekawszych kierunków podróży na całym świecie.</p>
+                            <meta itemprop="datePublished" content="2025-02-20">
+                            <meta itemprop="author" content="HoteleILoty.pl">
                             <a href="#" class="read-more">Czytaj dalej →</a>
                         </div>
                     </article>
 
-                    <article class="blog-card">
+                    <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
                         <div class="blog-image">💰</div>
                         <div class="blog-content">
                             <div class="blog-meta">Porady • 5 min czytania</div>
-                            <h3>Budżet na wakacje - jak zaplanować finansowo?</h3>
-                            <p>Ile powinno się wydać na wakacje? Jak rozdzielić budżet między lot, hotel, wyżywienie? Sprawdzone strategie budżetowania wakacji, które pozwolą Ci cieszyć się wypoczynkiem bez finansowego stresu.</p>
+                            <h3 itemprop="headline">Budżet na wakacje - jak zaplanować finansowo?</h3>
+                            <p itemprop="description">Ile powinno się wydać na wakacje? Jak rozdzielić budżet między lot, hotel, wyżywienie? Sprawdzone strategie budżetowania wakacji, które pozwolą Ci cieszyć się wypoczynkiem bez finansowego stresu.</p>
+                            <meta itemprop="datePublished" content="2025-02-20">
+                            <meta itemprop="author" content="HoteleILoty.pl">
                             <a href="#" class="read-more">Czytaj dalej →</a>
                         </div>
                     </article>
 
-                    <article class="blog-card">
+                    <article class="blog-card" itemscope itemtype="https://schema.org/BlogPosting">
                         <div class="blog-image">🛂</div>
                         <div class="blog-content">
                             <div class="blog-meta">Porady • 7 min czytania</div>
-                            <h3>Dokumenty, wizy i ubezpieczenia podróżne</h3>
-                            <p>Jakie dokumenty potrzebujesz do podróży zagranicą? Jak ubezpieczyć się na wakacje? Czego nie zapomnieć przygotowując się do wyjazdu? Kompletny checklist przed każdą podróżą zagranicą.</p>
+                            <h3 itemprop="headline">Dokumenty, wizy i ubezpieczenia podróżne</h3>
+                            <p itemprop="description">Jakie dokumenty potrzebujesz do podróży zagranicą? Jak ubezpieczyć się na wakacje? Czego nie zapomnieć przygotowując się do wyjazdu? Kompletny checklist przed każdą podróżą zagranicą.</p>
+                            <meta itemprop="datePublished" content="2025-02-20">
+                            <meta itemprop="author" content="HoteleILoty.pl">
                             <a href="#" class="read-more">Czytaj dalej →</a>
                         </div>
                     </article>
