@@ -951,17 +951,112 @@
         </div>
     </footer>
 
+    <script src="travel-api.js"></script>
     <script>
         // Ad initialization
         (adsbygoogle = window.adsbygoogle || []).push({});
 
-        // Tab switching
-        document.querySelectorAll('.tab-btn').forEach(btn => {
+        // Initialize Travel API
+        let travelAPI = new TravelAPIManager();
+
+        // Tab switching with search type
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        let activeSearchType = 'flights';
+        
+        tabButtons.forEach((btn, index) => {
             btn.addEventListener('click', function() {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                tabButtons.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+                
+                const types = ['flights', 'hotels', 'packages', 'cars'];
+                activeSearchType = types[index];
             });
         });
+
+        // Search button handler
+        const searchBtn = document.querySelector('.search-btn');
+        searchBtn.addEventListener('click', async function() {
+            const from = document.getElementById('from').value.trim();
+            const to = document.getElementById('to').value.trim();
+            const departure = document.getElementById('departure').value;
+            const returnDate = document.getElementById('return').value;
+
+            if (!from || !to || !departure) {
+                alert('Proszę wypełnić: skąd, dokąd i datę wylotu');
+                return;
+            }
+
+            searchBtn.disabled = true;
+            searchBtn.textContent = 'Szukam...';
+
+            try {
+                let results = [];
+                
+                // Map city names to airport codes
+                const cityToCode = {
+                    'warszawa': 'WAW', 'warsaw': 'WAW',
+                    'kraków': 'KRK', 'krakow': 'KRK',
+                    'wrocław': 'WRO', 'wroclaw': 'WRO',
+                    'gdańsk': 'GDN', 'gdansk': 'GDN',
+                    'poznań': 'POZ', 'poznan': 'POZ',
+                    'barcelona': 'BCN',
+                    'paryż': 'CDG', 'paris': 'CDG', 'paryż': 'CDG',
+                    'londyn': 'LHR', 'london': 'LHR',
+                    'berlin': 'BER',
+                    'amsterdam': 'AMS',
+                    'mediolan': 'MXP', 'milan': 'MXP',
+                    'rzym': 'FCO', 'rome': 'FCO',
+                    'madryt': 'MAD', 'madrid': 'MAD'
+                };
+                
+                const originCode = cityToCode[from.toLowerCase()] || 'WAW';
+                const destCode = cityToCode[to.toLowerCase()] || 'BCN';
+
+                if (activeSearchType === 'flights') {
+                    results = await travelAPI.searchFlights(originCode, destCode, departure, returnDate);
+                } else if (activeSearchType === 'hotels') {
+                    results = await travelAPI.searchHotels(destCode, departure, returnDate);
+                } else if (activeSearchType === 'packages') {
+                    results = await travelAPI.searchPackages(originCode, destCode, departure, returnDate);
+                }
+
+                displaySearchResults(results);
+                
+                // Scroll to results
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            } catch (error) {
+                console.error('Błąd wyszukiwania:', error);
+                alert('Błąd podczas wyszukiwania. Spróbuj ponownie.');
+            } finally {
+                searchBtn.disabled = false;
+                searchBtn.textContent = 'Szukaj ofert';
+            }
+        });
+
+        // Display search results
+        function displaySearchResults(deals) {
+            const resultsGrid = document.querySelector('.results-grid');
+            
+            if (!deals || deals.length === 0) {
+                resultsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">Nie znaleziono ofert dla wybranych kryteriów. Spróbuj zmieniając parametry wyszukiwania.</p>';
+                return;
+            }
+
+            resultsGrid.innerHTML = deals.map(deal => `
+                <div class="result-card">
+                    <div style="width: 100%; height: 180px; background: linear-gradient(135deg, #0070f3, #00d4ff); border-radius: 10px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+                        ${deal.type === 'flight' ? '✈️' : deal.type === 'hotel' ? '🏨' : '📦'}
+                    </div>
+                    <h3>${deal.name || deal.origin + ' → ' + deal.destination || 'Oferta'}</h3>
+                    <p>${deal.airline || deal.location || 'Najlepsza oferta'}</p>
+                    <div class="price">${deal.price} ${deal.currency}</div>
+                    <p style="font-size: 0.85rem; color: var(--secondary); margin-bottom: 1rem;">
+                        <strong>${deal.badge}</strong>
+                    </p>
+                    <button class="btn-primary" onclick="alert('Kierowanie do platformy rezerwacji: ${deal.bookingUrl}')">Rezerwuj Teraz</button>
+                </div>
+            `).join('');
+        }
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -973,6 +1068,25 @@
                     if (target) target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // Newsletter subscription
+        document.querySelectorAll('input[type="email"]').forEach(input => {
+            if (input.parentElement.querySelector('button')) {
+                input.parentElement.querySelector('button').addEventListener('click', function() {
+                    const email = input.value.trim();
+                    if (!email) {
+                        alert('Proszę podać adres email');
+                        return;
+                    }
+                    if (!email.includes('@')) {
+                        alert('Proszę podać prawidłowy adres email');
+                        return;
+                    }
+                    alert('Dziękujemy za subskrypcję! Sprawdź swoją skrzynkę odbiorczą.');
+                    input.value = '';
+                });
+            }
         });
     </script>
 </body>

@@ -3,10 +3,11 @@
 
 class TravelAPIManager {
     constructor() {
-        // API Keys (get these from respective providers)
-        this.TRAVELPAYOUTS_TOKEN = 'YOUR_TRAVELPAYOUTS_TOKEN'; // travelpayouts.com
-        this.HOTELLOOK_TOKEN = 'YOUR_HOTELLOOK_TOKEN'; // hotellook.com
-        this.AMADEUS_API_KEY = 'YOUR_AMADEUS_KEY'; // developers.amadeus.com
+        // API Keys - Using demo mode fallback to mock data
+        this.TRAVELPAYOUTS_TOKEN = localStorage.getItem('travelpayouts_token') || 'DEMO_MODE';
+        this.HOTELLOOK_TOKEN = localStorage.getItem('hotellook_token') || 'DEMO_MODE';
+        this.AMADEUS_API_KEY = localStorage.getItem('amadeus_key') || 'DEMO_MODE';
+        this.USE_MOCK_DATA = true; // Force mock data for demo
         
         // API Endpoints
         this.endpoints = {
