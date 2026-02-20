@@ -3,8 +3,18 @@ import subprocess
 import os
 import sys
 
+# Get current directory first, then navigate
+current_dir = os.getcwd()
+print(f"Current working directory: {current_dir}")
+
 # Change to project directory
-os.chdir('/vercel/share/v0-project')
+try:
+    os.chdir('/vercel/share/v0-project')
+    print(f"Changed to: {os.getcwd()}")
+except Exception as e:
+    print(f"Could not change directory: {e}")
+    # Try current directory instead
+    pass
 
 print("=" * 60)
 print("🚀 PUSHING TO GITHUB - Google AdSense Integration")
