@@ -1,0 +1,19 @@
+GOTOWE KOMENDY DO WKLEJENIA - SKOPIUJ I WKLEJ DO TERMINAL/CMD
+==============================================================
+
+1. PRZEJDŹ DO FOLDERU (zmień ścieżkę na swoją):
+cd C:\Users\YourName\hoteleiloty
+LUB
+cd ~/hoteleiloty
+
+2. SKOPIUJ I WKLEJ TO (całą sekcję naraz):
+
+git add .
+git commit -m "Improved website design for Google AdSense - Added premium UI, content, SEO optimization, and AdSense slots (7410885727, 9901317699)"
+git push origin website-improvement-for-adsense
+
+---
+
+To wszystko! Zmiany pojawią się na GitHub.
+
+Potem idź do https://github.com/peblo13/hoteleiloty i utwórz Pull Request (guzik powinien się pojawić).

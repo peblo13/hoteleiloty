@@ -1,28 +1,68 @@
 # robots.txt dla HoteleILoty.pl
-# Pozwala wszystkim robotom indeksować całą stronę
+# Optymalizacja dla wyszukiwarek: Google, Bing, Yandex
 
+# Domyślne reguły dla wszystkich botów
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /test/
+Disallow: /*.md$
+Disallow: /scripts/
+Disallow: /private/
+
+# Wskazania dla botów
+Crawl-delay: 0.5
+Request-rate: 10/1s
 
 # Sitemap
 Sitemap: https://hoteleiloty.pl/sitemap.xml
 
-# Najważniejsze strony dla botów
-Crawl-delay: 1
-
-# Blokada wrażliwych plików (opcjonalnie)
-Disallow: /test-buttons.html
-Disallow: /*.md$
-
-# Specjalne instrukcje dla Google
+# ============================================
+# Specjalne instrukcje dla Googlebot
+# ============================================
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+Request-rate: 100/1s
+Disallow: /admin/
+Disallow: /test/
 
+# Specjalne instrukcje dla Google Images
 User-agent: Googlebot-Image
 Allow: /
+Allow: /public/
+Allow: /*.jpg$
+Allow: /*.png$
+Allow: /*.gif$
 
-# Bing
+# ============================================
+# Specjalne instrukcje dla Bingbot
+# ============================================
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
+Request-rate: 10/1s
+
+# ============================================
+# Blokada dla słabych botów/spamerów
+# ============================================
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# ============================================
+# Inne ustawienia
+# ============================================
+User-agent: *
+Clean-param: utm_source&utm_medium&utm_campaign
+
+# Obsługa HTTPS (preferuj bezpieczne połączenia)
+# Host: https://hoteleiloty.pl
