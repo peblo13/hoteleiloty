@@ -35,6 +35,9 @@
     <!-- AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9110227480064306" crossorigin="anonymous"></script>
     
+    <!-- Travel API -->
+    <script src="travel-api.js"></script>
+    
     <style>
         :root {
             --primary-purple: #6C5CE7;
@@ -2617,19 +2620,19 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>🛫 Skąd</label>
-                        <input type="text" placeholder="Warszawa (WAW)" value="Warszawa (WAW)">
+                        <input type="text" id="origin" placeholder="Warszawa (WAW)" value="Warszawa (WAW)">
                     </div>
                     <div class="form-group">
                         <label>🛬 Dokąd</label>
-                        <input type="text" placeholder="Barcelona (BCN)" value="Barcelona (BCN)">
+                        <input type="text" id="destination" placeholder="Barcelona (BCN)" value="Barcelona (BCN)">
                     </div>
                     <div class="form-group">
                         <label>📅 Data wylotu</label>
-                        <input type="date" value="2025-12-15">
+                        <input type="date" id="departure" value="2025-12-15">
                     </div>
                     <div class="form-group">
                         <label>📅 Data powrotu</label>
-                        <input type="date" value="2025-12-22">
+                        <input type="date" id="return" value="2025-12-22">
                     </div>
                 </div>
                 <div class="form-row">
@@ -3426,7 +3429,7 @@
                             <div class="route-segment">
                                 <div class="flight-time">
                                     <strong>${flight.departure}</strong>
-                                    <div class="flight-arrow">✈️</div>
+                                    <div class="flight-arrow">���️</div>
                                     <strong>${flight.arrival}</strong>
                                 </div>
                                 <div class="flight-details">
@@ -4639,38 +4642,156 @@
             console.log('✅ Initialization complete. Use testNavigation() or debugButtons() to test.');
         });
 
-        // Travel APIs integration (you'll need to get real API keys)
-        const TRAVELPAYOUTS_TOKEN = 'YOUR_TRAVELPAYOUTS_TOKEN'; // Get from travelpayouts.com
-        const HOTELLOOK_TOKEN = 'YOUR_HOTELLOOK_TOKEN'; // Get from hotellook.com
+        // Travel APIs integration using travel-api.js
+        async function searchFlights() {
+            const origin = document.getElementById('origin').value.split('(')[1]?.replace(')', '').trim() || 'WAW';
+            const destination = document.getElementById('destination').value.split('(')[1]?.replace(')', '').trim() || 'BCN';
+            const departure = document.getElementById('departure').value;
+            const returnDate = document.getElementById('return').value;
 
-        // Real API integration examples (uncomment when you have API keys)
-        /*
-        async function searchFlights(origin, destination, departDate) {
-            const url = `https://api.travelpayouts.com/v1/prices/cheap?origin=${origin}&destination=${destination}&depart_date=${departDate}&token=${TRAVELPAYOUTS_TOKEN}`;
-            
+            if (!departure) {
+                alert('Proszę wybrać datę wylotu');
+                return;
+            }
+
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('results').innerHTML = '';
+
             try {
-                const response = await fetch(url);
-                const data = await response.json();
-                return data;
+                const results = await travelAPI.searchFlights(origin, destination, departure, returnDate);
+                displayResults(results, 'flights');
             } catch (error) {
-                console.error('Error fetching flights:', error);
-                return null;
+                console.error('Error searching flights:', error);
+                alert('Błąd podczas wyszukiwania lotów');
+            } finally {
+                document.getElementById('loading').classList.remove('active');
             }
         }
 
-        async function searchHotels(origin, destination, departure) {
-            const url = `https://engine.hotellook.com/api/v2/search/start.json?origin=${origin}&destination=${destination}&departure=${departure}&token=${HOTELLOOK_TOKEN}`;
-            
+        async function searchHotels() {
+            const destination = document.getElementById('destination').value.split('(')[1]?.replace(')', '').trim() || 'BCN';
+            const checkIn = document.getElementById('departure').value;
+            const checkOut = document.getElementById('return').value;
+
+            if (!checkIn) {
+                alert('Proszę wybrać datę zameldowania');
+                return;
+            }
+
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('results').innerHTML = '';
+
             try {
-                const response = await fetch(url);
-                const data = await response.json();
-                return data;
+                const results = await travelAPI.searchHotels(destination, checkIn, checkOut);
+                displayResults(results, 'hotels');
             } catch (error) {
-                console.error('Error fetching hotels:', error);
-                return null;
+                console.error('Error searching hotels:', error);
+                alert('Błąd podczas wyszukiwania hoteli');
+            } finally {
+                document.getElementById('loading').classList.remove('active');
             }
         }
-        */
+
+        async function searchPackages() {
+            const origin = document.getElementById('origin').value.split('(')[1]?.replace(')', '').trim() || 'WAW';
+            const destination = document.getElementById('destination').value.split('(')[1]?.replace(')', '').trim() || 'BCN';
+            const departure = document.getElementById('departure').value;
+            const returnDate = document.getElementById('return').value;
+
+            if (!departure) {
+                alert('Proszę wybrać datę wylotu');
+                return;
+            }
+
+            document.getElementById('loading').classList.add('active');
+            document.getElementById('results').innerHTML = '';
+
+            try {
+                const results = await travelAPI.searchPackages(origin, destination, departure, returnDate);
+                displayResults(results, 'packages');
+            } catch (error) {
+                console.error('Error searching packages:', error);
+                alert('Błąd podczas wyszukiwania pakietów');
+            } finally {
+                document.getElementById('loading').classList.remove('active');
+            }
+        }
+
+        function searchCars() {
+            alert('Wyszukiwanie samochodów wkrótce będzie dostępne! 🚗');
+        }
+
+        function displayResults(results, type) {
+            const resultsSection = document.getElementById('results');
+            
+            if (!results || results.length === 0) {
+                resultsSection.innerHTML = '<p style="text-align: center; color: #ccc; padding: 2rem;">Nie znaleziono ofert. Spróbuj zmienić parametry wyszukiwania.</p>';
+                return;
+            }
+
+            let html = `<h2>Wyniki wyszukiwania (${results.length} ofert)</h2><div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">`;
+            
+            results.forEach(item => {
+                if (type === 'flights') {
+                    html += `
+                        <div style="background: #1a1a2e; border-radius: 12px; padding: 1.5rem; border: 1px solid #00d4ff; transition: all 0.3s;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <div>
+                                    <h3 style="margin: 0; color: #00d4ff;">✈️ ${item.airline || 'Airlines'}</h3>
+                                    <p style="margin: 0.5rem 0 0 0; color: #aaa; font-size: 0.9rem;">${item.origin} → ${item.destination}</p>
+                                </div>
+                                <span style="background: #00d4ff; color: #000; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold;">${item.badge}</span>
+                            </div>
+                            <p style="margin: 1rem 0; color: #ccc;"><strong>Data:</strong> ${item.departDate}</p>
+                            <p style="margin: 0.5rem 0; color: #ccc;"><strong>Czas lotu:</strong> ${item.duration}</p>
+                            <p style="margin: 0.5rem 0; color: #ccc;"><strong>Typ:</strong> ${item.direct ? 'Bezpośredni ✓' : 'Z przesiadką'}</p>
+                            <div style="margin-top: 1.5rem; text-align: center;">
+                                <div style="font-size: 2rem; color: #00d4ff; font-weight: bold; margin-bottom: 1rem;">${item.price} ${item.currency}</div>
+                                <button style="width: 100%; padding: 0.75rem; background: #00d4ff; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#00b0d4'" onmouseout="this.style.background='#00d4ff'" onclick="alert('Rezerwacja: ${item.bookingUrl}')">Rezerwuj teraz</button>
+                            </div>
+                        </div>
+                    `;
+                } else if (type === 'hotels') {
+                    html += `
+                        <div style="background: #1a1a2e; border-radius: 12px; padding: 1.5rem; border: 1px solid #ffa500; transition: all 0.3s;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <div>
+                                    <h3 style="margin: 0; color: #ffa500;">🏨 ${item.name}</h3>
+                                    <p style="margin: 0.5rem 0 0 0; color: #aaa; font-size: 0.9rem;">📍 ${item.location}</p>
+                                </div>
+                                <span style="background: #ffa500; color: #000; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold;">⭐ ${item.rating}</span>
+                            </div>
+                            <p style="margin: 1rem 0; color: #ccc;"><strong>Udogodnienia:</strong> ${item.amenities?.join(', ') || 'Różne'}</p>
+                            <div style="margin-top: 1.5rem; text-align: center;">
+                                <div style="font-size: 2rem; color: #ffa500; font-weight: bold; margin-bottom: 1rem;">${item.price} ${item.currency}/noc</div>
+                                <button style="width: 100%; padding: 0.75rem; background: #ffa500; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#ff9500'" onmouseout="this.style.background='#ffa500'" onclick="alert('Rezerwacja hotelu')">Rezerwuj teraz</button>
+                            </div>
+                        </div>
+                    `;
+                } else if (type === 'packages') {
+                    html += `
+                        <div style="background: #1a1a2e; border-radius: 12px; padding: 1.5rem; border: 1px solid #39ff14; transition: all 0.3s;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
+                                <div>
+                                    <h3 style="margin: 0; color: #39ff14;">📦 Pakiet Wakacyjny</h3>
+                                    <p style="margin: 0.5rem 0 0 0; color: #aaa; font-size: 0.9rem;">${item.duration}</p>
+                                </div>
+                                <span style="background: #39ff14; color: #000; padding: 0.5rem 1rem; border-radius: 6px; font-weight: bold;">-${item.savings} ${item.currency}</span>
+                            </div>
+                            <p style="margin: 1rem 0; color: #ccc;"><strong>Zawiera:</strong> ${item.includes?.join(', ') || 'Lot + Hotel'}</p>
+                            <div style="margin-top: 1.5rem; text-align: center;">
+                                <div style="font-size: 2rem; color: #39ff14; font-weight: bold; margin-bottom: 1rem;">${item.price} ${item.currency}</div>
+                                <button style="width: 100%; padding: 0.75rem; background: #39ff14; color: #000; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#2dd60f'" onmouseout="this.style.background='#39ff14'" onclick="alert('Rezerwacja pakietu')">Rezerwuj teraz</button>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
+            
+            html += '</div>';
+            resultsSection.innerHTML = html;
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
 
         // Initialize everything when page loads
         window.addEventListener('DOMContentLoaded', function() {

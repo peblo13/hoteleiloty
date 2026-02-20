@@ -206,6 +206,13 @@
             margin-bottom: 1rem;
             line-height: 1.6;
             font-size: 0.95rem;
+            max-height: 5.4em; /* ~3 linii */
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .blog-card p.expanded {
+            max-height: none;
         }
 
         .read-more {
@@ -216,6 +223,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            cursor: pointer;
         }
 
         .read-more:hover {
@@ -512,6 +520,40 @@
             <p>&copy; 2025 HoteleILoty.pl - Wszystkie prawa zastrzeżone | Szukaj tanich lotów i hoteli z nami!</p>
         </div>
     </footer>
+
+    <script>
+        // Blog card expansion functionality
+        document.querySelectorAll('.blog-card').forEach(card => {
+            const paragraph = card.querySelector('p');
+            const readMoreLink = card.querySelector('.read-more');
+            
+            if (readMoreLink) {
+                readMoreLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (paragraph.classList.contains('expanded')) {
+                        paragraph.classList.remove('expanded');
+                        readMoreLink.textContent = 'Przeczytaj artykuł →';
+                    } else {
+                        paragraph.classList.add('expanded');
+                        readMoreLink.textContent = 'Zwiń ↑';
+                    }
+                });
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
