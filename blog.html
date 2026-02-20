@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Blog - HoteleILoty.pl - Porady Podróżnika i Artykuły</title>
+    <meta name="title" content="Blog - HoteleILoty.pl - Porady Podróżnika i Artykuły">
+    <meta name="description" content="Blog HoteleILoty.pl z poradami, artykułami i wskazówkami od doświadczonych podróżników. Jak zaoszczędzić na lotach, wybrać hotel i zaplanować idealny urlop.">
+    <meta name="keywords" content="blog podróży, porady turystyczne, taniche loty, wybór hotelu, wakacje, artykuły">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hoteleiloty.pl/blog.html">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0070f3;
+            --secondary: #00d4ff;
+            --accent: #ffa500;
+            --dark-bg: #0a0e27;
+            --card-bg: rgba(255, 255, 255, 0.12);
+            --text: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at center, #0a0e27 0%, #050815 100%);
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(0, 112, 243, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(0, 212, 255, 0.12) 0%, transparent 60%);
+            animation: aurora 25s ease-in-out infinite;
+        }
+
+        @keyframes aurora {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.8; }
+            50% { transform: translate(-60%, -40%) rotate(180deg) scale(0.9); opacity: 0.9; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(0, 112, 243, 0.3);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .blog-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+            border: 2px solid rgba(0, 112, 243, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 40px rgba(0, 112, 243, 0.2);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, rgba(0, 112, 243, 0.3), rgba(0, 212, 255, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            color: var(--secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .read-more:hover {
+            gap: 1rem;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 2px solid rgba(0, 112, 243, 0.3);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        ::selection {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+    </style>
+
+    <!-- SEO Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hoteleiloty.pl/blog.html">
+    <meta property="og:title" content="Blog - HoteleILoty.pl">
+    <meta property="og:description" content="Porady od doświadczonych podróżników. Artykuły o tym jak zaoszczędzić na lotach i wybrać idealny hotel.">
+    <meta property="og:locale" content="pl_PL">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://hoteleiloty.pl/blog.html">
+    <meta name="twitter:title" content="Blog - HoteleILoty.pl">
+    <meta name="twitter:description" content="Porady od doświadczonych podróżników">
+
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">✈️ HoteleILoty</a>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="about.html">O nas</a>
+                <a href="blog.html">Blog</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="help.html">Pomoc</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero">
+            <h1>Blog - Porady Podróżnika</h1>
+            <p>Dowiedz się jak zaoszczędzić na lotach, wybrać idealny hotel i zaplanować wymarzony urlop. Artykuły od doświadczonych podróżników i ekspertów turystyki.</p>
+        </div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid">
+            <!-- Artykuł 1 -->
+            <div class="blog-card">
+                <div class="blog-image">✈️</div>
+                <div class="blog-content">
+                    <div class="blog-meta">💰 Porady Finansowe</div>
+                    <h3>Jak Zaoszczędzić na Lotach do 70%?</h3>
+                    <p>Poznaj sprawdzone techniki i sztuczki, które pozwalają milionom podróżników zaoszczędzić tysiące złotych na rezerwacji lotów.</p>
+                    <a href="blog-oszczedzanie-na-lotach.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 2 -->
+            <div class="blog-card">
+                <div class="blog-image">🏨</div>
+                <div class="blog-content">
+                    <div class="blog-meta">🛏️ Noclegi</div>
+                    <h3>Przewodnik po Wyborze Hotelu na Wakacje</h3>
+                    <p>Jak wybrać idealny hotel? Co warto sprawdzić przed rezerwacją? Pełny przewodnik dla każdego podróżnika.</p>
+                    <a href="blog-wybor-hotelu.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 3 -->
+            <div class="blog-card">
+                <div class="blog-image">⏰</div>
+                <div class="blog-content">
+                    <div class="blog-meta">🌟 Last Minute</div>
+                    <h3>Wakacje Last-Minute - Jak Zaplanować Idealnie?</h3>
+                    <p>Rezerwujesz urlop na ostatnią chwilę? Dowiedz się jak to zrobić mądrze i bezpiecznie.</p>
+                    <a href="blog-last-minute.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 4 -->
+            <div class="blog-card">
+                <div class="blog-image">🌍</div>
+                <div class="blog-content">
+                    <div class="blog-meta">🗺️ Kierunki</div>
+                    <h3>Najpopularniejsze Kierunki Wakacyjne 2025</h3>
+                    <p>Gdzie pojechać w 2025 roku? Prezentujemy top kierunki, które powinny być na Twojej liście marzeń.</p>
+                    <a href="blog-kierunki-2025.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 5 -->
+            <div class="blog-card">
+                <div class="blog-image">💳</div>
+                <div class="blog-content">
+                    <div class="blog-meta">📊 Budżet</div>
+                    <h3>Budżet na Wakacje - Jak Zaplanować Finansowo?</h3>
+                    <p>Jak obliczyć koszt wyjazdu? Jakie wydatki przewidzieć? Praktyczne wskazówki do budżetowania.</p>
+                    <a href="blog-budzet.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 6 -->
+            <div class="blog-card">
+                <div class="blog-image">📋</div>
+                <div class="blog-content">
+                    <div class="blog-meta">📄 Dokumenty</div>
+                    <h3>Dokumenty, Wizy i Ubezpieczenia Podróżne</h3>
+                    <p>Pełny checklist dokumentów, którymi musisz dysponować przed podróżą za granicę.</p>
+                    <a href="blog-dokumenty.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 7 -->
+            <div class="blog-card">
+                <div class="blog-image">🔍</div>
+                <div class="blog-content">
+                    <div class="blog-meta">🛏️ Szukanie</div>
+                    <h3>Gdzie Znaleźć Najtańsze Noclegi?</h3>
+                    <p>Porównanie serwisów rezerwacyjnych i odkrycie najlepszych źródeł tanich noclegów.</p>
+                    <a href="blog-noclegi-tanie.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 8 -->
+            <div class="blog-card">
+                <div class="blog-image">📅</div>
+                <div class="blog-content">
+                    <div class="blog-meta">⏱️ Rezerwacja</div>
+                    <h3>Czy Warto Rezerwować Wcześnie?</h3>
+                    <p>Analiza optymalnego czasu rezerwacji. Kiedy ceny są najniższe? Ile dni przed wyjazdem rezerwować?</p>
+                    <a href="blog-rezerwacja-wczesna.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 9 -->
+            <div class="blog-card">
+                <div class="blog-image">🛡️</div>
+                <div class="blog-content">
+                    <div class="blog-meta">🏥 Ubezpieczenie</div>
+                    <h3>Ubezpieczenie Turystyczne - Co Warto Wiedzieć?</h3>
+                    <p>Jakie ubezpieczenie wybrać? Co pokrywa ubezpieczenie turystyczne? Praktyczne odpowiedzi.</p>
+                    <a href="blog-ubezpieczenie.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 10 -->
+            <div class="blog-card">
+                <div class="blog-image">🎒</div>
+                <div class="blog-content">
+                    <div class="blog-meta">🧳 Bagaż</div>
+                    <h3>Praktyczne Porady Dotyczące Bagażu</h3>
+                    <p>Jak spakować się sprytnie? Jakie bagażu wybrać? Co możesz zabrać w samolocie?</p>
+                    <a href="blog-bagaz.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 11 -->
+            <div class="blog-card">
+                <div class="blog-image">👨‍👩‍👧‍👦</div>
+                <div class="blog-content">
+                    <div class="blog-meta">👶 Rodzina</div>
+                    <h3>Wakacje z Dziećmi - Praktyczne Porady</h3>
+                    <p>Jak zaplanować udany urlop z dziećmi? Jakie kierunki wybrać? Porady dla młodych rodziców.</p>
+                    <a href="blog-wakacje-z-dziecmi.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+
+            <!-- Artykuł 12 -->
+            <div class="blog-card">
+                <div class="blog-image">🌏</div>
+                <div class="blog-content">
+                    <div class="blog-meta">🗺️ Wizy</div>
+                    <h3>Kierunki Bez Wiz dla Polaków</h3>
+                    <p>Gdzie mogą podróżować Polacy bez wiz? Pełna lista krajów i najnowsze informacje o wymogach wjazdowych.</p>
+                    <a href="blog-miasta-bez-wiz.html" class="read-more">Przeczytaj artykuł →</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>O nas</h3>
+                <ul>
+                    <li><a href="about.html">Nasza Historia</a></li>
+                    <li><a href="team.html">Zespół</a></li>
+                    <li><a href="press.html">Dla Mediów</a></li>
+                    <li><a href="partners.html">Partnerzy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Usługi</h3>
+                <ul>
+                    <li><a href="index.html">Wyszukiwanie Lotów</a></li>
+                    <li><a href="last-minute.html">Last Minute</a></li>
+                    <li><a href="affiliate.html">Program Affiliate</a></li>
+                    <li><a href="business.html">Dla Biznesu</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Wsparcie</h3>
+                <ul>
+                    <li><a href="help.html">Centrum Pomocy</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="feedback.html">Opinia</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Prawne</h3>
+                <ul>
+                    <li><a href="polityka-prywatnosci.html">Polityka Prywatności</a></li>
+                    <li><a href="regulamin.html">Regulamin</a></li>
+                    <li><a href="sitemap.html">Mapa Strony</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 HoteleILoty.pl - Wszystkie prawa zastrzeżone | Szukaj tanich lotów i hoteli z nami!</p>
+        </div>
+    </footer>
+
+</body>
+</html>

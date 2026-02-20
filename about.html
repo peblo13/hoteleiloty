@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>O Nas - HoteleILoty.pl - Nasza Historia i Misja</title>
+    <meta name="title" content="O Nas - HoteleILoty.pl - Nasza Historia i Misja">
+    <meta name="description" content="Dowiedz się o historii, misji i zespole HoteleILoty.pl. Jesteśmy liderem w wyszukiwaniu tanich lotów, hoteli i pakietów wakacyjnych od 2020 roku.">
+    <meta name="keywords" content="o nas, historia, misja, zespół, HoteleILoty, porównywarka lotów">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hoteleiloty.pl/about.html">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0070f3;
+            --secondary: #00d4ff;
+            --accent: #ffa500;
+            --dark-bg: #0a0e27;
+            --card-bg: rgba(255, 255, 255, 0.12);
+            --text: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: radial-gradient(ellipse at center, #0a0e27 0%, #050815 100%);
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            top: -100%;
+            left: -100%;
+            background: 
+                radial-gradient(circle at 15% 25%, rgba(0, 112, 243, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(0, 212, 255, 0.12) 0%, transparent 60%);
+            animation: aurora 25s ease-in-out infinite;
+        }
+
+        @keyframes aurora {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); opacity: 0.8; }
+            50% { transform: translate(-60%, -40%) rotate(180deg) scale(0.9); opacity: 0.9; }
+        }
+
+        /* Header */
+        header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 2px solid rgba(0, 112, 243, 0.3);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Content Section */
+        .content-section {
+            background: linear-gradient(135deg, rgba(0, 112, 243, 0.1), rgba(0, 212, 255, 0.05));
+            border: 2px solid rgba(0, 112, 243, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .content-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+            border: 2px solid rgba(0, 112, 243, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 40px rgba(0, 112, 243, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .team-member {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+            border: 2px solid rgba(0, 112, 243, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 40px rgba(0, 112, 243, 0.2);
+        }
+
+        .member-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-member h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 2px solid rgba(0, 112, 243, 0.3);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+
+        ::selection {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        ::-moz-selection {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+    </style>
+
+    <!-- SEO Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hoteleiloty.pl/about.html">
+    <meta property="og:title" content="O Nas - HoteleILoty.pl">
+    <meta property="og:description" content="Nasza historia, misja i zespół. Lider w wyszukiwaniu tanich lotów i hoteli.">
+    <meta property="og:locale" content="pl_PL">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://hoteleiloty.pl/about.html">
+    <meta name="twitter:title" content="O Nas - HoteleILoty.pl">
+    <meta name="twitter:description" content="Nasza historia, misja i zespół. Lider w wyszukiwaniu tanich lotów i hoteli.">
+
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">✈️ HoteleILoty</a>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="about.html">O nas</a>
+                <a href="blog.html">Blog</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="help.html">Pomoc</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero">
+            <h1>Nasza Historia i Misja</h1>
+            <p>HoteleILoty.pl to wiodąca platforma do wyszukiwania tanich lotów, hoteli i pakietów wakacyjnych. Naszą misją jest sprawić, aby każdy mógł pozwolić sobie na wymarzony urlop.</p>
+        </div>
+
+        <!-- Historia -->
+        <div class="content-section">
+            <h2>🏢 Nasza Historia</h2>
+            <p>Założona w 2020 roku, HoteleILoty.pl zrodziła się z prostej idei: wiele osób chciałoby podróżować, ale wysokie ceny często powstrzymują je przed rezerwacją wymarzonego urlopu. Nasz zespół postanowił to zmienić.</p>
+            <p>Dzisiaj obsługujemy miliony wyszukiwań rocznie, pomagając podróżnikom znaleźć najlepsze oferty na loty, hotele i pakiety wakacyjne. Nasze algorytmy analizują setki tysięcy ofert, aby zapewnić Ci najniższą cenę.</p>
+        </div>
+
+        <!-- Statystyki -->
+        <h2 style="font-size: 2rem; margin: 3rem 0 2rem; text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Liczby Mówią Samy Za Siebie</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">5M+</div>
+                <div class="stat-label">Wyszukiwań rocznie</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Partnerów wyszukiwania</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">180+</div>
+                <div class="stat-label">Krajów obsługiwanych</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Wsparcie dla klientów</div>
+            </div>
+        </div>
+
+        <!-- Misja -->
+        <div class="content-section">
+            <h2>🎯 Nasza Misja</h2>
+            <p>Naszą misją jest demokratyzacja podróży. Wierzymy, że każdy powinien móc zaplanować i zarezerwować idealny urlop bez stresu i niepotrzebnych komplikacji.</p>
+            <p>Pracujemy na tym, aby:</p>
+            <p>✓ Zapewniać najniższe ceny na rynku<br>
+            ✓ Oferować intuicyjny interfejs wyszukiwania<br>
+            ✓ Dostarczać porady i wskazówki od doświadczonych podróżników<br>
+            ✓ Wspierać nasze użytkowników 24/7<br>
+            ✓ Być transparentni i uczciwi w swoich praktykach</p>
+        </div>
+
+        <!-- Zespół -->
+        <h2 style="font-size: 2rem; margin: 3rem 0 2rem; text-align: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Nasz Zespół</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-icon">👨‍💼</div>
+                <h3>Marcin Szydłowski</h3>
+                <p>CEO i Współzałożyciel - Ekspert w turystyce i technologii</p>
+            </div>
+            <div class="team-member">
+                <div class="member-icon">👩‍💻</div>
+                <h3>Anna Kowalska</h3>
+                <p>CTO i Współzałożycielka - Lidera technicznych i innowacji</p>
+            </div>
+            <div class="team-member">
+                <div class="member-icon">👨‍🔧</div>
+                <h3>Piotr Lewandowski</h3>
+                <p>Head of Product - Odpowiedzialny za doświadczenie użytkownika</p>
+            </div>
+            <div class="team-member">
+                <div class="member-icon">👩‍💼</div>
+                <h3>Katarzyna Nowakowska</h3>
+                <p>Head of Partnerships - Zarządzanie relacjami biznesowymi</p>
+            </div>
+        </div>
+
+        <!-- Wartości -->
+        <div class="content-section">
+            <h2>💡 Nasze Wartości</h2>
+            <p><strong>Uczciwość:</strong> Zawsze podajemy rzeczywiste ceny bez ukrytych opłat.</p>
+            <p><strong>Innowacja:</strong> Ciągle ulepszamy naszą platformę na podstawie feedback od użytkowników.</p>
+            <p><strong>Zaufanie:</strong> Twoja prywatność i bezpieczeństwo są dla nas najważniejsze.</p>
+            <p><strong>Zaangażowanie:</strong> Jesteśmy tu, aby pomóc Ci znaleźć idealne wakacje.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>O nas</h3>
+                <ul>
+                    <li><a href="about.html">Nasza Historia</a></li>
+                    <li><a href="team.html">Zespół</a></li>
+                    <li><a href="press.html">Dla Mediów</a></li>
+                    <li><a href="partners.html">Partnerzy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Usługi</h3>
+                <ul>
+                    <li><a href="index.html">Wyszukiwanie Lotów</a></li>
+                    <li><a href="last-minute.html">Last Minute</a></li>
+                    <li><a href="affiliate.html">Program Affiliate</a></li>
+                    <li><a href="business.html">Dla Biznesu</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Wsparcie</h3>
+                <ul>
+                    <li><a href="help.html">Centrum Pomocy</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="feedback.html">Opinia</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Prawne</h3>
+                <ul>
+                    <li><a href="polityka-prywatnosci.html">Polityka Prywatności</a></li>
+                    <li><a href="regulamin.html">Regulamin</a></li>
+                    <li><a href="sitemap.html">Mapa Strony</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 HoteleILoty.pl - Wszystkie prawa zastrzeżone | Szukaj tanich lotów i hoteli z nami!</p>
+        </div>
+    </footer>
+
+</body>
+</html>
