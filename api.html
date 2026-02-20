@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API - HoteleILoty.pl - Dokumentacja API</title>
+    <meta name="description" content="Dokumentacja API HoteleILoty.pl. Integruj wyszukiwanie lotów i hoteli z twoją aplikacją.">
+    <link rel="canonical" href="https://hoteleiloty.pl/api.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #0070f3; --secondary: #00d4ff; --accent: #ffa500; --dark-bg: #0a0e27; --text: #ffffff; --text-secondary: rgba(255, 255, 255, 0.7); }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%); color: var(--text); line-height: 1.6; overflow-x: hidden; }
+        .animated-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(ellipse at center, #0a0e27 0%, #050815 100%); }
+        .animated-bg::before { content: ''; position: absolute; width: 300%; height: 300%; top: -100%; left: -100%; background: radial-gradient(circle at 15% 25%, rgba(0, 112, 243, 0.15) 0%, transparent 60%), radial-gradient(circle at 85% 75%, rgba(0, 212, 255, 0.12) 0%, transparent 60%); animation: aurora 25s ease-in-out infinite; }
+        @keyframes aurora { 0%, 100% { transform: translate(-50%, -50%) rotate(0deg) scale(1); } 50% { transform: translate(-60%, -40%) rotate(180deg) scale(0.9); } }
+        header { background: rgba(10, 14, 39, 0.95); backdrop-filter: blur(20px); border-bottom: 2px solid rgba(0, 112, 243, 0.3); padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; }
+        .header-container { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; }
+        nav { display: flex; gap: 2rem; }
+        nav a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: all 0.3s; }
+        nav a:hover { color: var(--secondary); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 2rem; margin-bottom: 4rem; }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 900; }
+        .content-section { background: linear-gradient(135deg, rgba(0, 112, 243, 0.1), rgba(0, 212, 255, 0.05)); border: 2px solid rgba(0, 112, 243, 0.2); border-radius: 20px; padding: 3rem; margin-bottom: 3rem; }
+        .content-section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--secondary); }
+        .content-section p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.8; }
+        .code-block { background: rgba(0,0,0,0.5); padding: 1rem; border-radius: 8px; margin: 1rem 0; overflow-x: auto; }
+        footer { background: rgba(10, 14, 39, 0.95); border-top: 2px solid rgba(0, 112, 243, 0.3); padding: 3rem 2rem; color: var(--text-secondary); }
+        .footer-content { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; text-align: left; }
+        .footer-section h3 { color: var(--text); margin-bottom: 1rem; }
+        .footer-section ul { list-style: none; }
+        .footer-section a { color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: block; margin-bottom: 0.5rem; }
+        .footer-section a:hover { color: var(--secondary); }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">✈️ HoteleILoty</a>
+            <nav>
+                <a href="index.html">Strona główna</a>
+                <a href="about.html">O nas</a>
+                <a href="blog.html">Blog</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="help.html">Pomoc</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h1>API Dokumentacja</h1>
+            <p>Integruj wyszukiwanie lotów i hoteli z twoją aplikacją. RESTful API z pełną dokumentacją.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>🔌 Wstęp</h2>
+            <p>API HoteleILoty.pl pozwala deweloperom zintegrować wyszukiwanie lotów, hoteli i rezerwacje w swoich aplikacjach.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>🔑 Autentykacja</h2>
+            <p>Dla dostępu do API potrzebujesz API key. Skontaktuj się z nami aby go otrzymać.</p>
+            <div class="code-block">
+                curl -H "Authorization: Bearer YOUR_API_KEY" https://api.hoteleiloty.pl/v1/flights
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>📚 Endpointy</h2>
+            <p><strong>Loty:</strong> GET /v1/flights - wyszukiwanie lotów</p>
+            <p><strong>Hotele:</strong> GET /v1/hotels - wyszukiwanie hoteli</p>
+            <p><strong>Rezerwacje:</strong> POST /v1/bookings - twotz rezerwacji</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📞 Wsparcie</h2>
+            <p>Email: api@hoteleiloty.pl</p>
+            <p>Pełna dokumentacja: docs.hoteleiloty.pl</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section"><h3>Developerzy</h3><ul><li><a href="api.html">API</a></li></ul></div>
+        </div>
+        <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; text-align: center;">
+            <p>&copy; 2025 HoteleILoty.pl</p>
+        </div>
+    </footer>
+</body>
+</html>
